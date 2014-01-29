@@ -1,0 +1,35 @@
+menu:
+  Home: /
+  Archives: archivos
+  page:
+    Blog: ""
+    Archivos: archivos
+    Conferencias: conferencias
+    Acerca: acerca-de-sergio
+
+excerpt_link: Seguir leyendo
+
+mathjax: false
+fancybox: true
+
+social:
+  googleplus: true
+  twitter: true
+  github: true
+  rss: true
+
+twitter:
+  username: sergiolepore
+
+github:
+  username: sergiolepore
+
+addit:
+  facebook: false
+  twitter: true
+  gplus: true
+  pinit: false
+  publid:
+
+googleplus:
+  userid: 110980664977106161747
