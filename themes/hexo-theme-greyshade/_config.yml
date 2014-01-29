@@ -25,7 +25,7 @@ github:
   username: sergiolepore
 
 addit:
-  facebook: false
+  facebook: true
   twitter: true
   gplus: true
   pinit: false
