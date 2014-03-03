@@ -7,12 +7,13 @@ categories:
 tags: [Cursos,Desarrollo,Python]
 ---
 
-{% img center http://i2.minus.com/jCOJGGBzD5RzC.png %}
+{% img center /images/courses/python-coursera.png %}
 
 ¡Buenos días! Hoy les traigo un curso muy interesante para todos aquellos que quieran probar nuevos lenguajes de programación o, por qué no, probar nuevas cosas con uno de los lenguajes más fantásticos del mundo, __Python__.
 
 _“An Introduction to Interactive Programming in Python”_ es un curso online de [Coursera](https://www.coursera.org/) y enfocado en la construcción de juegos simples como Pong, Blackjack y Asteroids.
 
+<!-- more -->
 
 ### ¿Coursera?
 

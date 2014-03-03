@@ -4,7 +4,8 @@ menu:
   page:
     Blog: ""
     Archivos: archivos
-    Conferencias: conferencias
+    Proyectos: "#"
+    Speaking: conferencias
     Acerca: acerca-de-sergio
 
 excerpt_link: Seguir leyendo
@@ -16,12 +17,16 @@ social:
   googleplus: true
   twitter: true
   github: true
+  slides: true
   rss: true
 
 twitter:
   username: sergiolepore
 
 github:
+  username: sergiolepore
+
+slides:
   username: sergiolepore
 
 addit:

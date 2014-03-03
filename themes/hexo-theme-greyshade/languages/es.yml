@@ -3,8 +3,8 @@ search: Buscar
 tags: Tags
 tagcloud: Nube de tags
 tweets: Tweets
-prev: Siguiente
-next: Anterior
+prev: Anterior
+next: Siguiente
 comment: Comentarios
 archive_a: Archivos
 archive_b: Archivos: %s

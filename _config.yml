@@ -83,9 +83,10 @@ disqus_shortname: sergiolepore
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
 theme: hexo-theme-greyshade
 plugins:
-  - hexo-tag-gdriveimage
+  # - hexo-tag-gdriveimage
   - hexo-tag-emojis
   - hexo-broken-link-checker
+  - hexo-generator-feed
 exclude_generator:
 
 # Deployment
@@ -99,6 +100,13 @@ emojis:
   # image_dir: images/emojis
   cdn: http://cdn.staticfile.org/emojify.js/0.9.0/emojis
 
+# hexo-broken-link-checker
 link_checker:
   enabled: true
   storage_dir: temp/link_checker
+
+# hexo-generator-feed
+feed:
+  type: rss2
+  path: rss.xml
+  limit: 50

@@ -5,3 +5,4 @@ unversioned_resources
 temp
 .deploy
 public
+debug.log
