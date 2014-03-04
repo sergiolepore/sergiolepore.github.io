@@ -7,11 +7,9 @@
 <% if(page.sharing) { %>
   <%- partial('_partial/post/sharing') %>
 <% } %>
-<% if(site.disqus_short_name && page.comments) { %>
+<% if(config.disqus_shortname && page.comments) { %>
 <section id="comment">
-    <h1 class="title">Comments</h1>
-    <div id="disqus_thread" aria-live="polite">
-      <%- partial('_partial/post/disqus_thread.html')%>
-    </div>
+    <h1 class="title"><%= __('comment') %></h1>
+    <div id="disqus_thread" aria-live="polite"><%- partial('post/disqus_thread')%></div>
 </section>
 <% } %>

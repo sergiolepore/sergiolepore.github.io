@@ -1,6 +1,7 @@
 title: "Acerca de Sergio"
 date: 2014-03-02 19:07:06
 comments: true
+sharing: true
 ---
 
 {% blockquote Sergio Lepore %}
