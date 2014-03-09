@@ -7,6 +7,8 @@ categories:
 tags: [Noticias, Empresas, Internet]
 ---
 
+{% img center /images/misc/new_mega_megaupload_kimdotcom_twitter.png %}
+
 Soy seguidor de KimDotCom en [Twitter](http://twitter.com/KimDotCom). Casi siempre está hablando acerca de la situación de __Megaupload__ y demás proyectos, pero aquí algo curioso: hace tiempo que se refiere a su nuevo producto simplemente como _Mega_. Echémosle un vistazo.
 
 <!-- more -->

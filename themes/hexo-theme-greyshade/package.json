@@ -2,7 +2,9 @@
   "name": "hexo-theme-greyshade",
   "version": "0.0.2",
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "cheerio": "~0.13.1"
+  },
   "description": "Ported from Octopress Theme Greyshade to Hexo.",
   "main": "index.js",
   "scripts": {

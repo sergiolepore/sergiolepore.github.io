@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "hexo-tag-emojis": ">=1.0.1",
-    "hexo-generator-feed": "~0.1.0"
+    "hexo-generator-feed": "~0.1.0",
+    "cheerio": "^0.13.1"
   }
 }
