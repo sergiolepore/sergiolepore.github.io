@@ -44,7 +44,7 @@ En mis tiempos libres escribo una novela, leo novelas, colaboro con la comunidad
 
 - [Mi Facebook](https://www.facebook.com/sergio.d.lepore)
 - [Mi Twitter](https://twitter.com/sergiolepore)
-- [Mi Google Plus](https://plus.google.com/+SergioDanielLepore)
+- [Mi Google Plus](https://plus.google.com/+SergioDanielLepore?rel=author)
 
 <br>
 
