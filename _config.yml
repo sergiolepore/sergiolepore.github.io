@@ -5,14 +5,7 @@
 # Site
 title: "Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan"
 subtitle:
-description: >
-    Changing the world, one line of code at a time.
-    <br>
-    Geek. Open Source enthusiast.
-    <br>
-    I'm an Ubuntu user and I'm damn proud of it.
-    <br>
-    Cats and JavaScript are my weakness.
+description: "Basically, I write code the same way a writer writes a novel. Open Source evangelist. Proud Ubuntu user. Trying to make a dent in the Universe."
 author: Sergio Lepore
 email: sergio.d.lepore@gmail.com
 language: es
@@ -27,6 +20,10 @@ archive_dir: archivos
 category_dir: categorias
 code_dir: downloads/code
 
+# Directory
+source_dir: source
+public_dir: public
+
 # Writing
 new_post_name: :year-:month-:day-:title.md
 default_layout: post
@@ -36,6 +33,8 @@ external_link: true # Open external links in new tab
 max_open_file: 100
 multi_thread: true
 filename_case: 0
+render_drafts: false
+post_asset_folder: false
 highlight:
   enable: true
   line_number: true
@@ -59,9 +58,9 @@ tag: 2
 ## You can customize the logger format as defined in
 ## http://www.senchalabs.org/connect/logger.html
 port: 4000
+server_ip: 0.0.0.0
 logger: false
 logger_format:
-# render_drafts: true
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -82,12 +81,22 @@ disqus_shortname: sergiolepore
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
 theme: hexo-theme-greyshade
-plugins:
-  # - hexo-tag-gdriveimage
-  - hexo-tag-emojis
-  - hexo-broken-link-checker
-  - hexo-generator-feed
 exclude_generator:
+
+# Markdown
+## https://github.com/chjj/marked
+markdown:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
+
+# Stylus
+stylus:
+  compress: false
 
 # Deployment
 ## Docs: http://zespia.tw/hexo/docs/deploy.html
@@ -97,12 +106,11 @@ deploy:
 
 # hexo-tag-emojis plugin
 emojis:
-  # image_dir: images/emojis
   cdn: http://cdn.staticfile.org/emojify.js/0.9.0/emojis
 
 # hexo-broken-link-checker
 link_checker:
-  enabled: true
+  enabled: false
   storage_dir: temp/link_checker
 
 # hexo-generator-feed

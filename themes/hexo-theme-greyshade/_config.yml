@@ -12,6 +12,7 @@ excerpt_link: Seguir leyendo
 
 mathjax: false
 fancybox: true
+gist_embed: true
 
 social:
   googleplus: true

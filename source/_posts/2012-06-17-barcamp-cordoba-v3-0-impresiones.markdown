@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Barcamp C&oacute;rdoba V3.0 - Impresiones"
+title: "Barcamp Córdoba V3.0 - Impresiones"
 date: 2012-06-17 18:27
 comments: true
 categories:

@@ -4,11 +4,11 @@ html
   height: 100%
 
 body
-  background #3D4349
-  font-family "Open Sans", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif
+  font-family font-default
   font-size 15px
   height 100%
   color #333
+  word-wrap break-word
 
 ::selection, ::-moz-selection, ::-webkit-selection
   background #b2cce6
@@ -66,7 +66,7 @@ body
     right 0
     min-height 100%
     width 77%
-    background whitesmoke
+    background color-midcol
     #banner
       width 100%
       small
@@ -141,7 +141,8 @@ body
   .left-col
     width 23%
     position fixed
-    left 0
+    // left 0
+    text-align right
     height 100%
     .intrude-less
       width 80%
@@ -166,6 +167,7 @@ body
           left 10px
         .social
           margin-bottom 10px
+          text-align center
 
 .archives
   .title

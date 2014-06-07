@@ -1,32 +1,13 @@
 ---
 layout: post
-title: "Node.js: C&oacute;mo construir un paquete para npm"
+title: "Node.js: Cómo construir un paquete para npm"
 date: 2012-10-18 16:13
 comments: true
 categories: 
 tags: [Desarrollo, Node.js, Tutoriales, npmjs]
 ---
 
-{% img center https://npmjs.org/static/npm.png %}
-
-{% rawblock %}
-<pre>
-  Oh hai! Im in ur package, inspectin ur code
-                               ,
-        ,-.       _,---._ __  / \
-       /  )    .-'       `./ /   \
-      (  (   ,'            `/    /|
-       \  `-'             \'\   / |
-        `.              ,  \ \ /  |
-         /`.          ,'-`----Y   |
-        (            ;        |   '
-        |  ,-.    ,-'         |  /
-        |  | (   |            | /
-        )  |  \  `.___________|/
-        `--'   `--'
-</pre>
-{% endrawblock %}
-
+{% img center https://www.npmjs.org/static/img/npm.png %}
 
 ¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de _Node.js_ acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma {% emoji blush %}
 

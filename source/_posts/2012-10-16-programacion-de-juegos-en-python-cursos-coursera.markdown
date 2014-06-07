@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Programaci&oacute;n de juegos en #Python - Cursos #Coursera"
+title: "Programación de juegos en #Python - Cursos #Coursera"
 date: 2012-10-16 11:44
 comments: true
 categories: 

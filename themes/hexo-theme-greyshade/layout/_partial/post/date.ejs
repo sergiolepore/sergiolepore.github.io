@@ -11,7 +11,7 @@
      attr = 'div';
      format = config.date_format;
    }%>
-<<%- attr %> class="date">
+<<%- attr %> class="fa fa-calendar">
 <% if(item.date) { %>
 <time datetime="<%= item.date.toDate().toISOString() %>"
       <% if(item.updated) { %>

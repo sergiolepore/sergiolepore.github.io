@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Frase motivadora del d&iacute;a - #1"
+title: "Frase motivadora del día - #1"
 date: 2012-09-12 17:38
 comments: true
 categories: 

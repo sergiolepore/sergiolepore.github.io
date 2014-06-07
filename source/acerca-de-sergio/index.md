@@ -21,12 +21,13 @@ En mis tiempos libres escribo una novela, leo novelas, colaboro con la comunidad
 (✓) No darme por vencido y encarar un 5to Startup. <br>
 (✓) Publicar software Open Source. <br>
 (✓) Colaborar en proyectos Open Source reconocidos. <br>
-(✓) Organizar un Meetup de desarrolladores (ver <a href="http://www.meetup.com/CordobaJS/">CórdobaJS</a>). <br>
+(✓) Organizar un Meetup de desarrolladores (ver <a href="http://www.meetup.com/CordobaJS/" target="_blank" title="CordobaJS Meetup">CórdobaJS</a>). <br>
 (✓) Enseñar desarrollo de software y/o bases de ingeniería de software. <br>
 (✓) Dar una conferencia a más de 10 personas (desconocidas). <br>
 (&nbsp;&nbsp;&nbsp;) Dar una conferencia a más de 100 personas. <br>
 (&nbsp;&nbsp;&nbsp;) Publicar un libro. <br>
 (&nbsp;&nbsp;&nbsp;) Hackear dispositivos de hardware / estudiar robótica. <br>
+(&nbsp;&nbsp;&nbsp;) Incursionarme más en la investigación de IA, procesamiento de lenguajes naturales y Deep Learning (<a href="http://www.youtube.com/watch?v=2ZAGJH2m0C8" target="_blank" title="Jarvis">expandir este proyecto</a>). <br>
 (&nbsp;&nbsp;&nbsp;) Publicar una novela y un juego basado en dicha novela. <br>
 (&nbsp;&nbsp;&nbsp;) Visitar Silicon Valley. <br>
 (&nbsp;&nbsp;&nbsp;) Participar en Hacker Beach (ver <a href="https://twitter.com/hackerbeach">@hackerbeach</a>). <br>

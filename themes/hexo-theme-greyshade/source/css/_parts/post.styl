@@ -1,8 +1,17 @@
 .post
+  h1, h2, h3, h4
+    text-align left
   h1.title, .entry-content
     margin-left 200px
     @media screen and (max-width: 800px)
       margin-left 0
+  h1.title
+    text-align center
+    color greyshade
+    @media screen and (min-width: 800px)
+      font-size 2.5em
+    @media scree and (max-width: 800px)
+      font-size 1.5em
   .meta
     position absolute
     top 85px
@@ -15,18 +24,12 @@
       position static
       width auto
     a
-      link-colors(color-gray02, color-gray01)
+      link-colors(color-gray02, greyshade)
       transition(0.3s)
 
     .date, .tags, .comments
       padding-left 30px
       position relative
-      &:before
-        color color-gray03
-        font 1.3em font-icon
-        line-height 1.6em
-        position absolute
-        left 0
       @media screen and (max-width: 800px)
         inline-block()
         margin-right 30px
@@ -51,17 +54,9 @@
     font-size 0.9em
     color color-gray02
     a
-      link-colors(color-gray02, color-gray01)
+      link-colors(color-gray02, greyshade)
       transition(0.3s)
 
     .tags
       padding-left 30px
       position relative
-      &:before
-        color color-gray03
-        font 1.3em font-icon
-        line-height 1.6em
-        position absolute
-        left 0
-    .tags:before
-      content "\f02c"
