@@ -7,7 +7,7 @@ categories:
 tags: [Desarrollo, Node.js, Tutoriales, npmjs]
 ---
 
-{% img center https://www.npmjs.org/static/img/npm.png %}
+{% img left https://www.npmjs.org/static/img/npm.png %}
 
 ¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de _Node.js_ acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma {% emoji blush %}
 
@@ -46,7 +46,7 @@ Bien, aclarados estos dos puntos, vamos a construir nuestro primer módulo.
 
 # Objetivo
 
-Vamos a crear una aplicación que reemplace parámetros del tipo __%clave%__ con una cadena que nosotros le vamos a proveer. Por ejemplo: <br><br>
+Vamos a crear una aplicación que reemplace parámetros del tipo __%clave%__ con una cadena que nosotros le vamos a proveer. Por ejemplo:
 
 <pre>
 -> Cadena de entrada: %home_dir%/Proyectos
@@ -58,11 +58,9 @@ Vamos a crear una aplicación que reemplace parámetros del tipo __%clave%__ con
 
 # Node.js: Estructura de directorios
 
-Esto no es precisamente un estándar sino más bien una convención entre desarrolladores acerca de cómo ordenar nuestro código fuente escrito para NodeJS. Para este proyecto vamos a ordenarlo de la siguiente manera: <br><br>
+Esto no es precisamente un estándar sino más bien una convención entre desarrolladores acerca de cómo ordenar nuestro código fuente escrito para NodeJS. Para este proyecto vamos a ordenarlo de la siguiente manera:
 
-{% rawblock %}
-<pre>
-param_replacer/
+<pre>param_replacer/
  ├── bin/
  |   └─ param_replacer
  ├── lib/
@@ -71,7 +69,7 @@ param_replacer/
  ├── README.md
  └── package.json
 </pre>
-{% endrawblock %}
+
 <br>
 
 __¿Qué hay en bin/ ?__
@@ -92,87 +90,15 @@ En breve veremos más acerca de _package.json_ y cómo configurar cada detalle d
 
 Comenzaremos a programar {% emoji smile %} Como les comenté, toda la lógica de la aplicación fue a parar a _lib/param\_replacer.js_. Editemos ese archivo y juguemos.
 
-{% codeblock param_replacer.js lang:javascript %}
-var reemplazo = "Hello",
-      entrada = "%param% World!";
-
-var salida = entrada.replace(/%(.*?)%/g, reemplazo);
-
-console.log(salida);
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"param_replacer(1).js"} %}
 
 Como vemos en la salida, nuestro script está reemplazando cualquier cosa encerrada entre % por un valor único. Podríamos mejorar un poco su comportamiento haciendo lo siguiente:
 
-{% codeblock param_replacer.js lang:javascript %}
-var reemplazos = {
-  "hello": "Hello",
-  "world": "World"
-};
-
-var objetivo = "%hello% %world%! -- %world% %hello%!",
-    param_encontrados = objetivo.match(/%(.*?)%/g);
-
-// Tener en cuenta que usamos match. Este método devuelve
-// un array de coincidencias, pero si no encuentra nada
-// devuelve null.
-if (param_encontrados) {
-  var nombre_param = null,
-      valor_reemplazo = null;
-
-  for (var i=0; i < param_encontrados.length; i++) {
-    // Quitamos los % del parámetro.
-    nombre_param = param_encontrados[i].replace(/%/g, '');
-    valor_reemplazo = reemplazos[nombre_param];
-
-    // Vamos reemplazando los parámetros con sus valores
-    // de forma iterativa.
-    objetivo = objetivo.replace(param_encontrados[i], valor_reemplazo);
-  }
-}
-
-console.log(objetivo);
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"param_replacer(2).js"} %}
 
 Mucho mejor. Con esta forma de aislar parámetros con sus reemplazos podemos jugar de muchas maneras, como por ejemplo, hacer un "hello world" multi idiomas:
 
-{% codeblock param_replacer.js lang:javascript %}
-var reemplazos = {
-  "en": {
-    "hello": "Hello",
-    "world": "World"
-  },
-  "es": {
-    "hello": "Hola",
-    "world": "Mundo"
-  }
-};
-
-var idioma = "es";
-
-var objetivo = "%hello% %world%! -- %world% %hello%!",
-    param_encontrados = objetivo.match(/%(.*?)%/g);
-
-// Tener en cuenta que usamos match. Este método devuelve
-// un array de coincidencias, pero si no encuentra nada
-// devuelve null.
-if (param_encontrados) {
-  var nombre_param = null,
-      valor_reemplazo = null;
-
-  for (var i=0; i<param_encontrados.length; i++) {
-    // Quitamos los % del parámetro.
-    nombre_param = param_encontrados[i].replace(/%/g, '');
-    // Añadimos el soporte de idiomas :)
-    valor_reemplazo = reemplazos[idioma][nombre_param];
-
-    // Vamos reemplazando los parámetros con sus valores
-    // de forma iterativa.
-    objetivo = objetivo.replace(param_encontrados[i], valor_reemplazo);
-  }
-}
-
-console.log(objetivo);
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"param_replacer(3).js"} %}
 
 Y ejecutamos:
 
@@ -188,9 +114,7 @@ Una de las cosas que hacen a _Node.js_ una plataforma sólida es la manera en la
 
 Los módulos en _Node.js_ se definen en un archivo `.js`, `.json` o `.node` y luego pueden ser importados en otros lugares de nuestra aplicación mediante el método `require`. Por ejemplo, si tenemos un módulo definido dentro de `lib/param_replacer.js`  y queremos usarlo dentro de un archivo `lib/otro_archivo.js`, solo basta con escribir:
 
-{% codeblock lang:javascript %}
-var replacer = require('./param_replacer');
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"otro_archivo.js"} %}
 
 Dentro de la variable `replacer` tendremos a nuestro querido reemplazador de parámetros. Pero, ¿cómo se define un módulo? <br><br>
 
@@ -200,50 +124,13 @@ Cuando invocamos al `require`, _Node.js_ lee el archivo que solicitamos y asigna
 
 Modifiquemos nuestro `param_replacer.js` para que pueda exponer su funcionalidad:
 
-{% codeblock param_replacer.js lang:javascript %}
-exports.replace = function(objetivo, reemplazos) {
-  var param_encontrados = objetivo.match(/%(.*?)%/g);
-
-  if (param_encontrados) {
-    var nombre_param = null,
-        valor_reemplazo = null;
-
-    for (var i=0; i<param_encontrados.length; i++) {
-      nombre_param = param_encontrados[i].replace(/%/g, '');
-      valor_reemplazo = reemplazos[nombre_param];
-
-      objetivo = objetivo.replace(param_encontrados[i], valor_reemplazo);
-    }
-  }
-
-  return objetivo;
-};
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"param_replacer(4).js"} %}
 
 Con esta modificación, nuestro código quedó completamente aislado en un archivo separado del resto, y expone un único método llamado `replace` que no es ni más ni menos que una función anónima.
 
 Para ver a nuestro renovado replacer en acción, copiar el siguiente código en `index.js`:
 
-{% codeblock index.js lang:javascript %}
-var param_replacer = require('./lib/param_replacer');
-
-var objetivo = "%hello% %world%! -- %world% %hello%!";
-var idioma = "es";
-var reemplazos = {
-  "en": {
-    "hello": "Hello",
-    "world": "World"
-  },
-  "es": {
-    "hello": "Hola",
-    "world": "Mundo"
-  }
-};
-
-var resultado = param_replacer.replace(objetivo, reemplazos[idioma]);
-
-console.log(resultado);
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"index.js"} %}
 
 Y ejecutamos:
 
@@ -259,15 +146,11 @@ Ya vimos que desde el `index.js` de nuestro módulo se pueden hacer algunas prue
 
 Imaginemos que tenemos un módulo llamado `mi_libreria.js` y queremos usarlo en otro archivo:
 
-{% codeblock lang:javascript %}
-var lib = require('./mi_libreria.js');
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"index(2).js"} %}
 
 En este caso, _Node.js_ buscará sólamente el archivo especificado. Pero también podemos usar el `require` de esta otra forma:
 
-{% codeblock lang:javascript %}
-var lib = require('./mi_liberia');
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"index(3).js"} %}
 
 Al no especificar una extensión, _Node.js_ buscará primero un archivo llamado `mi_libreria.js`. En caso de no encontrarlo, intentará con `mi_libreria.json` y si así mismo falla, tratará con `mi_libreria.node`.
 
@@ -275,32 +158,27 @@ Al no especificar una extensión, _Node.js_ buscará primero un archivo llamado 
 
 En caso de tener problemas con la carga especificada anteriormente, el cargador de archivos intentará una última cosa... Buscar un archivo `index` dentro del directorio `mi_libreria`. Con los index sucede lo mismo que con otros archivos, buscará: <br><br>
 
-{% rawblock %}
 <pre>
 - ./mi_libreria/index.js
 - ./mi_libreria/index.json
 - ./mi_libreria/index.node
 </pre>
-{% endrawblock %}
 
 Si todo falla, el compilador explota de manera horrenda. {% emoji grin %}
 
 Entonces, ¿qué hacemos con el `index.js` actual? Apenas comencé el artículo, les comenté que se iba a usar de atajo para incluir nuestra librería principal. Así que reemplacemos todo el contenido por esto:
 
-{% codeblock index.js lang:javascript %}
-module.exports = require('./lib/param_replacer');
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"index(4).js"} %}
 
-Con esta modificación podemos utilizar la librería como un paquete completo, sólo copiando el directorio donde estamos trabajando (param\_replacer/) y haciendo `require('param_replacer');` cuando lo necesitemos... <br><br>
+Con esta modificación podemos utilizar la librería como un paquete completo, sólo copiando el directorio donde estamos trabajando (param\_replacer/) y haciendo `require('param_replacer');` cuando lo necesitemos...
 
 {% rawblock %}
-<pre>
-mi_app/
+<pre>mi_app/
  ├── liberias/
  |   └─ libs.js
  ├── node_modules/
  |   └─ param_replacer/
- ├── app.js <-- este archivo puede hacer require('param_replacer') y todo funciona de maravillas
+ ├── app.js ← este archivo puede hacer require('param_replacer') y todo funciona de maravillas
  └── otro.js
 </pre>
 {% endrawblock %}
@@ -313,30 +191,7 @@ Y este es el momento justo de presentar a nuestro héroe, __npm__. <br><br>
 
 Al momento en que publiquemos en _npm_, todo el contenido que tenemos dentro del directorio _param\_replacer_ será el contenido del paquete que estará en los [repositorios de _npm_](https://npmjs.org/). Además, un archivo `package.json` sirve para configurar este paquete. Veamos un ejemplo:
 
-{% codeblock package.json lang:json %}
-{
-  "name": "param_replacer",
-  "description": "Node.js Parameter Replacer",
-  "version": "0.1.0",
-  "author": "Sergio Lepore <mail@example.net>",
-  "maintainers": [
-    "sergiolepore <mail@example.net>"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sergiolepore/param_replacer.git"
-  },
-  "keywords": [
-    "parmeters",
-    "replacer"
-  ],
-  "main": "./lib/param_replacer",
-  "license": "BSD-3",
-  "engines": {
-    "node": ">= 0.6"
-  }
-}
-{% endcodeblock %}
+{% gist f623e4627f78d1a4693b {"file":"package.json"} %}
 
 En [este](https://www.npmjs.org/doc/files/package.json.html) o [este otro](http://package.json.nodejitsu.com/) enlace encontrarán una descripción completa sobre todas las configuraciones que podemos cubrir con `package.json`. <br><br>
 
@@ -400,13 +255,4 @@ Si cometiste un error, ¡no importa! `npm uninstall` y `npm unpublish` lo soluci
 
 Bueno gente, eso fue todo por el momento. Si lo desean, pueden echarle un ojo a este proyecto en [Github](https://github.com/sergiolepore/param_replacer) y si tienen alguna duda, ¡no duden en hacérmela saber!
 
-¡Hasta la próxima! <br><br>
-
-{% rawblock %}
-<pre>
-    Zzzzz  |\      _,,,--,,_      +-----------------------------+
-           /,`.-'`'   ._  \-;;,_  | Why is there always a cat   |
-          |,4-  ) )_   .;.(  `'-' | on whatever you're editing? |
-         '---''(_/._)-'(_\_)      +-----------------------------+
-</pre>
-{% endrawblock %}
+¡Hasta la próxima!

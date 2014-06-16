@@ -1,0 +1,41 @@
+menu:
+  Home: /
+  Archives: archivos
+  page:
+    Blog: ""
+    Archivos: archivos
+    Proyectos: proyectos
+    Speaking: conferencias
+    Acerca: acerca-de-sergio
+
+excerpt_link: Seguir leyendo
+
+fancybox: true
+gist_embed: true
+
+social:
+  googleplus: true
+  twitter: true
+  github: true
+  slides: true
+  youtube: true
+  rss: true
+
+twitter:
+  username: sergiolepore
+
+github:
+  username: sergiolepore
+
+slides:
+  username: sergiolepore
+
+youtube:
+  username: SergeLepore
+
+addthis:
+  publid: ra-539e45f314b39d3f
+
+googleplus:
+  # userid: 110980664977106161747
+  userid: +SergioDanielLepore

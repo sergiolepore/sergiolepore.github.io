@@ -1,0 +1,24 @@
+<%
+var format = '';
+var attr = '';
+if(type =="archive") {
+  attr = 'span';
+  format = 'DD MMM';
+} else if (type == "index") {
+  attr = 'div';
+  format = config.date_format;
+} else if (type == "post") {
+  attr = 'div';
+  format = config.date_format;
+}
+%>
+<<%- attr %>>
+  <em class="fa fa-calendar"></em>
+<% if(item.date) { %>
+  <time datetime="<%= date_xml(item.date) %>" <% if(item.updated) { %>data-updated="true"<% } %> itemprop="datePublished">
+      <%= date(item.date, format) %>
+  </time>
+<% } %>
+<% var moment_updated = moment(item.updated); %>
+<% var same_day = moment_updated.isSame(item.date, 'day'); %>
+</<%- attr %>>

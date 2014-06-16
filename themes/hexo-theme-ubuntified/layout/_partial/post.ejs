@@ -1,0 +1,17 @@
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <a name="top"></a>
+  <%- partial('article', {item: item, index: index})%>
+  <div class="post-tags">
+    <%- partial('post/tag', {type: "article"}) %>
+  </div>
+</article>
+<% if(!index) { %>
+  <%- partial('post/sharing') %>
+  <%- partial('post/floating-buttons') %>
+<% } %>
+<% if(config.disqus_shortname && page.comments) { %>
+<section id="comment">
+  <h1 class="title"><%= __('comment') %></h1>
+  <div id="disqus_thread" aria-live="polite"><%- partial('_partial/post/disqus_thread')%></div>
+</section>
+<% } %>

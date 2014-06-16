@@ -8,12 +8,11 @@ categories:
 tags: [Desarrollo, PHP, Symfony, Tutoriales]
 ---
 
-{% img center /images/programming/symfony/symfony2-books.jpg %}
+{% img left /images/programming/symfony/symfony2-books.jpg %}
 
 ¡Buenos días! ¡Mucho tiempo que no compartía un artículo con ustedes! Hoy les traigo un pequeño _how-to_ sobre cómo __habilitar la funcionalidad SoftDeleteable de Doctrine2 usando Symfony2.__
 
-Para los que alguna vez usamos la primera versión de __Doctrine__, bien recordamos que el comportamiento de _SoftDelete_ era nativo en el ORM. Con la versión 2 las cosas han cambiado. Este tipo de funciones ya no son nativas pero se pueden habilitar a través de extensiones. <br><br>
-
+Para los que alguna vez usamos la primera versión de __Doctrine__, bien recordamos que el comportamiento de _SoftDelete_ era nativo en el ORM. Con la versión 2 las cosas han cambiado. Este tipo de funciones ya no son nativas pero se pueden habilitar a través de extensiones.<br>
 <!-- more -->
 
 # Requisitos
@@ -56,7 +55,7 @@ Ahora necesitamos el _Listener_ que hará que Doctrine incorpore las extensiones
 
 {% gist ba97c7a381af1ac1d59f {"file":"DoctrineExtensionListener.php"} %}
 
-Vale aclarar que __`Acme\DemoBundle` debe ser reemplazado por el Bundle que ustedes utilicen__, y recuerden de actualizar el `doctrine_extensions.yml` con el nombre de su clase!!! <br><br>
+Vale aclarar que `Acme\DemoBundle` __debe ser reemplazado por el Bundle que ustedes utilicen__, y recuerden de actualizar el `doctrine_extensions.yml` con el nombre de su clase!!! <br><br>
 
 # 3 - Configurar las entidades
 
@@ -79,23 +78,3 @@ Este es el último paso de nuestra travesía. Si eliminamos un objeto usando Doc
 Bien, eso fue todo. ¡Espero les haya sido de utilidad!
 
 ¡Hasta la próxima!
-
-<br>
-
-{% rawblock %}
-<pre>
-            /\___/\
-            )     (
-           =\     /=
-             )   (
-            /     \
-            )     (
-           /       \
-           \       /
-            \__ __/
-               ))
-              //
-             ((
-              \)
-</pre>
-{% endrawblock %}

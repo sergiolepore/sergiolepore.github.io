@@ -5,7 +5,7 @@
 # Site
 title: "Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan"
 subtitle:
-description: "Basically, I write code the same way a writer writes a novel. Open Source evangelist. Proud Ubuntu user. Trying to make a dent in the Universe."
+description: "Basicamente, escribo código del mismo modo que un escritor escribe una novela.<br> <em>Open Source evangelist</em>.<br> Usuario orgulloso de <em class=\"ubuntu-hi\">Ubuntu</em>.<br> Tratando de hacer una mella en el Universo."
 author: Sergio Lepore
 email: sergio.d.lepore@gmail.com
 language: es
@@ -66,7 +66,7 @@ logger_format:
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: MMM D YYYY
+date_format: dddd, MMM DD, YYYY
 time_format: H:mm:ss
 
 # Pagination
@@ -80,7 +80,7 @@ disqus_shortname: sergiolepore
 # Extensions
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
-theme: hexo-theme-greyshade
+theme: hexo-theme-ubuntified
 exclude_generator:
 
 # Markdown
@@ -115,6 +115,6 @@ link_checker:
 
 # hexo-generator-feed
 feed:
-  type: rss2
-  path: rss.xml
-  limit: 50
+  type: atom
+  path: atom.xml
+  limit: 200

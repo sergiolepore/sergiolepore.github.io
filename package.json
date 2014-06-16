@@ -1,6 +1,6 @@
 {
   "name": "hexo",
-  "version": "2.6.2",
+  "version": "2.7.1",
   "private": true,
   "dependencies": {
     "cheerio": "^0.13.1",

@@ -1,0 +1,273 @@
+// This is the main GREYSHADE stylus file
+
+html
+  height: 100%
+
+body
+  font-family font-default
+  font-size 15px
+  height 100%
+  color #333
+  word-wrap break-word
+
+  br
+    clear both
+
+  h1.title
+    text-align center
+    color greyshade
+    font-weight normal
+    @media screen and (min-width: 800px)
+      font-size 2.5em
+    @media screen and (max-width: 800px)
+      font-size 1.5em
+
+::selection, ::-moz-selection, ::-webkit-selection
+  background #b2cce6
+  color color-background
+
+#header
+  height auto
+  border-bottom none
+  .subtitle
+    color #999
+    font-style italic
+  #main-nav
+    .aboutme
+      line-height 1.2em
+      color color-gray02
+      margin 10px 0 10px 0
+      border-bottom 1px solid color-midcol-border
+      border-top 1px solid color-midcol-border
+      p
+        padding 5px 0 5px 0
+      .ubuntu-hi
+        color greyshade
+        font-style normal
+    ul
+      li
+        font-size 15px
+    a:hover
+      text-decoration underline
+  #sub-nav
+    float none
+    position relative
+    .social
+      float none
+    .search
+      float none
+      .alignright
+        float: none;
+  h1
+    float none
+  #main-nav
+    float none
+    margin-left 0px
+    ul
+      li
+        margin-left 0px
+        display block
+        a
+          padding 0px 0px
+
+.floating-buttons
+  position fixed
+  float left
+  bottom 0px
+  text-align left
+  width auto
+  background color-gray02
+  padding 5px 5px 0 5px
+  border-radius 5px 5px 0 0
+  -moz-border-radius 5px 5px 0 0
+  -webkit-border-radius 5px 5px 0 0
+  a
+    color #fff
+    font-size 2.5em
+
+.container
+  position relative
+  min-height 100%
+  .credit-box
+    color #AAA
+    font-size .8em
+    position fixed
+    bottom 20px
+    left 40px
+    a
+      color inherit
+      text-decoration underline
+  .mid-col
+    position absolute
+    right 0
+    min-height 100%
+    width 85%
+    background color-midcol
+    border-left 1px solid color-midcol-border
+    #banner
+      width 100%
+      small
+        margin-right 70px
+    footer.inner
+      text-align center
+      margin 0px 70px 0px 40px
+      width auto
+    .mid-col-container
+      padding 0px 70px 0px 40px
+      #content
+        width 100%
+        article
+          border-top none
+          .title
+            margin-left 0px
+          .entry-content
+            margin-left 0px
+            line-height 1.5em
+            padding 20px 0 0 0
+            .more-link
+              padding-left 20px
+              clear both
+              em
+                font-style normal
+            .gist .gist-file .gist-data
+              .line_numbers
+                line-height inherit
+              pre
+                line-height inherit
+            h2
+              font-size 1.3em
+              color #574C4C
+              border-bottom none
+            h2::before
+              border-bottom none
+            blockquote
+              border-left 5px solid greyshade
+              background #FCFCFC
+            table
+              line-height 1.2em
+              td
+                text-align left
+          .meta
+            position relative
+            float right
+            top 0px
+            color #555
+            text-align right
+            width auto
+            .date::before
+              color #555
+              position relative
+              margin-right 10px
+            .tags::before
+              color #999
+              position relative
+              margin-right 10px
+          h1.title
+            a
+              color #333
+              -webkit-transition color 0.3s
+              -moz-transition color 0.3s
+              -o-transition color 0.3s
+              transition color 0.3s
+            a:hover
+              color greyshade
+              -webkit-transition color 0.3s
+              -moz-transition color 0.3s
+              -o-transition color 0.3s
+              transition color 0.3s
+    footer
+      width 100%
+  .left-col
+    width 15%
+    position fixed
+    // left 0
+    text-align left
+    height 100%
+    .intrude-less
+      width 80%
+    #header
+      width 100%
+      padding 20% 0% 0% 15%
+      #main-nav
+        margin-top 10px
+      .profilepic
+        @media screen and (max-width: 800px)
+          display none
+        img
+          border-radius 15%
+          -moz-border-radius 15%
+          -webkit-border-radius 15%
+          background #fff
+          border 3px solid #fff
+          box-shadow: 0 1px 1px rgba(136,153,166,0.15);
+      a
+        // color #EFEFEF
+        color #292f33
+        // text-shadow 0 1px #333
+      a:hover
+        color greyshade
+      #sub-nav
+        margin-top 10px
+        .search::before
+          left 10px
+        .social
+          margin-bottom 10px
+          text-align center
+
+.archives
+  .title
+    font-size 1.2em
+  article
+    .meta
+      line-height 1.5em
+      margin-top 0
+      span::before
+        padding-right 0
+
+a
+  color greyshade
+
+a:hover
+  color greyshade
+
+body
+  @media screen and (max-width: 1040px)
+      margin 0 0
+
+@media screen and (max-width: 1040px)
+  .container
+    .credit-box
+      display none
+    .left-col
+      position relative
+      width 100%
+      opacity 1
+      .intrude-less
+        margin: auto auto;
+      #header
+        padding 40px 0px
+        text-align center
+        #sub-nav
+          display block
+        #main-nav
+            ul
+              display block
+              li
+                display inline
+                margin-right 10px
+    .mid-col
+      float none
+      width 100%
+      .mid-col-container
+        padding 15px 15px
+        #content
+          article
+            .meta
+              float: none;
+
+.page-with-contents.mobile, .page-with-contents.tablet
+  .left-col
+    display none
+  .mid-col
+    article
+      padding 0

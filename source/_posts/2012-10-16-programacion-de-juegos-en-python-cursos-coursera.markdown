@@ -7,7 +7,7 @@ categories:
 tags: [Cursos,Desarrollo,Python]
 ---
 
-{% img center /images/courses/python-coursera.png %}
+{% img left /images/courses/python-coursera.png %}
 
 ¡Buenos días! Hoy les traigo un curso muy interesante para todos aquellos que quieran probar nuevos lenguajes de programación o, por qué no, probar nuevas cosas con uno de los lenguajes más fantásticos del mundo, __Python__.
 

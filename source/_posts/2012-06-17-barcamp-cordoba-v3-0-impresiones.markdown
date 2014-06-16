@@ -7,11 +7,11 @@ categories:
 tags: [Eventos, Barcamp]
 ---
 
+{% img left /images/misc/barcamp-cordoba.jpg 450 450 %}
+
 __¡BARCAMP CORDOBA 2012!__ Ayer, Sábado 16 de Junio, se realizó la tercera edición cordobesa de este evento que reúne a ñoños y geeks de todo el país. El formato del evento es sencillo, cualquiera de estas personas puede preparar una charla de la temática que más le agrade y exponerla para el resto en no más de 30 minutos.
 
 Como no pude resistir la tentación, tuve que anotar mi charla “El futuro de la Web” para evangelizar a todos los que pueda sobre esta etapa tan cambiante que vive nuestro mundillo virtual (obsolescencia de tecnologías y posicionamiento de otras, básicamente).
-<br>
-{% img center /images/misc/barcamp-cordoba.jpg 450 450 %}
 <!-- more -->
 
 ¿Qué me llevo de este evento? Excelentes charlas, tanto formales como informales, gente copada, varios nuevos contactos y las ganas de otro Barcamp!

@@ -7,7 +7,7 @@ categories:
 tags: [Desarrollo, PHP, Symfony, Tutoriales]
 ---
 
-{% img center /images/programming/symfony/symfony2-books.jpg %}
+{% img left /images/programming/symfony/symfony2-books.jpg %}
 
 ¡Buenos días! Hoy les traigo un pequeño _"truquito"_ para __mejorar el rendimiento del enrutador de Symfony2__ {% emoji smile %}
 

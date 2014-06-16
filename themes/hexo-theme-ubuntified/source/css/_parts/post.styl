@@ -1,0 +1,62 @@
+.post
+  h1, h2, h3, h4
+    text-align left
+  h1.title, .entry-content
+    margin-left 200px
+    @media screen and (max-width: 800px)
+      margin-left 0
+  h1.title
+    text-align center
+    color greyshade
+    @media screen and (min-width: 800px)
+      font-size 2.5em
+    @media screen and (max-width: 800px)
+      font-size 1.5em
+  .meta
+    position absolute
+    top 85px
+    line-height 2
+    font-size 1em
+    color color-gray02
+    width 170px
+    @media screen and (max-width: 800px)
+      margin-top 15px
+      position static
+      width auto
+    a
+      link-colors(color-gray02, greyshade)
+      transition(0.3s)
+
+    .date, .tags, .comments
+      padding-left 30px
+      position relative
+      @media screen and (max-width: 800px)
+        inline-block()
+        margin-right 30px
+
+    .date:before
+      content "\f073"
+    .tags:before
+      content "\f02c"
+    .comments:before
+      content "\f075"
+  hr
+    height 0
+    margin-top 20px
+    margin-bottom 20px
+    border-left 0
+    border-right 0
+    border-top 1px solid #DDD
+    border-bottom 1px solid #FFF
+  .post-tags
+    margin-top 30px
+    line-height 2
+    font-size 0.9em
+    color color-gray02
+    a
+      link-colors(color-gray02, greyshade)
+      transition(0.3s)
+
+    .tags
+      padding-left 30px
+      position relative
