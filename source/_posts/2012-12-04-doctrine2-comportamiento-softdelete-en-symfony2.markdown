@@ -32,9 +32,10 @@ Usando `composer.phar`, la instalación de módulos, bundles, extensiones o plug
 
 Guardamos el archivo y procedemos a actualizar las dependencias de nuestro proyecto:
 
-{% blockquote %}
+{% shellcode %}
 php composer.phar update
-{% endblockquote %}
+{% endshellcode %}
+
 <br>
 
 # 2 - Configurando las extensiones como Servicios

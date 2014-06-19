@@ -1,8 +1,9 @@
 <% if(index) { %>
   <div class="meta">
     <%- partial('post/date', {type: "index"}) %>
-  <% if(item.comment & config.disqus_shortname) { %>
+  <% if(item.comments && config.disqus_shortname) { %>
     <span class="comments">
+      <em class="fa fa-comments"></em>
       <a href="<%- item.permalink %>#disqus_thread">Comentarios</a>
     </span>
   <% } %>

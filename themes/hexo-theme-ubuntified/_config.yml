@@ -10,7 +10,7 @@ menu:
 
 excerpt_link: Seguir leyendo
 
-fancybox: true
+fancybox: false
 gist_embed: true
 
 social:

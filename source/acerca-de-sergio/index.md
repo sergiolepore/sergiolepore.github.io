@@ -35,8 +35,6 @@ En mis tiempos libres escribo una novela, leo novelas, colaboro con la comunidad
 (&nbsp;&nbsp;&nbsp;) Ser conferencista en una JSConf. <br>
 (&nbsp;&nbsp;&nbsp;) Dar un paseo en un automóvil Tesla con Elon Musk. <br>
 (&nbsp;&nbsp;&nbsp;) Compartir un té con Mark Shuttleworth. <br>
-(&nbsp;&nbsp;&nbsp;) Diseñar mi propia casa. <br>
-(&nbsp;&nbsp;&nbsp;) Escribir un "Hola Mundo" viviente (a.k.a. tener un hijo). <br>
 </p>
 {% endrawblock %}
 <br>

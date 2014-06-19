@@ -25,6 +25,7 @@ page.posts.each(function(item){
           <%- partial('post/tag', {item: item, type: "archive"}) %>
           <% if(config.disqus_short_name && item.comments) { %>
             <span class="comments">
+              <em class="fa fa-comments"></em>
               <a href="<%- config.root %><%- item.path %>#disqus_thread">Comentarios</a>
             </span>
           <% } %>

@@ -19,17 +19,17 @@ Es muy obvio, pero vale aclararlo, que __todo este comportamiento tiene un efect
 
 El componente de enrutador de Symfony2 viene con una herramienta muy útil que permite generar las todas las expresiones regulares necesarias para que Apache (con `mod_rewrite`) se haga cargo de esta tarea. La utilidad se accede a través del siguiente comando:
 
-{% blockquote %}
+{% shellcode %}
 php app/console router:dump-apache
-{% endblockquote %}
+{% endshellcode %}
 
 __Esto hará que se compilen todas las rutas en diversos RewriteRules que podremos añadir a nuestro .htaccess o directo sobre el VirtualHost.__
 
 El resultado del comando se mostrará en consola, lo cual es cómodo si tienes pocas rutas. En cambio si tu proyecto tiene más de 10 definiciones, te recomiendo redirigir toda la salida del comando a un archivo:
 
-{% blockquote %}
+{% shellcode %}
 php app/console router:dump-apache > archivo_destino
-{% endblockquote %}
+{% endshellcode %}
 
 Lindo, ¿verdad? {% emoji smile %}
 

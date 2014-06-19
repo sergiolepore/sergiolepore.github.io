@@ -3,7 +3,7 @@
 * Better Gist tag
 *
 * Syntax:
-*   {% gist gist_id [{json:parameters}] %}
+*   {% gist gist_id [{"json":"parameters"}] %}
 *
 * Parameters:
 *   hide_line_numbers: boolean  | Hide/Show line numbers

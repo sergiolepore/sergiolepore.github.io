@@ -1,0 +1,85 @@
+terminal-title-color = #dfdbd2
+terminal-line-color = #fff
+terminal-bkg-color1 = #35202b
+terminal-bkg-color2 = #300a24
+terminal-btnclose-color1 = #f79477
+terminal-btnclose-color2 = #d94c1b
+
+.ubuntu-terminal
+  background: -webkit-linear-gradient(rgba(87, 86, 77, 1), rgba(63, 62, 58, 1) 30px, #605e54 1px, terminal-bkg-color2, terminal-bkg-color1 30px)
+  background:    -moz-linear-gradient(rgba(87, 86, 77, 1), rgba(63, 62, 58, 1) 30px, #605e54 1px, terminal-bkg-color2, terminal-bkg-color1 30px)
+  background:      -o-linear-gradient(rgba(87, 86, 77, 1), rgba(63, 62, 58, 1) 30px, #605e54 1px, terminal-bkg-color2, terminal-bkg-color1 30px)
+  height auto
+  width auto
+  margin-top 20px
+  margin-bottom 20px
+  border-radius(6px 6px 0px 0px)
+  // box-shadow inset 0 1px 0 rgba(255,255,255,.6), 0 22px 70px 4px rgba(0,0,0,0.56), 0 0 0 1px rgba(0, 0, 0, 0.3)
+  box-shadow(0px 5px 10px 1px rgba(0, 0, 0, 0.5))
+  padding 3px 5px
+  text-align left
+  .term
+    color terminal-line-color
+    // text-shadow 0px -1px 0px #333
+    text-shadow 1px 1px 1px rgba(0,0,0,0.3)
+    padding 5px
+    .cursor
+      animation(fall 1s linear infinite)
+    .terminal-line
+      &:hover
+        background #422439
+  .head
+    height 30px
+    span
+      font-size 13px
+      font-weight bold
+      color terminal-title-color
+      text-shadow 0px -1px 0px #333
+      margin-left 10px
+    .btn
+      cursor pointer
+      background -webkit-linear-gradient(top, #f79477 0%,#d94c1b 100%)
+      background    -moz-linear-gradient(top, #f79477 0%,#d94c1b 100%)
+      background      -o-linear-gradient(top, #f79477 0%,#d94c1b 100%)
+      width 15px
+      height 15px
+      display inline-block
+      border-radius 100px
+      box-shadow 0px 0px 1px 0px #41403A,0px 1px 1px 0px #474642
+      color #3e3d39
+      text-decoration none
+      text-shadow 0px 1px 0px rgba(255,255,255,0.2)
+      font-size 11px
+      text-align center
+      margin 0px 1px
+      line-height 15px
+      &:hover
+        background -webkit-linear-gradient(top, #feae97 0%,#d74e1f 100%)
+        background    -moz-linear-gradient(top, #feae97 0%,#d74e1f 100%)
+        background      -o-linear-gradient(top, #feae97 0%,#d74e1f 100%)
+    .stnd
+      background -webkit-linear-gradient(top, #908f8a 0%,#595953 100%)
+      background    -moz-linear-gradient(top, #908f8a 0%,#595953 100%)
+      background      -o-linear-gradient(top, #908f8a 0%,#595953 100%)
+      &:hover
+        background -webkit-linear-gradient(top, #cbcbcb 0%,#949494 100%)
+        background    -moz-linear-gradient(top, #cbcbcb 0%,#949494 100%)
+        background      -o-linear-gradient(top, #cbcbcb 0%,#949494 100%)
+
+@keyframes fall {
+  1% {
+    opacity 1
+  }
+  49% {
+    opacity 1
+  }
+  50% {
+    opacity 0
+  }
+  99% {
+    opacity 0
+  }
+  100% {
+    opacity 1
+  }
+}
