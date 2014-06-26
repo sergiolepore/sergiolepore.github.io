@@ -7,7 +7,7 @@ categories:
 tags: [Desarrollo, Node.js, Tutoriales, npmjs]
 ---
 
-{% img left https://www.npmjs.org/static/img/npm.png %}
+{% img left /images/misc/npm.png %}
 
 ¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de _Node.js_ acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma {% emoji blush %}
 
@@ -90,7 +90,7 @@ En breve veremos más acerca de _package.json_ y cómo configurar cada detalle d
 
 Comenzaremos a programar {% emoji smile %} Como les comenté, toda la lógica de la aplicación fue a parar a _lib/param\_replacer.js_. Editemos ese archivo y juguemos.
 
-{% gist f623e4627f78d1a4693b {"file":"param_replacer(1).js"} %}
+{% gist f623e4627f78d1a4693b {"file":"param_replacer(1).js","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-1-js"} %}
 
 Como vemos en la salida, nuestro script está reemplazando cualquier cosa encerrada entre % por un valor único. Podríamos mejorar un poco su comportamiento haciendo lo siguiente:
 
