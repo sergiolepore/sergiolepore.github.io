@@ -1,4 +1,13 @@
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<%
+var postClasses = [];
+var permalink = item.permalink;
+postClasses.push('post');
+
+if (index) {
+    postClasses.push('index-post');
+}
+%>
+<article class="<%- postClasses.join(' ') %>" itemscope itemtype="http://schema.org/BlogPosting">
   <a name="top"></a>
   <%- partial('article', {item: item, index: index})%>
   <div class="post-tags">
@@ -6,7 +15,7 @@
   </div>
 </article>
 <% if(!index) { %>
-  <%- partial('post/sharing') %>
+  <%- partial('post/sharing', {permalink:permalink}) %>
   <%- partial('post/floating-buttons') %>
 <% } %>
 <% if(config.disqus_shortname && page.comments) { %>

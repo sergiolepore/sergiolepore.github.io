@@ -11,12 +11,14 @@
 *   file: string                | Load a single file from a gist (example.js)
 *   line: string                | Load a single line or a range of lines (1,3-5)
 *   highlight_line: string      | Highlight a list of line numbers from a gist (1,5,6,7)
+*   direct_link: string         | Direct link to gist. Used as a placeholder while loading gist
 */
 
 hexo.extend.tag.register('gist', function(args){
   var gist_id = args[0];
   var parameters = args[1] || '{}';
   var htmlAttributes = Array();
+  var placeholder = '';
 
   parameters = JSON.parse(parameters);
 
@@ -37,6 +39,9 @@ hexo.extend.tag.register('gist', function(args){
   if (parameters.highlight_line) {
     htmlAttributes.push('data-gist-highlight-line="%s"'.replace(/%s/, parameters.highlight_line));
   }
+  if (parameters.direct_link) {
+    placeholder = '<a href="%link" target="_blank" title="Ir a Gist %id">Enlace al código</a>'.replace(/%link/, parameters.direct_link).replace(/%id/, gist_id);
+  }
 
-  return '<p><code %s></code></p>'.replace(/%s/, htmlAttributes.join(' '));
+  return '<p><code %s>%placeholder</code></p>'.replace(/%s/, htmlAttributes.join(' ')).replace(/%placeholder/, placeholder);
 });

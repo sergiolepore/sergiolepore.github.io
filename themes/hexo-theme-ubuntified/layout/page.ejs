@@ -5,7 +5,7 @@
   <div class="entry-content"><%- page.content %></div>
 </article>
 <% if(page.sharing) { %>
-  <%- partial('_partial/post/sharing') %>
+  <%- partial('_partial/post/sharing', {permalink:page.permalink}) %>
 <% } %>
 <%- partial('_partial/post/floating-buttons') %>
 <% if(config.disqus_shortname && page.comments) { %>

@@ -21,7 +21,7 @@ hexo.extend.tag.register('shellcode', function(args, content){
   var lineArray = Array();
   var indicator = '$';
   var user = 'you';
-  var host = 'sergiolepore.net';
+  var host = 'yourcomputer';
   var cwd;
   var su;
 

@@ -1,4 +1,20 @@
+<%
+var addthis_perma = '';
+// var fb_perma = '';
+// var tw_perma = '';
+
+// if (permalink) {
+//     addthis_perma = 'addthis:url="%p"'.replace(/%p/, permalink);
+//     fb_perma = 'fb:like:href="%p"'.replace(/%p/, permalink);
+//     tw_perma = 'tw:url="%p"'.replace(/%p/, permalink);
+// }
+%>
+<script type="text/javascript">
+  var addthis_config = addthis_config||{};
+  addthis_config.data_track_addressbar = false;
+  addthis_config.data_track_clickback = false;
+</script>
 <div class="share">
-  <div class="addthis_native_toolbox"></div>
+  <div class="addthis_native_toolbox" <%- addthis_perma %>></div>
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<%= theme.addthis.publid %>"></script>
 </div>
