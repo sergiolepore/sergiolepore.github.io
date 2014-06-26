@@ -9,12 +9,33 @@ var addthis_perma = '';
 //     tw_perma = 'tw:url="%p"'.replace(/%p/, permalink);
 // }
 %>
+<% if (config.cookiecuttr || theme.cookiecuttr.enable) { %>
+<script>
+  if (jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") {
+    var addthis_config = addthis_config||{};
+    addthis_config.pubid = '<%= theme.addthis.publid %>';
+
+    $(document).ready(function () {
+      (function(window,document,url,undefined) {
+        var addthisScript = document.createElement('script');
+        addthisScript.setAttribute('src', url)
+        document.body.appendChild(addthisScript)
+      })(window, document, 'http://s7.addthis.com/js/300/addthis_widget.js#domready=1');
+    });
+
+    function loadAddThis() {
+      addthis.init();
+    }
+  }
+</script>
+<% } else { %>
 <script type="text/javascript">
   var addthis_config = addthis_config||{};
   addthis_config.data_track_addressbar = false;
   addthis_config.data_track_clickback = false;
 </script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<%= theme.addthis.publid %>"></script>
+<% } %>
 <div class="share">
   <div class="addthis_native_toolbox" <%- addthis_perma %>></div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<%= theme.addthis.publid %>"></script>
 </div>

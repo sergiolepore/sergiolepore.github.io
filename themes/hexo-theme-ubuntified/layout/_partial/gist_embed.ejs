@@ -1,1 +1,15 @@
+<% if (config.cookiecuttr || theme.cookiecuttr.enable) { %>
+<script>
+  if (jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") {
+    $(document).ready(function () {
+      (function(window,document,url,undefined) {
+        var geScript = document.createElement('script');
+        geScript.setAttribute('src', url)
+        document.body.appendChild(geScript)
+      })(window,document,'//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.7/gist-embed.min.js');
+    });
+  }
+</script>
+<% } else { %>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.7/gist-embed.min.js"></script>
+<% } %>
