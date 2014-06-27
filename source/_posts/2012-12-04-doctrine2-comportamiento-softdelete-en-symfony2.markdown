@@ -28,7 +28,7 @@ Para los que alguna vez usamos la primera versión de __Doctrine__, bien recorda
 
 Usando `composer.phar`, la instalación de módulos, bundles, extensiones o plugins es muy sencilla. Lo primero que tenemos que hacer es abrir nuestro `composer.json` y agregar la siguiente línea al array de requires:
 
-{% gist ba97c7a381af1ac1d59f {"file":"composer.json"} %}
+{% gist ba97c7a381af1ac1d59f {"file":"composer.json","direct_link":"https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-composer-json"} %}
 
 Guardamos el archivo y procedemos a actualizar las dependencias de nuestro proyecto:
 
@@ -44,17 +44,17 @@ Ahora que ya tenemos las extensiones instaladas, debemos de configurar Doctrine 
 
 __Symfony2__ tiene una arquitectura muy bella que permite configurar casi todas las dependencias y clases a modo de servicios y completamente _desacoplados_ (gracias al [_patrón de inyección de dependencias y el DIC_](http://symfony.com/doc/current/book/service_container.html)). Para las extensiones de Doctrine vamos a crear un nuevo archivo en `app/config` con el nombre de `doctrine_extensions.yml` y luego lo importaremos en el archivo `app/config/config.yml`:
 
-{% gist ba97c7a381af1ac1d59f {"file":"config.yml"} %}
+{% gist ba97c7a381af1ac1d59f {"file":"config.yml","direct_link":"https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-config-yml"} %}
 
 Dentro del archivo `doctrine_extensions.yml`, copiaremos lo siguiente:
 
-{% gist ba97c7a381af1ac1d59f {"file":"doctrine_extensions.yml"} %}
+{% gist ba97c7a381af1ac1d59f {"file":"doctrine_extensions.yml","direct_link":"https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-doctrine_extensions-yml"} %}
 
 Con esto ya hemos configurado las extensiones como un servicio que será ejecutado cada vez que el _Kernel_ reaccione (para configurar Doctrine) y cada vez que Doctrine dispare un evento (como la eliminación de una entidad, que es lo que nos interesa).
 
 Ahora necesitamos el _Listener_ que hará que Doctrine incorpore las extensiones configuradas. Para ello debemos crear la clase `Acme/DemoBundle/Listener/DoctrineExtensionListener.php` con el siguiente contenido:
 
-{% gist ba97c7a381af1ac1d59f {"file":"DoctrineExtensionListener.php"} %}
+{% gist ba97c7a381af1ac1d59f {"file":"DoctrineExtensionListener.php","direct_link":"https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-doctrineextensionlistener-php"} %}
 
 Vale aclarar que `Acme\DemoBundle` __debe ser reemplazado por el Bundle que ustedes utilicen__, y recuerden de actualizar el `doctrine_extensions.yml` con el nombre de su clase!!! <br><br>
 
@@ -64,7 +64,7 @@ Habilitar la extensión __no__ hará que todas las entidades que eliminemos here
 
 Para que un objeto sea _SoftDeleteable_ debemos configurarlo. A continuación voy a mostrar cómo se hace con _Annotations_ de PHP, pero es igual para YML o XML:
 
-{% gist ba97c7a381af1ac1d59f {"file":"Entity.php"} %}
+{% gist ba97c7a381af1ac1d59f {"file":"Entity.php","direct_link":"https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-entity-php"} %}
 
 <br>
 
@@ -72,7 +72,7 @@ Para que un objeto sea _SoftDeleteable_ debemos configurarlo. A continuación vo
 
 Este es el último paso de nuestra travesía. Si eliminamos un objeto usando Doctrine y luego revisamos la base de datos, veremos que el campo _deletedAt_ tiene el _timestamp_ de eliminación {% emoji smile %} __¡Esto es SoftDeleteable Behavior!__
 
-{% gist ba97c7a381af1ac1d59f {"file":"Controller.php"} %}
+{% gist ba97c7a381af1ac1d59f {"file":"Controller.php","direct_link":"https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-controller-php"} %}
 
 <br><br>
 

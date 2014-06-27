@@ -10,6 +10,11 @@ menu:
 
 excerpt_link: Seguir leyendo
 
+cookiecuttr:
+  enabled: false
+  text: "Este sitio utiliza cookies de analíticas, redes sociales y otros servicios. No almaceno ningún dato personal, no te preocupes. "
+  help_site: /politica-de-cookies/
+
 fancybox: false
 gist_embed: true
 

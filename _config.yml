@@ -118,3 +118,7 @@ feed:
   type: atom
   path: atom.xml
   limit: 200
+
+cookiecuttr:
+  enabled: true
+  
