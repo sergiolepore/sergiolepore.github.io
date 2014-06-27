@@ -11,9 +11,9 @@ menu:
 excerpt_link: Seguir leyendo
 
 cookiecuttr:
-  enable: false
-  text: "Este sitio utiliza cookies de Google Analytics, AddThis, Github Gist y Disqus. No almaceno ningún dato personal, no te preocupes. "
-  help_site: http://www.allaboutcookies.org/es/galletas/
+  enabled: false
+  text: "Este sitio utiliza cookies de analíticas, redes sociales y otros servicios. No almaceno ningún dato personal, no te preocupes. "
+  help_site: /politica-de-cookies/
 
 fancybox: false
 gist_embed: true

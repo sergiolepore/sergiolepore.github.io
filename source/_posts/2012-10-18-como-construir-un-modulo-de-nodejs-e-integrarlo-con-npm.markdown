@@ -94,11 +94,11 @@ Comenzaremos a programar {% emoji smile %} Como les comenté, toda la lógica de
 
 Como vemos en la salida, nuestro script está reemplazando cualquier cosa encerrada entre % por un valor único. Podríamos mejorar un poco su comportamiento haciendo lo siguiente:
 
-{% gist f623e4627f78d1a4693b {"file":"param_replacer(2).js"} %}
+{% gist f623e4627f78d1a4693b {"file":"param_replacer(2).js","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-2-js"} %}
 
 Mucho mejor. Con esta forma de aislar parámetros con sus reemplazos podemos jugar de muchas maneras, como por ejemplo, hacer un "hello world" multi idiomas:
 
-{% gist f623e4627f78d1a4693b {"file":"param_replacer(3).js"} %}
+{% gist f623e4627f78d1a4693b {"file":"param_replacer(3).js","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-3-js"} %}
 
 Y ejecutamos:
 
@@ -114,7 +114,7 @@ Una de las cosas que hacen a _Node.js_ una plataforma sólida es la manera en la
 
 Los módulos en _Node.js_ se definen en un archivo `.js`, `.json` o `.node` y luego pueden ser importados en otros lugares de nuestra aplicación mediante el método `require`. Por ejemplo, si tenemos un módulo definido dentro de `lib/param_replacer.js`  y queremos usarlo dentro de un archivo `lib/otro_archivo.js`, solo basta con escribir:
 
-{% gist f623e4627f78d1a4693b {"file":"otro_archivo.js"} %}
+{% gist f623e4627f78d1a4693b {"file":"otro_archivo.js","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-otro_archivo-js"} %}
 
 Dentro de la variable `replacer` tendremos a nuestro querido reemplazador de parámetros. Pero, ¿cómo se define un módulo? <br><br>
 
@@ -124,13 +124,13 @@ Cuando invocamos al `require`, _Node.js_ lee el archivo que solicitamos y asigna
 
 Modifiquemos nuestro `param_replacer.js` para que pueda exponer su funcionalidad:
 
-{% gist f623e4627f78d1a4693b {"file":"param_replacer(4).js"} %}
+{% gist f623e4627f78d1a4693b {"file":"param_replacer(4).js","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-4-js"} %}
 
 Con esta modificación, nuestro código quedó completamente aislado en un archivo separado del resto, y expone un único método llamado `replace` que no es ni más ni menos que una función anónima.
 
 Para ver a nuestro renovado replacer en acción, copiar el siguiente código en `index.js`:
 
-{% gist f623e4627f78d1a4693b {"file":"index.js"} %}
+{% gist f623e4627f78d1a4693b {"file":"index.js","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-js"} %}
 
 Y ejecutamos:
 
@@ -146,11 +146,11 @@ Ya vimos que desde el `index.js` de nuestro módulo se pueden hacer algunas prue
 
 Imaginemos que tenemos un módulo llamado `mi_libreria.js` y queremos usarlo en otro archivo:
 
-{% gist f623e4627f78d1a4693b {"file":"index(2).js"} %}
+{% gist f623e4627f78d1a4693b {"file":"index(2).js","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-2-js"} %}
 
 En este caso, _Node.js_ buscará sólamente el archivo especificado. Pero también podemos usar el `require` de esta otra forma:
 
-{% gist f623e4627f78d1a4693b {"file":"index(3).js"} %}
+{% gist f623e4627f78d1a4693b {"file":"index(3).js","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-3-js"} %}
 
 Al no especificar una extensión, _Node.js_ buscará primero un archivo llamado `mi_libreria.js`. En caso de no encontrarlo, intentará con `mi_libreria.json` y si así mismo falla, tratará con `mi_libreria.node`.
 
@@ -168,7 +168,7 @@ Si todo falla, el compilador explota de manera horrenda. {% emoji grin %}
 
 Entonces, ¿qué hacemos con el `index.js` actual? Apenas comencé el artículo, les comenté que se iba a usar de atajo para incluir nuestra librería principal. Así que reemplacemos todo el contenido por esto:
 
-{% gist f623e4627f78d1a4693b {"file":"index(4).js"} %}
+{% gist f623e4627f78d1a4693b {"file":"index(4).js","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-4-js"} %}
 
 Con esta modificación podemos utilizar la librería como un paquete completo, sólo copiando el directorio donde estamos trabajando (param\_replacer/) y haciendo `require('param_replacer');` cuando lo necesitemos...
 
@@ -191,7 +191,7 @@ Y este es el momento justo de presentar a nuestro héroe, __npm__. <br><br>
 
 Al momento en que publiquemos en _npm_, todo el contenido que tenemos dentro del directorio _param\_replacer_ será el contenido del paquete que estará en los [repositorios de _npm_](https://npmjs.org/). Además, un archivo `package.json` sirve para configurar este paquete. Veamos un ejemplo:
 
-{% gist f623e4627f78d1a4693b {"file":"package.json"} %}
+{% gist f623e4627f78d1a4693b {"file":"package.json","direct_link":"https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-package-json"} %}
 
 En [este](https://www.npmjs.org/doc/files/package.json.html) o [este otro](http://package.json.nodejitsu.com/) enlace encontrarán una descripción completa sobre todas las configuraciones que podemos cubrir con `package.json`. <br><br>
 

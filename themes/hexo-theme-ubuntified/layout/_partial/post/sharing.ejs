@@ -9,7 +9,7 @@ var addthis_perma = '';
 //     tw_perma = 'tw:url="%p"'.replace(/%p/, permalink);
 // }
 %>
-<% if (config.cookiecuttr || theme.cookiecuttr.enable) { %>
+<% if (config.cookiecuttr.enabled || theme.cookiecuttr.enabled) { %>
 <script>
   if (jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") {
     var addthis_config = addthis_config||{};

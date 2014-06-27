@@ -1,6 +1,6 @@
 <% if (config.disqus_shortname){ %>
 <script>
-<% if (config.cookiecuttr || theme.cookiecuttr.enable) { %>
+<% if (config.cookiecuttr.enabled || theme.cookiecuttr.enabled) { %>
 if (jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") {
 <% } %>
   var disqus_shortname = '<%= config.disqus_shortname %>';
@@ -14,7 +14,7 @@ if (jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") {
     dsq.src = '//go.disqus.com/<% if (page.comments){ %>embed.js<% } else { %>count.js<% } %>';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
-<% if (config.cookiecuttr || theme.cookiecuttr.enable) { %>
+<% if (config.cookiecuttr.enabled || theme.cookiecuttr.enabled) { %>
 }
 <% } %>
 </script>

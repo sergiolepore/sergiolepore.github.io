@@ -40,7 +40,7 @@ hexo.extend.tag.register('gist', function(args){
     htmlAttributes.push('data-gist-highlight-line="%s"'.replace(/%s/, parameters.highlight_line));
   }
   if (parameters.direct_link) {
-    placeholder = '<a href="%link" target="_blank" title="Ir a Gist %id">Enlace al código</a>'.replace(/%link/, parameters.direct_link).replace(/%id/, gist_id);
+    placeholder = '<a href="%link" target="_blank" title="Ir a Gist %id">> Enlace al código <</a>'.replace(/%link/, parameters.direct_link).replace(/%id/, gist_id);
   }
 
   return '<p><code %s>%placeholder</code></p>'.replace(/%s/, htmlAttributes.join(' ')).replace(/%placeholder/, placeholder);

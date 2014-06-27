@@ -273,31 +273,33 @@ body
 #no-cookies-disqus
   display none
 
-.no-cookies
-  #no-cookies-disqus
-    display block
-    text-align center
-    p
-      font-size 1em
-      color color-main
-    .cc-cookie-reset
-      margin-top 20px
-      background #f15b00
-      display inline-block
-      color #fff
-      text-decoration none
-      padding 0.5em 0.75em
-      border-radius 3px
-      box-shadow 0 0 2px rgba(0,0,0,0.25)
-      text-shadow 0 -1px 0 rgba(0,0,0,0.35)
+#no-cookies-disqus,
+.privacy-policy
+  text-align center
+  p
+    font-size 1em
+    color color-main
+  .cc-cookie-reset
+    margin-top 20px
+    background #f15b00
+    display inline-block
+    color #fff
+    text-decoration none
+    padding 0.5em 0.75em
+    border-radius 3px
+    box-shadow 0 0 2px rgba(0,0,0,0.25)
+    text-shadow 0 -1px 0 rgba(0,0,0,0.35)
+    -o-transition background 0.5s ease-in
+    -webkit-transition background 0.25s ease-in
+    -moz-transition background 0.25s ease-in
+    &:hover
+      background #000
       -o-transition background 0.5s ease-in
       -webkit-transition background 0.25s ease-in
       -moz-transition background 0.25s ease-in
-      &:hover
-        background #000
-        -o-transition background 0.5s ease-in
-        -webkit-transition background 0.25s ease-in
-        -moz-transition background 0.25s ease-in
+.no-cookies
+  #no-cookies-disqus
+    display block
   .meta
     .comments
       display none

@@ -55,7 +55,7 @@ if (page.permalink) html_classes = 'page-with-contents';
   <link rel="stylesheet" href="<%- config.root %>css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<% if (config.cookiecuttr || theme.cookiecuttr.enable) { %>
+<% if (config.cookiecuttr.enabled || theme.cookiecuttr.enabled) { %>
   <link rel="stylesheet" href="<%- config.root %>css/vendor/cookiecuttr.css">
   <script type="text/javascript" src="<%- config.root %>js/jquery.cookie.js"></script>
   <script type="text/javascript" src="<%- config.root %>js/jquery.cookiecuttr.js"></script>
@@ -66,11 +66,24 @@ if (page.permalink) html_classes = 'page-with-contents';
         cookieWhatAreTheyLink: '<%- theme.cookiecuttr.help_site %>',
         cookieDeclineButton: true,
         cookieResetButton: false,
-        cookieDomain: 'sergiolepore.net',
+        cookieDomain: 'www.sergiolepore.net',
         cookieAcceptButtonText: 'Aceptar Cookies',
         cookieDeclineButtonText: 'Rechazar Cookies',
         cookieResetButtonText: 'Restablecer Cookies',
-        cookieWhatAreLinkText: '¿Qué son las Cookies?'
+        cookieWhatAreLinkText: '¿Qué significa esto?'
+      });
+
+      //reset cookies
+      $('#no-cookies-disqus a.cc-cookie-reset, .privacy-policy a.cc-cookie-reset').click(function (e) {
+        e.preventDefault();
+        $.cookie("cc_cookie_accept", null, {
+          path: '/'
+        });
+        $.cookie("cc_cookie_decline", null, {
+          path: '/'
+        });
+        
+        location.reload();
       });
     });
   </script>

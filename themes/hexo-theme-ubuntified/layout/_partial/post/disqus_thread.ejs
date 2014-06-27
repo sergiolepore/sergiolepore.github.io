@@ -7,17 +7,3 @@
     <p>Los comentarios están deshabilitados debido a que has rechazado las cookies en este sitio.</p>
     <a href="#" class="cc-cookie-reset">Restablecer Cookies</a>
 </div>
-<script>
-  //reset cookies
-  $('#no-cookies-disqus a.cc-cookie-reset').click(function (e) {
-    e.preventDefault();
-    $.cookie("cc_cookie_accept", null, {
-      path: '/'
-    });
-    $.cookie("cc_cookie_decline", null, {
-      path: '/'
-    });
-    
-    location.reload();
-  });
-</script>
