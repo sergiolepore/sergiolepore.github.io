@@ -42,7 +42,7 @@ Las Políticas de Privacidad se encuentran [aquí](https://help.disqus.com/custo
 
 __Servicio:__ [YouTube](https://www.youtube.com/)
 
-Este sitio web hace uso de vídeos incrustados de `YouTube` con la opción de "modo de mejora de la privacidad". Esto permite que no se almacenen cookies en el navegador del usuario a no ser que éste haga clic en el vídeo para reproducirlo.
+Este sitio web hace uso de vídeos incrustados de `YouTube` con la opción de "modo de mejora de la privacidad". Esto permite que no se almacenen cookies en el navegador del usuario a no ser que el usuario mismo haga clic en el vídeo para reproducirlo.
 Para conocer más sobre este tema, visita [este enlace](https://support.google.com/youtube/answer/171780?hl=es).
 <br>
 
