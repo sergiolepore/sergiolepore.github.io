@@ -1,7 +1,0 @@
-title: "Error 404 - Page not found!"
-date: 2014-06-18 19:07:06
-comments: false
-sharing: false
----
-
-Oops! Página no encontrada.

@@ -1,56 +1,57 @@
 <% 
+var lang = config.language || false;
+
 var html_classes = '';
 if (page.permalink) html_classes = 'page-with-contents';
+
+var title = [];
+if (page.current > 1) title.push(__('page', page.current));
+if (page.title) title.push(page.title);
+if (page.category) title.push(page.category);
+if (page.tag) title.push(page.tag);
+if (page.archive){
+  if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
+  else title.push(__('archive_a'));
+}
+title.push(config.title);
+
+var description = '';
+if (page.description) {
+  description = page.description;
+} else if (page.excerpt) {
+  description = strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '');
+} else if (config.description) {
+  description = strip_html(config.description).replace(/^\s*/, '').replace(/\s*$/, '');
+} else if (page.content) {
+  description = strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150);
+}
+
+var socialMediaTitle = '';
+if (page.title) {
+  socialMediaTitle = page.title;
+}
+
+var socialMediaImage = null;
+var absoluteUrlRegExp = new RegExp('^(?:[a-z]+:)?//', 'i');
+if (page.socialmedia_image) {
+  if (absoluteUrlRegExp.test(page.socialmedia_image)) {
+    socialMediaImage = page.socialmedia_image;
+  } else {
+    socialMediaImage = config.url + config.root + page.socialmedia_image;
+  }
+}
+
+var rss_link = '';
+if (theme.rss.url) {
+  rss_link = theme.rss.url;
+} else {
+  rss_link = url_for('atom.xml');
+}
 %>
 <!DOCTYPE HTML>
-<html class="<%- html_classes %>">
+<html class="<%- html_classes %>" <% if (lang) { %>lang="<%- lang %>"<% } %>>
 <head>
   <meta charset="utf-8">
-<%
-  var title = [];
-  if (page.current > 1) title.push(__('page', page.current));
-  if (page.title) title.push(page.title);
-  if (page.category) title.push(page.category);
-  if (page.tag) title.push(page.tag);
-  if (page.archive){
-    if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
-    else title.push(__('archive_a'));
-  }
-  title.push(config.title);
-
-  var description = '';
-  if (page.description) {
-    description = page.description;
-  } else if (page.excerpt) {
-    description = strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '');
-  } else if (config.description) {
-    description = strip_html(config.description).replace(/^\s*/, '').replace(/\s*$/, '');
-  } else if (page.content) {
-    description = strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150);
-  }
-
-  var socialMediaTitle = '';
-  if (page.title) {
-    socialMediaTitle = page.title;
-  }
-
-  var socialMediaImage = null;
-  var absoluteUrlRegExp = new RegExp('^(?:[a-z]+:)?//', 'i');
-  if (page.socialmedia_image) {
-    if (absoluteUrlRegExp.test(page.socialmedia_image)) {
-      socialMediaImage = page.socialmedia_image;
-    } else {
-      socialMediaImage = config.url + config.root + page.socialmedia_image;
-    }
-  }
-
-  var rss_link = '';
-  if (theme.rss.url) {
-    rss_link = theme.rss.url;
-  } else {
-    rss_link = url_for('atom.xml');
-  }
-%>
   <title><%= title.join(' | ') %></title>
 <% if (config.author){ %>
   <meta name="author" content="<%= config.author %>">
