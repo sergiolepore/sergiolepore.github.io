@@ -14,16 +14,12 @@ Soy seguidor de KimDotCom en [Twitter](http://twitter.com/KimDotCom). Casi siemp
 <!-- more -->
 
 <blockquote class="twitter-tweet" lang="en"><p>Must read: WIRED about the NEW Mega. <a href="http://t.co/1JkJRaga">http://t.co/1JkJRaga</a></p>&mdash; Kim Dotcom (@KimDotcom) <a href="https://twitter.com/KimDotcom/statuses/258911298862080001">October 18, 2012</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <blockquote class="twitter-tweet" lang="en"><p>Meeeeeeegaaaaaaaa!!!</p>&mdash; Kim Dotcom (@KimDotcom) <a href="https://twitter.com/KimDotcom/statuses/258766086529507328">October 18, 2012</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <blockquote class="twitter-tweet" lang="en"><p>Picture time: MEGAAAA ;-) <a href="http://t.co/5inM3qSd">pic.twitter.com/5inM3qSd</a></p>&mdash; Kim Dotcom (@KimDotcom) <a href="https://twitter.com/KimDotcom/statuses/257788224628457472">October 15, 2012</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <blockquote class="twitter-tweet" lang="en"><p>Quick update on the new Mega: Code 90% done. Servers on the way. Lawyers, Partners &amp; Investors ready. Be patient. It&#39;s coming.</p>&mdash; Kim Dotcom (@KimDotcom) <a href="https://twitter.com/KimDotcom/statuses/249301311647014912">September 22, 2012</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Todo esto simplemente podría haber ser una abreviación cariñosa a la marca __Megaupload__, pero no.
 

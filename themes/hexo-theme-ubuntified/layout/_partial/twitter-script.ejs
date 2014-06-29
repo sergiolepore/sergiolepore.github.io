@@ -1,0 +1,19 @@
+<%
+var scriptUrl = '//platform.twitter.com/widgets.js';
+%>
+<% if (config.cookiecuttr.enabled || theme.cookiecuttr.enabled) { %>
+<script>
+  if (jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") {
+    $(document).ready(function () {
+      (function(window,document,url,undefined) {
+        var twScript = document.createElement('script');
+        twScript.setAttribute('src', url);
+        twScript.setAttribute('async', true);
+        document.body.appendChild(twScript);
+      })(window,document,'<%- scriptUrl %>');
+    });
+  }
+</script>
+<% } else { %>
+<script async src="<%- scriptUrl %>" charset="utf-8"></script>
+<% } %>
