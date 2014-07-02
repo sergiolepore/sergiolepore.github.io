@@ -120,5 +120,5 @@ feed:
   limit: 200
 
 cookiecuttr:
-  enabled: true
+  enabled: false
   
