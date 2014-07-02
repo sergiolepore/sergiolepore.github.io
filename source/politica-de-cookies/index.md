@@ -19,7 +19,7 @@ Con propósitos de mantenimiento periódico y de garantizar la mejor experiencia
 
 __Servicio:__ [AddThis](http://www.addthis.com/) (incluye [Twitter](http://www.twitter.com/), [Facebook](http://www.facebook.com/) y [Google+](http://plus.google.com/)).
 
-Esta web hace uso del servicio de `AddThis` con ninguna otra finalidad más que el usuario tenga la posibilidad de compartir con su círculo social aquellos contenidos que le resulten de interés. Las únicas redes sociales que se enlazan en este sitio a través de `AddThis` son `Twitter, Facebook y Google+`. En caso de rechazar las cookies, las *botoneras sociales* desaparecerán en todo el sitio.
+Esta web hace uso del servicio de `AddThis` con ninguna otra finalidad más que el usuario tenga la posibilidad de compartir con su círculo social aquellos contenidos que le resulten de interés. Las únicas redes sociales que se enlazan en este sitio a través de `AddThis` son `Twitter, Facebook y Google+`.
 Si quieres conocer más acerca de las políticas de privacidad de estos servicios, te invito a visitar:
 
 * AddThis: [Privacidad y Políticas de Datos](http://www.addthis.com/privacy)
@@ -34,7 +34,6 @@ Si quieres conocer más acerca de las políticas de privacidad de estos servicio
 __Servicio:__ [Disqus](http://www.disqus.com/).
 
 Debido a que este sitio web consiste únicamente en archivos estáticos (puedes chequearlo [aquí](https://github.com/sergiolepore/sergiolepore.github.io)), el mismo no cuenta con un sistema de comentarios propio. Para brindar un medio de interacción entre mis lectores y yo, el sitio integra el sistema de comentarios de `Disqus`. Las cookies de este servicio le permiten al usuario dejar mensajes con una única cuenta en múltiples sitios que integren este sistema.
-En caso de rechazar las cookies, la sección de comentarios de cada página del sitio estará deshabilitada.
 Las Políticas de Privacidad se encuentran [aquí](https://help.disqus.com/customer/portal/articles/466259-privacy-policy).
 <br>
 
@@ -44,8 +43,8 @@ __Servicio:__ [YouTube](https://www.youtube.com/)
 
 Este sitio web hace uso de vídeos incrustados de `YouTube` con la opción de "modo de mejora de la privacidad". Esto permite que no se almacenen cookies en el navegador del usuario a no ser que el usuario mismo haga clic en el vídeo para reproducirlo.
 Para conocer más sobre este tema, visita [este enlace](https://support.google.com/youtube/answer/171780?hl=es).
-<br>
 
+{% ignore %}
 # Deshabilitando las cookies
 
 ## Modo 1: proceso de un clic
@@ -85,3 +84,4 @@ Al oprimir el siguiente botón, el navegador recargará la página y el *banner*
 <div class="privacy-policy">
     <a href="#" class="cc-cookie-reset">Restablecer Preferencias</a>
 </div>
+{% endignore %}
