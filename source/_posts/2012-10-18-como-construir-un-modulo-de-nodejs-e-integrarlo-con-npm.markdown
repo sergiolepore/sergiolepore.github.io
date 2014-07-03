@@ -28,7 +28,7 @@ Tal cual lo dice su [sitio oficial](http://nodejs.org/), Node.js es una platafor
 _npm_ es el gestor de paquetes de Node.js por excelencia. Esta una herramienta de línea de comandos que __permite gestionar todas las dependencias de una aplicación hecha en Node.js.__ Si, por ejemplo, queremos usar el módulo de [underscore](https://github.com/jashkenas/underscore) en nuestro proyecto, solo tenemos que ejecutar el siguiente comando:
 
 {% shellcode %}
-npm install underscore
+%cmd|npm install underscore
 {% endshellcode %}
 
 Puedes encontrar más info de _npm_ en su [sitio oficial](http://npmjs.org/).
@@ -103,7 +103,7 @@ Mucho mejor. Con esta forma de aislar parámetros con sus reemplazos podemos jug
 Y ejecutamos:
 
 {% shellcode {"cwd":"~/Proyecto/PaqueteNodejs"} %}
-node lib/param_replacer.js
+%cmd|node lib/param_replacer.js
 {% endshellcode %}
 
 Bien, con esto ya tenemos la funcionalidad principal cubierta. Pero no es más que simple Javascript. ¿Dónde está la magia de _Node.js_ y _npm_? Sigamos debajo... <br><br>
@@ -135,7 +135,7 @@ Para ver a nuestro renovado replacer en acción, copiar el siguiente código en 
 Y ejecutamos:
 
 {% shellcode {"cwd":"~/Proyecto/PaqueteNodejs"} %}
-node index.js
+%cmd|node index.js
 {% endshellcode %}
 
 Genial, nuestra aplicación se comporta de la misma manera, pero ahora es modular {% emoji smile %} ¿Qué mas hay que hacer? <br><br>
@@ -206,7 +206,7 @@ Simplemente ingresando en la [página de registro](https://npmjs.org/signup), po
 A continuación, vas a la consola y ejecutas:
 
 {% shellcode {"cwd":"~/Proyecto/PaqueteNodejs"} %}
-npm adduser
+%cmd|npm adduser
 {% endshellcode %}
 
 Provees tus credenciales y listo. <br><br>
@@ -216,7 +216,7 @@ Provees tus credenciales y listo. <br><br>
 Decidí llamarlo así ya que no se usan los métodos web, sino que se usa la aplicación de consola. Ejecutar lo siguiente:
 
 {% shellcode {"cwd":"~/Proyecto/PaqueteNodejs"} %}
-npm adduser
+%cmd|npm adduser
 {% endshellcode %}
 
 Es el mismo comando que usamos en la forma trivial. El mismo registra un nuevo usuario y configura, o configura solamente tu cuenta, dependiendo de si tenias un usuario registrado previamente (caso de que hayas registrado en web, o cambies de PC).
@@ -228,19 +228,19 @@ Para finalizar, sigues los pasos y ¡voila! Ya podemos publicar nuestro trabajo.
 Asegúrate de estar en el directorio principal (donde está el `package.json`). Una vez ahí, ejecuta:
 
 {% shellcode {"cwd":"~/Proyecto/PaqueteNodejs"} %}
-npm publish
+%cmd|npm publish
 {% endshellcode %}
 
 Ahora intenta instalarlo en alguno de tus proyectos:
 
 {% shellcode {"cwd":"~/Proyecto/OtroProyecto"} %}
-npm install param_replacer
+%cmd|npm install param_replacer
 {% endshellcode %}
 
 O instálalo para que esté disponible de modo global (en todos tus proyectos):
 
 {% shellcode %}
-npm install -g param_replacer
+%cmd|npm install -g param_replacer
 {% endshellcode %}
 
 <br><br>

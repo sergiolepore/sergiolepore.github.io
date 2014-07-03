@@ -81,8 +81,11 @@ if (theme.rss.url) {
   <link rel="alternate" href="<%- rss_link %>" title="<%- config.title %>" type="application/atom+xml">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<%- config.root %>css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="<%- config.root %>css/vendor/powertip/jquery.powertip.min.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="<%- config.root %>js/jquery.powertip.min.js"></script>
+  <script type="text/javascript" src="<%- config.root %>js/terminal.selecttext.js"></script>
 <% if (config.cookiecuttr.enabled || theme.cookiecuttr.enabled) { %>
   <link rel="stylesheet" href="<%- config.root %>css/vendor/cookiecuttr.css">
   <script type="text/javascript" src="<%- config.root %>js/jquery.cookie.js"></script>

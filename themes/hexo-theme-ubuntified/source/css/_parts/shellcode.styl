@@ -22,12 +22,21 @@ terminal-btnclose-color2 = #f08162
     color terminal-line-color
     // text-shadow 0px -1px 0px #333
     text-shadow 1px 1px 1px rgba(0,0,0,0.3)
+    font-family font-mono
+    font-size .9em
     padding 5px
     .cursor
       animation(fall 1s linear infinite)
     .terminal-line
+      cursor pointer
       &:hover
         background #422439
+      &::selection
+        background terminal-btnclose-color2
+    .terminal-output-line
+      white-space pre-wrap
+      &::selection
+        background terminal-btnclose-color2
   .head
     height 30px
     text-overflow ellipsis
@@ -38,7 +47,7 @@ terminal-btnclose-color2 = #f08162
       font-size 14px
       font-weight bold
       color terminal-title-color
-      text-shadow 0px -1px 0px #333
+      // text-shadow 0px -1px 0px #333
       margin-left 10px
     .btn
       cursor pointer

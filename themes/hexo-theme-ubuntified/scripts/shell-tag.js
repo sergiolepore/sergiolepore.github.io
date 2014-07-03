@@ -1,3 +1,4 @@
+var he = require('he');
 
 /**
 * Shell tag
@@ -18,6 +19,7 @@ hexo.extend.tag.register('shellcode', function(args, content){
   var htmlClasses = Array();
   var htmlTemplate = '';
   var lineTemplate = '';
+  var outputLineTemplate = '';
   var lineArray = Array();
   var indicator = '$';
   var user = 'you';
@@ -51,13 +53,21 @@ hexo.extend.tag.register('shellcode', function(args, content){
     </div>\
   ";
 
-  lineTemplate = "\
-    %user@%host:%cwd%indicator <span class='terminal-line'>%line</span>\
-    <br>\
-  ";
+  lineTemplate = "%user@%host:%cwd%indicator <span class='terminal-line'>%line</span>";
+  outputLineTemplate = "<span class='terminal-output-line'>%line</span>";
+
+  var tmpLine;
 
   for (var i = 0; i < lineArray.length; i++) {
-    lineArray[i] = lineTemplate.replace(/%line/g, lineArray[i]);
+    tmpLine = he.encode(lineArray[i]);
+
+    if (tmpLine.substring(0,5) == '%cmd|') {
+      tmpLine = lineTemplate.replace(/%line/g, tmpLine.replace(/%cmd\|/g, ''));
+    } else {
+      tmpLine = outputLineTemplate.replace(/%line/g, tmpLine);
+    }
+
+    lineArray[i] = tmpLine + '<br>';
   }
 
   return htmlTemplate

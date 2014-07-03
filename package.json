@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "cheerio": "^0.13.1",
+    "he": "^0.4.1",
     "hexo-broken-link-checker": "^1.0.1",
     "hexo-generator-feed": "^0.1.0",
     "hexo-renderer-ejs": "^0.1.0",

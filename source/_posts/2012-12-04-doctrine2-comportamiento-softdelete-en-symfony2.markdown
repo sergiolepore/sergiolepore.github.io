@@ -33,7 +33,7 @@ Usando `composer.phar`, la instalación de módulos, bundles, extensiones o plug
 Guardamos el archivo y procedemos a actualizar las dependencias de nuestro proyecto:
 
 {% shellcode {"cwd":"~/SymfonyProject"} %}
-php composer.phar update
+%cmd|php composer.phar update
 {% endshellcode %}
 
 <br>
