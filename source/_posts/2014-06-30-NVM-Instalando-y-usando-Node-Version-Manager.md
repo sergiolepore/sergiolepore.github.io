@@ -14,7 +14,7 @@ Lo que hoy vengo a enseñarles es una de las mejores formas de gestionar un ambi
 <br>
 
 ## ¡Atención!
-Este artículo viene acompañado de un tutorial en _YouTube_. Puedes seguir todo el tutorial en vídeo o simplemente leer este artículo. En ambos lugares encontarás exactamente lo mismo.
+Este artículo viene acompañado de un tutorial en _YouTube_. Puedes seguir todo el tutorial en vídeo o simplemente leer este artículo. En ambos lugares encontrarás exactamente lo mismo.
 <br>
 
 # Guía en YouTube
