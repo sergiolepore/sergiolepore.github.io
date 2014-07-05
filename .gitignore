@@ -6,3 +6,4 @@ temp
 .deploy
 public
 debug.log
+npm-debug.log

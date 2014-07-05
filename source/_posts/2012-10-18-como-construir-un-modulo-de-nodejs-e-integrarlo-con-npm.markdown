@@ -7,7 +7,7 @@ categories:
 tags: [Desarrollo, Node.js, Tutoriales, npmjs]
 ---
 
-{% img left /images/misc/npm.png %}
+{% img left /images/misc/npm.png 240 %}
 
 ¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de _Node.js_ acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma {% emoji blush %}
 
