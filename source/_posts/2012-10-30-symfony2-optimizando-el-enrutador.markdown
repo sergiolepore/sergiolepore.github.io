@@ -1,6 +1,5 @@
----
 layout: post
-title: "#Symfony2 - Optimizando el Enrutador"
+title: "Symfony2 - Optimizando el Enrutador"
 date: 2012-10-30 12:47
 comments: true
 categories: 

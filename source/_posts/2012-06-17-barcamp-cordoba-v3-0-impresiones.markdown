@@ -1,4 +1,3 @@
----
 layout: post
 title: "Barcamp Córdoba V3.0 - Impresiones"
 date: 2012-06-17 18:27

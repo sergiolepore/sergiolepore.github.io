@@ -1,4 +1,3 @@
----
 layout: post
 title: "MEGA: El nuevo nombre de #Megaupload"
 date: 2012-10-18 19:55

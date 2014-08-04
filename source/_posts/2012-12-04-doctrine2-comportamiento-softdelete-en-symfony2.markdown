@@ -1,7 +1,6 @@
----
 layout: post
-title: Doctrine2: Comportamiento softdelete en Symfony2
-description: Habilitando Doctrine2 Softdelete
+title: "Doctrine2: Comportamiento softdelete en Symfony2"
+description: "Habilitando Doctrine2 Softdelete"
 date: 2012-12-04 10:03
 comments: true
 categories: 

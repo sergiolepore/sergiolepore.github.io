@@ -1,4 +1,3 @@
----
 layout: post
 title: "Frase motivadora del día - #1"
 date: 2012-09-12 17:38

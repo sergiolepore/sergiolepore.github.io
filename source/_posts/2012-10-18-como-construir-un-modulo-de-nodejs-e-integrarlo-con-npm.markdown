@@ -1,4 +1,3 @@
----
 layout: post
 title: "Node.js: Cómo construir un paquete para npm"
 date: 2012-10-18 16:13

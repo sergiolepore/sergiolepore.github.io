@@ -1,4 +1,3 @@
----
 layout: post
 title: "HTML5 - Infografía sobre su historia"
 date: 2012-07-28 10:30
