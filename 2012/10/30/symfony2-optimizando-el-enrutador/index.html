@@ -3,7 +3,7 @@
 <html class="page-with-contents" lang="es">
 <head>
   <meta charset="utf-8">
-  <title>#Symfony2 - Optimizando el Enrutador | Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan</title>
+  <title>Symfony2 - Optimizando el Enrutador | Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan</title>
 
   <meta name="author" content="Sergio Lepore">
 
@@ -14,13 +14,13 @@ Es muy obvio, pero vale aclararlo, que todo este comportamiento tiene un efecto 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@sergiolepore" />
-  <meta name="twitter:title" content="#Symfony2 - Optimizando el Enrutador" />
+  <meta name="twitter:title" content="Symfony2 - Optimizando el Enrutador" />
   <meta name="twitter:description" content="¡Buenos días! Hoy les traigo un pequeño “truquito” para mejorar el rendimiento del enrutador de Symfony2 
 Si han trabajado con este pequeño framework, bien sabrán que la definición de rutas es muy maleable y abstracta, tanto así que permite que nos preocupemos solamente por el patrón y configuraciones que la conformarán, pero no por la lógica de ruteo en sí misma. Esta lógica está implementada por las clases de Routing de Sf2, que se encargan de leer los archivos de configuración, hacen matches contra las peticiones y luego despachan el request a donde corresponda. Fácil, ¿no?
 Es muy obvio, pero vale aclararlo, que todo este comportamiento tiene un efecto negativo en el rendimiento, tanto así que es necesario optimizarlo lo más que se pueda. Symfony2 optimiza el proceso de match de rutas mediante la compilación de los archivos de routing en un archivo ubicado en la cache (ver app/cache/prod/appprodUrlMatcher.php), pero aún así el proceso sigue siendo perjudicial para nuestro proyecto. ¿Por qué? Porque seguimos dependiendo de PHP para manejar las reglas de matching de URL. ¿Y que tal si las expresiones regulares las maneja nuestro servidor web? Eso es lo que quiero compartirles hoy." />
   <meta name="twitter:creator" content="@sergiolepore">
 
-  <meta property="og:title" content="#Symfony2 - Optimizando el Enrutador" /> 
+  <meta property="og:title" content="Symfony2 - Optimizando el Enrutador" /> 
   <meta property="og:type" content="article" /> 
   <meta property="og:url" content="http://www.sergiolepore.net/2012/10/30/symfony2-optimizando-el-enrutador/" />
 
@@ -145,7 +145,7 @@ Es muy obvio, pero vale aclararlo, que todo este comportamiento tiene un efecto 
 
 </div>
   </div>
-  <h1 class="title" itemprop="name">#Symfony2 - Optimizando el Enrutador</h1>
+  <h1 class="title" itemprop="name">Symfony2 - Optimizando el Enrutador</h1>
   <div class="entry-content" itemprop="articleBody"><img src="/images/programming/symfony/symfony2-books.jpg" class="left">
 
 <p>¡Buenos días! Hoy les traigo un pequeño <em>“truquito”</em> para <strong>mejorar el rendimiento del enrutador de Symfony2</strong> <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"></p>

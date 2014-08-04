@@ -3,39 +3,24 @@
 <html class="page-with-contents" lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan</title>
+  <title>Doctrine2: Comportamiento softdelete en Symfony2 | Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan</title>
 
   <meta name="author" content="Sergio Lepore">
 
-  <meta name="description" content="layout: posttitle: Doctrine2: Comportamiento softdelete en Symfony2description: Habilitando Doctrine2 Softdeletedate: 2012-12-04 10:03comments: truecategories: 
-tags: [Desarrollo, PHP, Symfony, Tutoriales]
-
-
-¡Buenos días! ¡Mucho tiempo que no compartía un artículo con ustedes! Hoy les traigo un pequeño how-to sobre cómo habilitar la funcionalidad SoftDeleteable de Doctrine2 usando Symfony2.
-Para los que alguna vez usamos la primera versión de Doctrine, bien recordamos que el comportamiento de SoftDelete era nativo en el ORM. Con la versión 2 las cosas han cambiado. Este tipo de funciones ya no son nativas pero se pueden habilitar a través de extensiones.">
+  <meta name="description" content="Habilitando Doctrine2 Softdelete">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@sergiolepore" />
-  <meta name="twitter:title" content="Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan" />
-  <meta name="twitter:description" content="layout: posttitle: Doctrine2: Comportamiento softdelete en Symfony2description: Habilitando Doctrine2 Softdeletedate: 2012-12-04 10:03comments: truecategories: 
-tags: [Desarrollo, PHP, Symfony, Tutoriales]
-
-
-¡Buenos días! ¡Mucho tiempo que no compartía un artículo con ustedes! Hoy les traigo un pequeño how-to sobre cómo habilitar la funcionalidad SoftDeleteable de Doctrine2 usando Symfony2.
-Para los que alguna vez usamos la primera versión de Doctrine, bien recordamos que el comportamiento de SoftDelete era nativo en el ORM. Con la versión 2 las cosas han cambiado. Este tipo de funciones ya no son nativas pero se pueden habilitar a través de extensiones." />
+  <meta name="twitter:title" content="Doctrine2: Comportamiento softdelete en Symfony2" />
+  <meta name="twitter:description" content="Habilitando Doctrine2 Softdelete" />
   <meta name="twitter:creator" content="@sergiolepore">
 
-  <meta property="og:title" content="Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan" /> 
+  <meta property="og:title" content="Doctrine2: Comportamiento softdelete en Symfony2" /> 
   <meta property="og:type" content="article" /> 
   <meta property="og:url" content="http://www.sergiolepore.net/2012/12/04/doctrine2-comportamiento-softdelete-en-symfony2/" />
 
-  <meta property="og:description" content="layout: posttitle: Doctrine2: Comportamiento softdelete en Symfony2description: Habilitando Doctrine2 Softdeletedate: 2012-12-04 10:03comments: truecategories: 
-tags: [Desarrollo, PHP, Symfony, Tutoriales]
-
-
-¡Buenos días! ¡Mucho tiempo que no compartía un artículo con ustedes! Hoy les traigo un pequeño how-to sobre cómo habilitar la funcionalidad SoftDeleteable de Doctrine2 usando Symfony2.
-Para los que alguna vez usamos la primera versión de Doctrine, bien recordamos que el comportamiento de SoftDelete era nativo en el ORM. Con la versión 2 las cosas han cambiado. Este tipo de funciones ya no son nativas pero se pueden habilitar a través de extensiones." /> 
+  <meta property="og:description" content="Habilitando Doctrine2 Softdelete" /> 
   <meta property="og:site_name" content="Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan" /> 
   <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="http://feeds.feedburner.com/SergioLepore" title="Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan" type="application/atom+xml">
@@ -146,7 +131,7 @@ Para los que alguna vez usamos la primera versión de Doctrine, bien recordamos 
 <div>
   <em class="fa fa-calendar"></em>
 
-  <time datetime="2012-12-04T03:00:00.000Z" data-updated="true" itemprop="datePublished">
+  <time datetime="2012-12-04T13:03:00.000Z" data-updated="true" itemprop="datePublished">
       martes, dic. 04, 2012
   </time>
 
@@ -154,11 +139,8 @@ Para los que alguna vez usamos la primera versión de Doctrine, bien recordamos 
 
 </div>
   </div>
-  <h1 class="title" itemprop="name"></h1>
-  <div class="entry-content" itemprop="articleBody"><hr>
-<p>layout: post<br>title: Doctrine2: Comportamiento softdelete en Symfony2<br>description: Habilitando Doctrine2 Softdelete<br>date: 2012-12-04 10:03<br>comments: true<br>categories: </p>
-<h2 id="tags:_[Desarrollo,_PHP,_Symfony,_Tutoriales]">tags: [Desarrollo, PHP, Symfony, Tutoriales]</h2>
-<img src="/images/programming/symfony/symfony2-books.jpg" class="left">
+  <h1 class="title" itemprop="name">Doctrine2: Comportamiento softdelete en Symfony2</h1>
+  <div class="entry-content" itemprop="articleBody"><img src="/images/programming/symfony/symfony2-books.jpg" class="left">
 
 <p>¡Buenos días! ¡Mucho tiempo que no compartía un artículo con ustedes! Hoy les traigo un pequeño <em>how-to</em> sobre cómo <strong>habilitar la funcionalidad SoftDeleteable de Doctrine2 usando Symfony2.</strong></p>
 <p>Para los que alguna vez usamos la primera versión de <strong>Doctrine</strong>, bien recordamos que el comportamiento de <em>SoftDelete</em> era nativo en el ORM. Con la versión 2 las cosas han cambiado. Este tipo de funciones ya no son nativas pero se pueden habilitar a través de extensiones.<br><br><a id="more"></a></p>
@@ -208,6 +190,12 @@ Para los que alguna vez usamos la primera versión de Doctrine, bien recordamos 
 
   <div class="post-tags">
     
+
+  
+  <div>
+    <em class="fa fa-tags"></em>
+    <a href="/tags/desarrollo/">Desarrollo</a>, <a href="/tags/php/">PHP</a>, <a href="/tags/symfony/">Symfony</a>, <a href="/tags/tutoriales/">Tutoriales</a>
+  </div>
 
   </div>
 </article>
