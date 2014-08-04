@@ -1,19 +1,19 @@
 menu:
-  Home: /
-  Archives: archivos
+  Home: "/"
+  Archives: "archivos"
   page:
     Blog: ""
-    Archivos: archivos
-    Proyectos: proyectos
-    Speaking: conferencias
-    Acerca: acerca-de-sergio
+    Archivos: "archivos"
+    Proyectos: "proyectos"
+    Speaking: "conferencias"
+    Acerca: "acerca-de-sergio"
 
-excerpt_link: Seguir leyendo
+excerpt_link: "Seguir leyendo"
 
 cookiecuttr:
   enabled: false
   text: "Este sitio utiliza cookies de analíticas, redes sociales y otros servicios. No almaceno ningún dato personal, no te preocupes. "
-  help_site: /politica-de-cookies/
+  help_site: "/politica-de-cookies/"
 
 fancybox: false
 gist_embed: true
@@ -28,26 +28,26 @@ social:
   feedly: true
 
 twitter:
-  username: sergiolepore
+  username: "sergiolepore"
 
 github:
-  username: sergiolepore
+  username: "sergiolepore"
 
 slides:
-  username: sergiolepore
+  username: "sergiolepore"
 
 youtube:
-  username: SergeLepore
+  username: "SergeLepore"
 
 addthis:
-  publid: ra-539e45f314b39d3f
+  publid: "ra-539e45f314b39d3f"
 
 rss:
-  url: http://feeds.feedburner.com/SergioLepore
+  url: "http://feeds.feedburner.com/SergioLepore"
 
 feedly:
   url: "http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ffeeds.feedburner.com%2FSergioLepore"
 
 googleplus:
   # userid: 110980664977106161747
-  userid: +SergioDanielLepore
+  userid: "+SergioDanielLepore"

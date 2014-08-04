@@ -1,12 +1,12 @@
-categories: Categorías
-search: Buscar
-tags: Tags
-tagcloud: Nube de tags
-tweets: Tweets
-prev: Anterior
-next: Siguiente
-comment: Comentarios
-archive_a: Archivos
-archive_b: Archivos: %s
-page: Página %d
-recent_posts: Posts recientes
+categories: "Categorías"
+search: "Buscar"
+tags: "Tags"
+tagcloud: "Nube de tags"
+tweets: "Tweets"
+prev: "Anterior"
+next: "Siguiente"
+comment: "Comentarios"
+archive_a: "Archivos"
+archive_b: "Archivos: %s"
+page: "Página %d"
+recent_posts: "Posts recientes"
