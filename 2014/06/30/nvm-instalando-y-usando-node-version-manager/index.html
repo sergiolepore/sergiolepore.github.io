@@ -1,0 +1,362 @@
+
+<!DOCTYPE HTML>
+<html class="page-with-contents" lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>NVM: Instalando y usando Node Version Manager | Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan</title>
+
+  <meta name="author" content="Sergio Lepore">
+
+  <meta name="description" content="Tutorial de introducción a la gestión de versiones de Node.js con NVM.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@sergiolepore" />
+  <meta name="twitter:title" content="NVM: Instalando y usando Node Version Manager" />
+  <meta name="twitter:description" content="Tutorial de introducción a la gestión de versiones de Node.js con NVM." />
+  <meta name="twitter:creator" content="@sergiolepore">
+
+  <meta name="twitter:image:src" content="http://www.sergiolepore.net/images/programming/nodejs/nvm-video-tutorial.png" />
+
+  <meta property="og:title" content="NVM: Instalando y usando Node Version Manager" /> 
+  <meta property="og:type" content="article" /> 
+  <meta property="og:url" content="http://www.sergiolepore.net/2014/06/30/nvm-instalando-y-usando-node-version-manager/" />
+
+  <meta property="og:image" content="http://www.sergiolepore.net/images/programming/nodejs/nvm-video-tutorial.png" />
+
+  <meta property="og:description" content="Tutorial de introducción a la gestión de versiones de Node.js con NVM." /> 
+  <meta property="og:site_name" content="Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan" /> 
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="http://feeds.feedburner.com/SergioLepore" title="Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/vendor/powertip/jquery.powertip.min.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.powertip.min.js"></script>
+  <script type="text/javascript" src="/js/terminal.selecttext.js"></script>
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39209084-1', 'sergiolepore.net');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.7/gist-embed.min.js"></script>
+
+
+</head>
+  <body>
+    <div class="container">
+      <div class="left-col">
+        <div class="intrude-less">
+          <header id="header" class="inner">
+            <div class="profilepic">
+  <a href="/">
+    <img src="/images/misc/sergio-lepore.png" alt='Profile Picture' style='width: 160px;' />
+  </a>
+</div><!-- profilepic -->
+<h1><a href="/">Sergio Lepore</a></h1>
+<nav id="main-nav">
+
+  <section class="aboutme">
+    <p>Básicamente, escribo código del mismo modo que un escritor escribe una novela.<br> <em>Open Source evangelist</em>.<br> Usuario orgulloso de <em class="ubuntu-hi">Ubuntu</em>.<br> Tratando de hacer una mella en el Universo.</p>
+  </section>
+
+  <ul class="main">
+  
+    <li>
+      <a href="/">Blog</a>
+    </li>
+  
+    <li>
+      <a href="/archivos">Archivos</a>
+    </li>
+  
+    <li>
+      <a href="/proyectos">Proyectos</a>
+    </li>
+  
+    <li>
+      <a href="/conferencias">Speaking</a>
+    </li>
+  
+    <li>
+      <a href="/acerca-de-sergio">Acerca</a>
+    </li>
+  
+  </ul>
+</nav><!-- main-nav -->
+<nav id="sub-nav">
+  <div class="social">
+  
+    <a class="google" href="https://plus.google.com/+SergioDanielLepore?rel=author" rel="author" title="Google+">Google+</a>
+  
+  
+    <a class="twitter" href="http://twitter.com/sergiolepore" title="Twitter">Twitter</a>
+  
+  
+    <a class="github" href="http://github.com/sergiolepore" title="Github">Github</a>
+  
+  
+    <a class="youtube" href="http://www.youtube.com/user/SergeLepore" title="YouTube">YouTube</a>
+  
+  
+    <a class="slides" href="http://slid.es/sergiolepore" title="Slides">Slides</a>
+  
+  
+    <a class="feedly" href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ffeeds.feedburner.com%2FSergioLepore" title="Feedly">Feedly</a>
+  
+  
+    <a class="rss" href="http://feeds.feedburner.com/SergioLepore" title="RSS">RSS</a>
+  
+  </div>
+</nav><!-- sub-nav -->
+          </header>
+        </div><!-- intrude-less -->
+      </div><!-- left-col -->
+      <div class="mid-col">
+        <div class="mid-col-container">
+          <div id="content" class="inner">
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <a name="top"></a>
+  
+  <div class="meta">
+    
+<div>
+  <em class="fa fa-calendar"></em>
+
+  <time datetime="2014-06-30T04:36:50.000Z" data-updated="true" itemprop="datePublished">
+      lunes, jun. 30, 2014
+  </time>
+
+
+
+</div>
+  </div>
+  <h1 class="title" itemprop="name">NVM: Instalando y usando Node Version Manager</h1>
+  <div class="entry-content" itemprop="articleBody"><p>¡Hola! He vuelto desde un tiempo de inactividad considerable (Diciembre de 2012 fue mi último post) y, desde ese tiempo, el blog ha sufrido muchos cambios. Lo que comenzó siendo un blog con <code>Wordpress</code> y un template gratuito, hoy es un blog <em>powered by <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a></em> y un template hecho completamente por mi. El tiempo nos cambia… En fin, <code>Hexo</code> será tema para otro artículo.</p>
+<p>Lo que hoy vengo a enseñarles es una de las mejores formas de gestionar un ambiente de <code>Node.js</code>, con todas sus dependencias y paquetes de <code>npm</code>. Hoy vengo a hablarles de <strong>NVM</strong>.<br><br></p>
+<h2 id="¡Atención!">¡Atención!</h2>
+<p>Este artículo viene acompañado de un tutorial en <em>YouTube</em>. Puedes seguir todo el tutorial en vídeo o simplemente leer este artículo. En ambos lugares encontrarás exactamente lo mismo.<br><br></p>
+<h1 id="Guía_en_YouTube">Guía en YouTube</h1>
+<div class="video-container"><iframe src="//www.youtube-nocookie.com/embed/SU8K8jj-fQs" frameborder="0" allowfullscreen></iframe></div><a class="fa  fa-youtube-play youtube-link" href="https://www.youtube.com/watch?v=SU8K8jj-fQs" title="YouTube Video" target="_blank" rel="external">Enlace a YouTube</a>
+
+<p><a id="more"></a></p>
+<hr>
+
+<h1 id="Guía_escrita">Guía escrita</h1>
+<p>Bien, veo que has decidido leer esta guía <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile">. ¡Vamos!<br><br></p>
+<h2 id="¿Qué_significa_NVM?">¿Qué significa NVM?</h2>
+<p>A estas alturas, es probable que estés preguntándote <em>¿qué es NVM?</em>. Si alguna vez has programado con <code>Ruby</code>, seguramente ya conoces <code>RVM</code>. <code>RVM</code> y <code>NVM</code> comparten una filosofía similar. <strong>NVM es el acrónimo de <em>“Node Version Manager”</em> o <em>“Gestor de Versiones de Node”</em></strong>, similar a RVM, que significa <em>“Ruby Version Manager”</em> o <em>“Gestor de Versiones de Ruby”</em>.<br>Este tipo de utilidades <strong>se encargan de controlar diferentes versiones de estos aplicativos en un mismo ambiente.</strong> En el caso de <code>NVM</code>, que es el que nos interesa, permite instalar múltiples versiones de <code>Node.js</code> y <code>npm</code> en un mismo ambiente, dejando cada una completamente aislada de las otras. Sí, puedes tener Node v0.4 y v0.11 instaladas en tu equipo y ejecutar una u otra según lo necesites. Genial, ¿no?.<br><br></p>
+<h2 id="Requerimientos">Requerimientos</h2>
+<p>Mi Sistema Operativo por preferencia es Ubuntu, una distribución de Linux. Todo este tutorial lo voy a llevar adelante sobre Ubuntu, pero puede funcionar bien para cualquier distribución Linux e Unix. Ubuntu, Debian, Fedora, MacOS, todos pueden seguir esta guía.</p>
+<p>Lo primero que vamos a necesitar es:</p>
+<ul>
+<li><code>curl</code>: necesario para descargar el script de instalación.</li>
+<li><code>build-essential</code>: necesario en caso de que vayamos a compilar Node.js desde el código fuente.</li>
+<li><code>libssl-dev</code>: ídem build-essential.</li>
+<li><code>git</code>: necesario porque el script de instalación descarga NVM desde un repositorio en Github.</li>
+</ul>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">sudo apt-get install -y curl build-essential libssl-dev git</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><br></p>
+<h2 id="Instalando_NVM">Instalando NVM</h2>
+<p>Primero, y antes que nada, debemos ir al repositorio de NVM en Github (<a href="https://github.com/creationix/nvm" target="_blank" rel="external">clic para ir</a>) y copiar la línea del instalador. A fecha de hoy, Domingo 29 de Junio de 2014, el instalador nos permite instalar la versión 0.10 de NVM. Es recomendable que vayas al repositorio y obtengas la última versión disponible.</p>
+<p><code>curl https://raw.githubusercontent.com/creationix/nvm/v0.10.0/install.sh | sh</code></p>
+<h4 id="¡ATENCIÓN!">¡ATENCIÓN!</h4>
+<p>A todos los usuarios de Ubuntu, principalmente: mucho cuidado al copiar instaladores de internet. Algunos caemos en este asunto de que mandamos <code>sh</code> a algún script de terceros. ¿Y el problema de esto? Muchos desarrolladores asumen que en todos los sistemas operativos, <code>sh</code> es alias de <code>bash</code>. Grave error. En Ubuntu, <code>sh</code> es alias de <code>dash</code>, una <em>shell</em> completamente diferente. ¿No me crees? Ejecuta:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">readlink /bin/sh</span><br><span class="terminal-output-line">dash</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Ja. Vemos ahora que el script de instalación depende de <code>bash</code> para ejecutarse, pero le encarga la tarea a <code>sh</code> (que es <code>dash</code>). ¿Cómo lo solucionamos? Fácil, reemplazamos <code>sh</code> por <code>bash</code> y ya estamos listos <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile">.</p>
+<p>Antes de continuar, tenemos que configurar el archivo de perfil de nuestra shell, necesario para que NVM se cargue a nuestro entorno. Si usamos Bash, nuestro archivo de perfil es <code>~/.bashrc</code>, si usamos ZSH, <code>~/.zshrc</code>. Yo uso bash en este tutorial, así que procedo como muestro a continuación:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">curl https://raw.githubusercontent.com/creationix/nvm/v0.10.0/install.sh | PROFILE=~/.bashrc bash</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Una vez terminada la instalación, cerrar la <em>terminal</em> y volver a abrirla.<br><br></p>
+<h2 id="Primeros_pasos_con_NVM">Primeros pasos con NVM</h2>
+<p>Si la instalación fue exitosa, al ejecutar <code>nvm</code> en nuestro terminal veremos el listado de comandos disponibles:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm</span><br><span class="terminal-output-line"></span><br><span class="terminal-output-line">Node Version Manager</span><br><span class="terminal-output-line"></span><br><span class="terminal-output-line">Usage:</span><br><span class="terminal-output-line">    nvm help                    Show this message</span><br><span class="terminal-output-line">    nvm --version               Print out the latest released version of nvm</span><br><span class="terminal-output-line">    nvm install [-s] &#x3C;version&#x3E;  Download and install a &#x3C;version&#x3E;, [-s] from source. Uses .nvmrc if available</span><br><span class="terminal-output-line">    nvm uninstall &#x3C;version&#x3E;     Uninstall a version</span><br><span class="terminal-output-line">    nvm use &#x3C;version&#x3E;           Modify PATH to use &#x3C;version&#x3E;. Uses .nvmrc if available</span><br><span class="terminal-output-line">    nvm run &#x3C;version&#x3E; [&#x3C;args&#x3E;]  Run &#x3C;version&#x3E; with &#x3C;args&#x3E; as arguments. Uses .nvmrc if available for &#x3C;version&#x3E;</span><br><span class="terminal-output-line">    nvm current                 Display currently activated version</span><br><span class="terminal-output-line">    nvm ls                      List installed versions</span><br><span class="terminal-output-line">    nvm ls &#x3C;version&#x3E;            List versions matching a given description</span><br><span class="terminal-output-line">    nvm ls-remote               List remote versions available for install</span><br><span class="terminal-output-line">    nvm deactivate              Undo effects of NVM on current shell</span><br><span class="terminal-output-line">    nvm alias [&#x3C;pattern&#x3E;]       Show all aliases beginning with &#x3C;pattern&#x3E;</span><br><span class="terminal-output-line">    nvm alias &#x3C;name&#x3E; &#x3C;version&#x3E;  Set an alias named &#x3C;name&#x3E; pointing to &#x3C;version&#x3E;</span><br><span class="terminal-output-line">    nvm unalias &#x3C;name&#x3E;          Deletes the alias named &#x3C;name&#x3E;</span><br><span class="terminal-output-line">    nvm copy-packages &#x3C;version&#x3E; Install global NPM packages contained in &#x3C;version&#x3E; to current version</span><br><span class="terminal-output-line">    nvm unload                  Unload NVM from shell</span><br><span class="terminal-output-line"></span><br><span class="terminal-output-line">Example:</span><br><span class="terminal-output-line">    nvm install v0.10.24        Install a specific version number</span><br><span class="terminal-output-line">    nvm use 0.10                Use the latest available 0.10.x release</span><br><span class="terminal-output-line">    nvm run 0.10.24 myApp.js    Run myApp.js using node v0.10.24</span><br><span class="terminal-output-line">    nvm alias default 0.10.24   Set default node version on a shell</span><br><span class="terminal-output-line"></span><br><span class="terminal-output-line">Note:</span><br><span class="terminal-output-line">    to remove, delete or uninstall nvm - just remove ~/.nvm, ~/.npm and ~/.bower folders</span><br><span class="terminal-output-line"></span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>En este tutorial vamos a ver:</p>
+<ul>
+<li><code>nvm install</code>: nos permite descargar e instalar una nueva versión de Node.js junto con npm.</li>
+<li><code>nvm use</code>: permite cambiar de una versión a otra.</li>
+<li><code>nvm run</code>: ejecuta una versión de node.</li>
+<li><code>nvm ls</code>: muestra las versiones instaladas en nuestro ambiente.</li>
+<li><code>nvm ls-remote</code>: muestra las versiones disponibles para descargar desde un servidor remoto.</li>
+</ul>
+<p><br></p>
+<h3 id="Buscando_una_versión_para_instalar">Buscando una versión para instalar</h3>
+<p>Ejecutando <code>nvm ls-remote</code> nos mostrará un listado de versiones listas para instalar. A día de hoy, 29 de Junio de 2014, la última versión disponible es la <code>v0.11.13</code>. Para instalar esta versión, podemos ejecutar un comando de dos formas diferentes. <strong>Mucha atención:</strong></p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm install v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Esa línea descargará los binarios ya compilados desde el servidor y los instalará en nuestro ambiente. Tan simple como eso. Sin embargo, existe una variante de este comando:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm install -s v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Agregando la opción <code>-s</code> al instalador, le estamos pidiendo que <strong>descargue el código fuente de Node.js y lo compile en nuestro ambiente</strong>. ¿Se entiende? Sin <code>-s</code>, descarga los binarios ya listos. Con <code>-s</code>, descarga el source y compila en nuestro ambiente. La ventaja de esta segunda opción es permitirnos personalizar la compilación de Node. Es para este proceso que necesitamos <code>build-essential</code> y <code>libssl-dev</code>, anteriormente instalados.</p>
+<p>Si la instalación fue exitosa, al ejecutar <code>node --version</code> nos tendría que mostrar la versión correcta.<br><br></p>
+<h3 id="Instalando_una_segunda_versión_de_Node">Instalando una segunda versión de Node</h3>
+<p>Hasta ahora, nada de lo que mostré parece ser sobresaliente si se compara con una instalación común y corriente de Node. La ventaja principal a la hora de usar <code>NVM</code> es poder instalar múltiples versiones de esta aplicación. Así que ahora vamos a probar los mismos pasos anteriores, pero con la versión v0.10.26:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm install v0.10.26</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Podemos comprobar que tenemos las dos versiones instaladas, si ejecutamos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">-&#x3E; v0.10.26</span><br><span class="terminal-output-line">   v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>La última versión instalada está marcada como <em>default</em>. ¿Y ahora?</p>
+<p>Intercambiar entre versiones de Node es sencillo, basta con usar el comando <code>nvm use</code> acompañado del número de versión. A modo de pruebas, vamos a crear un pequeño archivo <code>.js</code> que nos permita ver la versión de Node cada vez que lo invocamos. Algo así:</p>
+<p><code data-gist-id="f71a642a213f0b589e9d" data-gist-file="test.js"><a href="https://gist.githubusercontent.com/sergiolepore/f71a642a213f0b589e9d/raw/a678e0566274ef28f814f2fe9c5484837f621712/test.js" target="_blank" title="Ir a Gist f71a642a213f0b589e9d">> Enlace al código <</a></code></p>
+
+<p>Primero, ejecutamos Node como de costumbre. El proceso debería mostrar la versión y luego retornar a nuestra shell:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">node test.js</span><br><span class="terminal-output-line">v0.10.26</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Y ahora, lo interesante. Ejecutaremos <code>nvm use</code> para cambiar la versión de Node y usaremos nuestro script de pruebas para ver si el cambio fue exitoso:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm use v0.11.13</span><br><span class="terminal-output-line">Now using node v0.11.13</span><br>you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">   v0.10.26</span><br><span class="terminal-output-line">-&#x3E; v0.11.13</span><br>you@yourcomputer:~$ <span class="terminal-line">node test.js</span><br><span class="terminal-output-line">v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>¡Fantástico! ¿No? <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"><br><br></p>
+<h3 id="Bloqueando_versiones_de_Node-js_en_diferentes_proyectos">Bloqueando versiones de Node.js en diferentes proyectos</h3>
+<p>Otra cosa muy interesante que tiene <code>NVM</code> es la posibilidad de “bloquear” una versión de Node.js en algún directorio, por ejemplo, el directorio de uno de nuestros proyectos. Este bloqueo lo realiza valiendose de un <em>dotfile</em> de nombre <code>.nvmrc</code> cuyo contenido es únicamente una versión de Node.js. De esta manera, cuando ejecutamos Node en un directorio donde existe un <code>.nvmrc</code>, se ejecutará la versión especificada en este archivo.</p>
+<h4 id="¡Atención!-1">¡Atención!</h4>
+<p>Este <em>dotfile</em> sólo se tiene en cuenta si ejecutamos Node a través de <code>NVM</code>, con el comando <code>nvm run</code>. Veamos un ejemplo:</p>
+<ul>
+<li>Creamos el siguiente archivo en un directorio cualquiera.</li>
+</ul>
+<p><code data-gist-id="f71a642a213f0b589e9d" data-gist-file=".nvmrc"><a href="https://gist.githubusercontent.com/sergiolepore/f71a642a213f0b589e9d/raw/b3d8f8b6791a420760a72cb2302409369c223e30/.nvmrc" target="_blank" title="Ir a Gist f71a642a213f0b589e9d">> Enlace al código <</a></code></p>
+
+<ul>
+<li>Creamos un archivo para probar la versión de Node en uso, en el mismo directorio que el <em>dotfile</em></li>
+</ul>
+<p><code data-gist-id="f71a642a213f0b589e9d" data-gist-file="test-dotfile.js"><a href="https://gist.githubusercontent.com/sergiolepore/f71a642a213f0b589e9d/raw/42bb34634df9d8cfa31e6e56ebcfe8c89face9d6/test-dotfile.js" target="_blank" title="Ir a Gist f71a642a213f0b589e9d">> Enlace al código <</a></code></p>
+
+<ul>
+<li>Comprobamos que la versión de Node en uso es diferente a la versión del <code>.nvmrc</code></li>
+</ul>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">   v0.10.26</span><br><span class="terminal-output-line">-&#x3E; v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<ul>
+<li>Nos dirigimos al directorio donde está el <em>dotfile</em> y ejecutamos <code>nvm run</code></li>
+</ul>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/tutorial-nvm/prueba-dotfile</span>      </div>      <div class="term">        you@yourcomputer:~/tutorial-nvm/prueba-dotfile$ <span class="terminal-line">nvm run test-dotfile.js</span><br><span class="terminal-output-line">Found &#x27;/home/you/tutorial-nvm/prueba-dotfile/.nvmrc&#x27; with version &#x3C;v0.10.26&#x3E;</span><br><span class="terminal-output-line">Running node v0.10.26</span><br><span class="terminal-output-line">Versi&#xF3;n que se ejecuta: v0.10.26</span><br>        you@yourcomputer:~/tutorial-nvm/prueba-dotfile$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><br></p>
+<h2 id="Más_y_más_ventajas_de_NVM">Más y más ventajas de NVM</h2>
+<p>¿Alguna vez has utilizado <code>npm</code> con <code>sudo</code>, como cuando haces una instalación global? ¿<code>sudo npm install -g modulo</code> te suena familiar? Esta forma de usar <code>npm</code> con <code>sudo</code> es algo feo. Y cuando digo feo, va en serio.<br>Hace unos meses, mientras hacía un update (<code>sudo npm update -g</code>), algo falló y todo mi directorio de módulos globales quedó horriblemente corrupto. ¿Por qué pasó esto? Aun no lo sé con certeza. En una instalación normal de Node.js en Ubuntu, los paquetes globales de <code>npm</code> van a parar a <code>/usr/local/lib/node_modules/</code> y si revisamos los permisos de este directorio, vamos a ver que sólo se puede escribir por <strong>root</strong>. Es por eso que necesitamos usar <code>npm</code> como <em>superusuario</em>.<br>Pueden leer más acerca de este error <a href="https://github.com/npm/npm/issues/4099" target="_blank" rel="external">por acá</a>.</p>
+<p>NVM es un mundo aparte en cuanto al tipo de organización de los directorios de binarios y módulos globales. Todas las versiones que vayamos a instalar con <code>nvm install</code> se guardarán en el directorio <code>~/.nvm/{versión}/</code>. Cada directorio de estos contiene varios archivos y subdirectorios, pero los que nos interesan son:</p>
+<ul>
+<li><code>bin/</code>: directorio con los binarios de node y scripts ejecutables globales (como npm).</li>
+<li><code>lib/node_modules/</code>: directorio de módulos globales para esta versión.</li>
+</ul>
+<p>Como ven, cuando hacen <code>npm install -g</code> en una instalación con <code>NVM</code>, estos módulos globales se guardan en el directorio de la <strong>versión en uso de Node</strong>, en el <code>home</code> del usuario. Ya no más <code>sudo</code> <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile">.<br>Hagamos una prueba:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">npm install -g underscore</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Una vez instalado, chequeamos la versión y nos fijamos si existe el módulo en el directorio que corresponde:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">   v0.10.26</span><br><span class="terminal-output-line">-&#x3E; v0.11.13</span><br>you@yourcomputer:~$ <span class="terminal-line">ls ~/.nvm/v0.11.13/lib/node_modules</span><br><span class="terminal-output-line">npm  underscore</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Ahora vamos a chequear <code>node_modules</code> de la otra versión:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">ls ~/.nvm/v0.10.26/lib/node_modules</span><br><span class="terminal-output-line">npm</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>¿Qué hacemos si instalamos 50 paquetes en una versión y luego nos cambiamos a otra? ¿Tenemos que volver a instalar a mano todo? ¿Copiamos el directorio? <strong>Nada de eso.</strong> Sigamos y les muestro el último comando en este tutorial.<br><br></p>
+<h3 id="Migrando_módulos_de_una_versión_a_otra">Migrando módulos de una versión a otra</h3>
+<p>Por suerte, previendo un escenario como el que planteé recién, los desarrolladores de <code>NVM</code> nos proveen un comando para hacer estas migraciones: <code>nvm copy-packages</code>.<br>Su uso es muy sencillo, sólo basta con pasarle como parámetro la versión desde la cual se quieren copiar los módulos <strong>HACIA</strong> la versión en uso. Veamos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">   v0.10.26</span><br><span class="terminal-output-line">-&#x3E; v0.11.13</span><br>you@yourcomputer:~$ <span class="terminal-line">nvm use v0.10.26</span><br><span class="terminal-output-line">Now using node v0.10.26</span><br>you@yourcomputer:~$ <span class="terminal-line">nvm copy-packages v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><br></p>
+<h2 id="NVM_en_grandes_proyectos,_o_por_qué_puedes_confiar_en_él">NVM en grandes proyectos, o por qué puedes confiar en él</h2>
+<p>A estas alturas, seguro que ya te he vendido <code>NVM</code> y lo tienes instalado hasta en tu <em>Raspberry Pi</em>, ¿no? ¿Pero qué hay de la madurez de esta utilidad? ¿Se puede confiar de la misma en un ambiente delicado como Producción? La respuesta es: <strong>sí</strong>.<br>Actualmente, uno de los lugares más interesantes donde está implementado es en <a href="http://travis-ci.org/" target="_blank" rel="external">Travis-CI</a>, una plataforma de <em>Continuous Integration</em> muy reconocida. En Travis-CI, NVM es utilizado para preparar un ambiente de Node exclusivo para tests. Si vemos, por ejemplo, <a href="https://travis-ci.org/visionmedia/express/jobs/28592542" target="_blank" rel="external">esta ejecución</a> de un test de <em>Express.js</em>, nos encontramos con la agradable sorpresa de que NVM se ejecuta en la línea #20 para establecer la versión de Node.js en 0.10.26.<br><br></p>
+<img src="/images/programming/nodejs/nvm-travis-ci.png">
+
+<p>Si Travis-CI confía en NVM para semejante cantidad de tareas, <strong>¿confiarías tu?</strong></p>
+<hr>
+
+<p>Bueno amigos, eso fue el final de este enorme tutorial introductorio a NVM. Espero les haya sido útil <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile">.<br>¡Hasta la próxima!</p>
+</div>
+
+  <div class="post-tags">
+    
+
+  
+  <div>
+    <em class="fa fa-tags"></em>
+    <a href="/tags/tutoriales/">Tutoriales</a>, <a href="/tags/desarrollo/">Desarrollo</a>, <a href="/tags/nodejs/">Node.js</a>, <a href="/tags/npmjs/">npmjs</a>, <a href="/tags/nvm/">NVM</a>, <a href="/tags/linux/">Linux</a>
+  </div>
+
+  </div>
+</article>
+
+  
+
+<script type="text/javascript">
+  var addthis_config = addthis_config||{};
+  addthis_config.data_track_addressbar = false;
+  addthis_config.data_track_clickback = false;
+</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-539e45f314b39d3f"></script>
+
+<div class="share">
+  <div class="addthis_native_toolbox" ></div>
+</div>
+  <div class="floating-buttons">
+  <a href="/" class="fa fa-arrow-circle-left"></a>
+  <a href="#top" class="fa fa-arrow-circle-up"></a>
+</div>
+
+
+<section id="comment">
+  <h1 class="title">Comentarios</h1>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the
+  <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="no-cookies-disqus">
+    <p>Los comentarios están deshabilitados debido a que has rechazado las cookies en este sitio.</p>
+    <a href="#" class="cc-cookie-reset">Restablecer Cookies</a>
+</div></div>
+</section>
+</div>
+        </div>
+        <footer id="footer" class="inner">
+          Copyright © 2014 - Sergio Lepore<br>
+Desarrollado con <a href="https://github.com/tommy351/hexo">Hexo</a> y alojado en <a href="http://github.com/">Github</a><br>❤<br>
+Nota legal: Las opiniones expresadas en el presente blog son mis opiniones personales y bajo ningún modo representan la opinión de mi empleador<br>
+<a href="/politica-de-cookies/">Política de Cookies</a>
+        </footer>
+        <script src="/js/device.min.js"></script>
+<script src="/js/slash.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        
+<script>
+
+  var disqus_shortname = 'sergiolepore';
+  
+    var disqus_url = 'http://www.sergiolepore.net/2014/06/30/nvm-instalando-y-usando-node-version-manager/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+
+</script>
+
+      </div><!-- mid-col -->
+    </div><!-- container -->
+  </body>
+</html>

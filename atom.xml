@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://www.sergiolepore.net/"/>
+  <updated>2014-08-04T17:05:28.514Z</updated>
+  <id>http://www.sergiolepore.net/</id>
+  
+  <author>
+    <name><![CDATA[Sergio Lepore]]></name>
+    <email><![CDATA[sergio.d.lepore@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[npm no significa Node Package Manager]]></title>
+    <link href="http://www.sergiolepore.net/2014/07/05/npm-no-significa-node-package-manager/"/>
+    <id>http://www.sergiolepore.net/2014/07/05/npm-no-significa-node-package-manager/</id>
+    <published>2014-07-05T22:07:57.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<img src="/images/misc/npm.png" class="left" width="240">
+
+<p>A pesar de que <a href="http://npmjs.org" target="_blank" rel="external">npm</a> es un <em>Gestor de Paquetes</em> (<em>Package Manager</em>), su nombre no es acrónimo de <code>Node Package Manager</code>. ¿Notaron que nunca se escribe capitalizado?<br><br><br>Según la página de preguntas frecuentes:</p>
+<blockquote>
+
+<p>Es un <a href="http://es.wikipedia.org/wiki/Retroacr%C3%B3nimo" target="_blank" rel="external">retroacrónimo</a> recursivo abreviado para “npm is not an acronym” (<em>npm no es un acrónimo</em>). (Si fuera “ninaa”, entonces sería un acrónimo y, por lo tanto, nombrado incorrectamente.)</p>
+</blockquote>
+
+
+<p>Para enterarte más acerca de esta curiosidad, sigue <a href="https://www.npmjs.org/doc/faq.html#If-npm-is-an-acronym-why-is-it-never-capitalized" target="_blank" rel="external">este enlace</a>.</p>
+]]></content>
+    
+    
+      <category term="Minutos de sabiduría" scheme="http://www.sergiolepore.net/tags/minutos-de-sabiduria/"/>
+    
+      <category term="node.js" scheme="http://www.sergiolepore.net/tags/nodejs/"/>
+    
+      <category term="npmjs" scheme="http://www.sergiolepore.net/tags/npmjs/"/>
+    
+      <category term="Desarrollo" scheme="http://www.sergiolepore.net/tags/desarrollo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[NVM: Instalando y usando Node Version Manager]]></title>
+    <link href="http://www.sergiolepore.net/2014/06/30/nvm-instalando-y-usando-node-version-manager/"/>
+    <id>http://www.sergiolepore.net/2014/06/30/nvm-instalando-y-usando-node-version-manager/</id>
+    <published>2014-06-30T04:36:50.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<p>¡Hola! He vuelto desde un tiempo de inactividad considerable (Diciembre de 2012 fue mi último post) y, desde ese tiempo, el blog ha sufrido muchos cambios. Lo que comenzó siendo un blog con <code>Wordpress</code> y un template gratuito, hoy es un blog <em>powered by <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a></em> y un template hecho completamente por mi. El tiempo nos cambia… En fin, <code>Hexo</code> será tema para otro artículo.</p>
+<p>Lo que hoy vengo a enseñarles es una de las mejores formas de gestionar un ambiente de <code>Node.js</code>, con todas sus dependencias y paquetes de <code>npm</code>. Hoy vengo a hablarles de <strong>NVM</strong>.<br><br></p>
+<h2 id="¡Atención!">¡Atención!</h2>
+<p>Este artículo viene acompañado de un tutorial en <em>YouTube</em>. Puedes seguir todo el tutorial en vídeo o simplemente leer este artículo. En ambos lugares encontrarás exactamente lo mismo.<br><br></p>
+<h1 id="Guía_en_YouTube">Guía en YouTube</h1>
+<div class="video-container"><iframe src="//www.youtube-nocookie.com/embed/SU8K8jj-fQs" frameborder="0" allowfullscreen></iframe></div><a class="fa  fa-youtube-play youtube-link" href="https://www.youtube.com/watch?v=SU8K8jj-fQs" title="YouTube Video" target="_blank" rel="external">Enlace a YouTube</a>
+
+<p><a id="more"></a></p>
+<hr>
+
+<h1 id="Guía_escrita">Guía escrita</h1>
+<p>Bien, veo que has decidido leer esta guía <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile">. ¡Vamos!<br><br></p>
+<h2 id="¿Qué_significa_NVM?">¿Qué significa NVM?</h2>
+<p>A estas alturas, es probable que estés preguntándote <em>¿qué es NVM?</em>. Si alguna vez has programado con <code>Ruby</code>, seguramente ya conoces <code>RVM</code>. <code>RVM</code> y <code>NVM</code> comparten una filosofía similar. <strong>NVM es el acrónimo de <em>“Node Version Manager”</em> o <em>“Gestor de Versiones de Node”</em></strong>, similar a RVM, que significa <em>“Ruby Version Manager”</em> o <em>“Gestor de Versiones de Ruby”</em>.<br>Este tipo de utilidades <strong>se encargan de controlar diferentes versiones de estos aplicativos en un mismo ambiente.</strong> En el caso de <code>NVM</code>, que es el que nos interesa, permite instalar múltiples versiones de <code>Node.js</code> y <code>npm</code> en un mismo ambiente, dejando cada una completamente aislada de las otras. Sí, puedes tener Node v0.4 y v0.11 instaladas en tu equipo y ejecutar una u otra según lo necesites. Genial, ¿no?.<br><br></p>
+<h2 id="Requerimientos">Requerimientos</h2>
+<p>Mi Sistema Operativo por preferencia es Ubuntu, una distribución de Linux. Todo este tutorial lo voy a llevar adelante sobre Ubuntu, pero puede funcionar bien para cualquier distribución Linux e Unix. Ubuntu, Debian, Fedora, MacOS, todos pueden seguir esta guía.</p>
+<p>Lo primero que vamos a necesitar es:</p>
+<ul>
+<li><code>curl</code>: necesario para descargar el script de instalación.</li>
+<li><code>build-essential</code>: necesario en caso de que vayamos a compilar Node.js desde el código fuente.</li>
+<li><code>libssl-dev</code>: ídem build-essential.</li>
+<li><code>git</code>: necesario porque el script de instalación descarga NVM desde un repositorio en Github.</li>
+</ul>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">sudo apt-get install -y curl build-essential libssl-dev git</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><br></p>
+<h2 id="Instalando_NVM">Instalando NVM</h2>
+<p>Primero, y antes que nada, debemos ir al repositorio de NVM en Github (<a href="https://github.com/creationix/nvm" target="_blank" rel="external">clic para ir</a>) y copiar la línea del instalador. A fecha de hoy, Domingo 29 de Junio de 2014, el instalador nos permite instalar la versión 0.10 de NVM. Es recomendable que vayas al repositorio y obtengas la última versión disponible.</p>
+<p><code>curl https://raw.githubusercontent.com/creationix/nvm/v0.10.0/install.sh | sh</code></p>
+<h4 id="¡ATENCIÓN!">¡ATENCIÓN!</h4>
+<p>A todos los usuarios de Ubuntu, principalmente: mucho cuidado al copiar instaladores de internet. Algunos caemos en este asunto de que mandamos <code>sh</code> a algún script de terceros. ¿Y el problema de esto? Muchos desarrolladores asumen que en todos los sistemas operativos, <code>sh</code> es alias de <code>bash</code>. Grave error. En Ubuntu, <code>sh</code> es alias de <code>dash</code>, una <em>shell</em> completamente diferente. ¿No me crees? Ejecuta:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">readlink /bin/sh</span><br><span class="terminal-output-line">dash</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Ja. Vemos ahora que el script de instalación depende de <code>bash</code> para ejecutarse, pero le encarga la tarea a <code>sh</code> (que es <code>dash</code>). ¿Cómo lo solucionamos? Fácil, reemplazamos <code>sh</code> por <code>bash</code> y ya estamos listos <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile">.</p>
+<p>Antes de continuar, tenemos que configurar el archivo de perfil de nuestra shell, necesario para que NVM se cargue a nuestro entorno. Si usamos Bash, nuestro archivo de perfil es <code>~/.bashrc</code>, si usamos ZSH, <code>~/.zshrc</code>. Yo uso bash en este tutorial, así que procedo como muestro a continuación:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">curl https://raw.githubusercontent.com/creationix/nvm/v0.10.0/install.sh | PROFILE=~/.bashrc bash</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Una vez terminada la instalación, cerrar la <em>terminal</em> y volver a abrirla.<br><br></p>
+<h2 id="Primeros_pasos_con_NVM">Primeros pasos con NVM</h2>
+<p>Si la instalación fue exitosa, al ejecutar <code>nvm</code> en nuestro terminal veremos el listado de comandos disponibles:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm</span><br><span class="terminal-output-line"></span><br><span class="terminal-output-line">Node Version Manager</span><br><span class="terminal-output-line"></span><br><span class="terminal-output-line">Usage:</span><br><span class="terminal-output-line">    nvm help                    Show this message</span><br><span class="terminal-output-line">    nvm --version               Print out the latest released version of nvm</span><br><span class="terminal-output-line">    nvm install [-s] &#x3C;version&#x3E;  Download and install a &#x3C;version&#x3E;, [-s] from source. Uses .nvmrc if available</span><br><span class="terminal-output-line">    nvm uninstall &#x3C;version&#x3E;     Uninstall a version</span><br><span class="terminal-output-line">    nvm use &#x3C;version&#x3E;           Modify PATH to use &#x3C;version&#x3E;. Uses .nvmrc if available</span><br><span class="terminal-output-line">    nvm run &#x3C;version&#x3E; [&#x3C;args&#x3E;]  Run &#x3C;version&#x3E; with &#x3C;args&#x3E; as arguments. Uses .nvmrc if available for &#x3C;version&#x3E;</span><br><span class="terminal-output-line">    nvm current                 Display currently activated version</span><br><span class="terminal-output-line">    nvm ls                      List installed versions</span><br><span class="terminal-output-line">    nvm ls &#x3C;version&#x3E;            List versions matching a given description</span><br><span class="terminal-output-line">    nvm ls-remote               List remote versions available for install</span><br><span class="terminal-output-line">    nvm deactivate              Undo effects of NVM on current shell</span><br><span class="terminal-output-line">    nvm alias [&#x3C;pattern&#x3E;]       Show all aliases beginning with &#x3C;pattern&#x3E;</span><br><span class="terminal-output-line">    nvm alias &#x3C;name&#x3E; &#x3C;version&#x3E;  Set an alias named &#x3C;name&#x3E; pointing to &#x3C;version&#x3E;</span><br><span class="terminal-output-line">    nvm unalias &#x3C;name&#x3E;          Deletes the alias named &#x3C;name&#x3E;</span><br><span class="terminal-output-line">    nvm copy-packages &#x3C;version&#x3E; Install global NPM packages contained in &#x3C;version&#x3E; to current version</span><br><span class="terminal-output-line">    nvm unload                  Unload NVM from shell</span><br><span class="terminal-output-line"></span><br><span class="terminal-output-line">Example:</span><br><span class="terminal-output-line">    nvm install v0.10.24        Install a specific version number</span><br><span class="terminal-output-line">    nvm use 0.10                Use the latest available 0.10.x release</span><br><span class="terminal-output-line">    nvm run 0.10.24 myApp.js    Run myApp.js using node v0.10.24</span><br><span class="terminal-output-line">    nvm alias default 0.10.24   Set default node version on a shell</span><br><span class="terminal-output-line"></span><br><span class="terminal-output-line">Note:</span><br><span class="terminal-output-line">    to remove, delete or uninstall nvm - just remove ~/.nvm, ~/.npm and ~/.bower folders</span><br><span class="terminal-output-line"></span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>En este tutorial vamos a ver:</p>
+<ul>
+<li><code>nvm install</code>: nos permite descargar e instalar una nueva versión de Node.js junto con npm.</li>
+<li><code>nvm use</code>: permite cambiar de una versión a otra.</li>
+<li><code>nvm run</code>: ejecuta una versión de node.</li>
+<li><code>nvm ls</code>: muestra las versiones instaladas en nuestro ambiente.</li>
+<li><code>nvm ls-remote</code>: muestra las versiones disponibles para descargar desde un servidor remoto.</li>
+</ul>
+<p><br></p>
+<h3 id="Buscando_una_versión_para_instalar">Buscando una versión para instalar</h3>
+<p>Ejecutando <code>nvm ls-remote</code> nos mostrará un listado de versiones listas para instalar. A día de hoy, 29 de Junio de 2014, la última versión disponible es la <code>v0.11.13</code>. Para instalar esta versión, podemos ejecutar un comando de dos formas diferentes. <strong>Mucha atención:</strong></p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm install v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Esa línea descargará los binarios ya compilados desde el servidor y los instalará en nuestro ambiente. Tan simple como eso. Sin embargo, existe una variante de este comando:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm install -s v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Agregando la opción <code>-s</code> al instalador, le estamos pidiendo que <strong>descargue el código fuente de Node.js y lo compile en nuestro ambiente</strong>. ¿Se entiende? Sin <code>-s</code>, descarga los binarios ya listos. Con <code>-s</code>, descarga el source y compila en nuestro ambiente. La ventaja de esta segunda opción es permitirnos personalizar la compilación de Node. Es para este proceso que necesitamos <code>build-essential</code> y <code>libssl-dev</code>, anteriormente instalados.</p>
+<p>Si la instalación fue exitosa, al ejecutar <code>node --version</code> nos tendría que mostrar la versión correcta.<br><br></p>
+<h3 id="Instalando_una_segunda_versión_de_Node">Instalando una segunda versión de Node</h3>
+<p>Hasta ahora, nada de lo que mostré parece ser sobresaliente si se compara con una instalación común y corriente de Node. La ventaja principal a la hora de usar <code>NVM</code> es poder instalar múltiples versiones de esta aplicación. Así que ahora vamos a probar los mismos pasos anteriores, pero con la versión v0.10.26:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm install v0.10.26</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Podemos comprobar que tenemos las dos versiones instaladas, si ejecutamos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">-&#x3E; v0.10.26</span><br><span class="terminal-output-line">   v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>La última versión instalada está marcada como <em>default</em>. ¿Y ahora?</p>
+<p>Intercambiar entre versiones de Node es sencillo, basta con usar el comando <code>nvm use</code> acompañado del número de versión. A modo de pruebas, vamos a crear un pequeño archivo <code>.js</code> que nos permita ver la versión de Node cada vez que lo invocamos. Algo así:</p>
+<p><code data-gist-id="f71a642a213f0b589e9d" data-gist-file="test.js"><a href="https://gist.githubusercontent.com/sergiolepore/f71a642a213f0b589e9d/raw/a678e0566274ef28f814f2fe9c5484837f621712/test.js" target="_blank" title="Ir a Gist f71a642a213f0b589e9d">> Enlace al código <</a></code></p>
+
+<p>Primero, ejecutamos Node como de costumbre. El proceso debería mostrar la versión y luego retornar a nuestra shell:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">node test.js</span><br><span class="terminal-output-line">v0.10.26</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Y ahora, lo interesante. Ejecutaremos <code>nvm use</code> para cambiar la versión de Node y usaremos nuestro script de pruebas para ver si el cambio fue exitoso:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm use v0.11.13</span><br><span class="terminal-output-line">Now using node v0.11.13</span><br>you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">   v0.10.26</span><br><span class="terminal-output-line">-&#x3E; v0.11.13</span><br>you@yourcomputer:~$ <span class="terminal-line">node test.js</span><br><span class="terminal-output-line">v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>¡Fantástico! ¿No? <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"><br><br></p>
+<h3 id="Bloqueando_versiones_de_Node-js_en_diferentes_proyectos">Bloqueando versiones de Node.js en diferentes proyectos</h3>
+<p>Otra cosa muy interesante que tiene <code>NVM</code> es la posibilidad de “bloquear” una versión de Node.js en algún directorio, por ejemplo, el directorio de uno de nuestros proyectos. Este bloqueo lo realiza valiendose de un <em>dotfile</em> de nombre <code>.nvmrc</code> cuyo contenido es únicamente una versión de Node.js. De esta manera, cuando ejecutamos Node en un directorio donde existe un <code>.nvmrc</code>, se ejecutará la versión especificada en este archivo.</p>
+<h4 id="¡Atención!-1">¡Atención!</h4>
+<p>Este <em>dotfile</em> sólo se tiene en cuenta si ejecutamos Node a través de <code>NVM</code>, con el comando <code>nvm run</code>. Veamos un ejemplo:</p>
+<ul>
+<li>Creamos el siguiente archivo en un directorio cualquiera.</li>
+</ul>
+<p><code data-gist-id="f71a642a213f0b589e9d" data-gist-file=".nvmrc"><a href="https://gist.githubusercontent.com/sergiolepore/f71a642a213f0b589e9d/raw/b3d8f8b6791a420760a72cb2302409369c223e30/.nvmrc" target="_blank" title="Ir a Gist f71a642a213f0b589e9d">> Enlace al código <</a></code></p>
+
+<ul>
+<li>Creamos un archivo para probar la versión de Node en uso, en el mismo directorio que el <em>dotfile</em></li>
+</ul>
+<p><code data-gist-id="f71a642a213f0b589e9d" data-gist-file="test-dotfile.js"><a href="https://gist.githubusercontent.com/sergiolepore/f71a642a213f0b589e9d/raw/42bb34634df9d8cfa31e6e56ebcfe8c89face9d6/test-dotfile.js" target="_blank" title="Ir a Gist f71a642a213f0b589e9d">> Enlace al código <</a></code></p>
+
+<ul>
+<li>Comprobamos que la versión de Node en uso es diferente a la versión del <code>.nvmrc</code></li>
+</ul>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">   v0.10.26</span><br><span class="terminal-output-line">-&#x3E; v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<ul>
+<li>Nos dirigimos al directorio donde está el <em>dotfile</em> y ejecutamos <code>nvm run</code></li>
+</ul>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/tutorial-nvm/prueba-dotfile</span>      </div>      <div class="term">        you@yourcomputer:~/tutorial-nvm/prueba-dotfile$ <span class="terminal-line">nvm run test-dotfile.js</span><br><span class="terminal-output-line">Found &#x27;/home/you/tutorial-nvm/prueba-dotfile/.nvmrc&#x27; with version &#x3C;v0.10.26&#x3E;</span><br><span class="terminal-output-line">Running node v0.10.26</span><br><span class="terminal-output-line">Versi&#xF3;n que se ejecuta: v0.10.26</span><br>        you@yourcomputer:~/tutorial-nvm/prueba-dotfile$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><br></p>
+<h2 id="Más_y_más_ventajas_de_NVM">Más y más ventajas de NVM</h2>
+<p>¿Alguna vez has utilizado <code>npm</code> con <code>sudo</code>, como cuando haces una instalación global? ¿<code>sudo npm install -g modulo</code> te suena familiar? Esta forma de usar <code>npm</code> con <code>sudo</code> es algo feo. Y cuando digo feo, va en serio.<br>Hace unos meses, mientras hacía un update (<code>sudo npm update -g</code>), algo falló y todo mi directorio de módulos globales quedó horriblemente corrupto. ¿Por qué pasó esto? Aun no lo sé con certeza. En una instalación normal de Node.js en Ubuntu, los paquetes globales de <code>npm</code> van a parar a <code>/usr/local/lib/node_modules/</code> y si revisamos los permisos de este directorio, vamos a ver que sólo se puede escribir por <strong>root</strong>. Es por eso que necesitamos usar <code>npm</code> como <em>superusuario</em>.<br>Pueden leer más acerca de este error <a href="https://github.com/npm/npm/issues/4099" target="_blank" rel="external">por acá</a>.</p>
+<p>NVM es un mundo aparte en cuanto al tipo de organización de los directorios de binarios y módulos globales. Todas las versiones que vayamos a instalar con <code>nvm install</code> se guardarán en el directorio <code>~/.nvm/{versión}/</code>. Cada directorio de estos contiene varios archivos y subdirectorios, pero los que nos interesan son:</p>
+<ul>
+<li><code>bin/</code>: directorio con los binarios de node y scripts ejecutables globales (como npm).</li>
+<li><code>lib/node_modules/</code>: directorio de módulos globales para esta versión.</li>
+</ul>
+<p>Como ven, cuando hacen <code>npm install -g</code> en una instalación con <code>NVM</code>, estos módulos globales se guardan en el directorio de la <strong>versión en uso de Node</strong>, en el <code>home</code> del usuario. Ya no más <code>sudo</code> <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile">.<br>Hagamos una prueba:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">npm install -g underscore</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Una vez instalado, chequeamos la versión y nos fijamos si existe el módulo en el directorio que corresponde:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">   v0.10.26</span><br><span class="terminal-output-line">-&#x3E; v0.11.13</span><br>you@yourcomputer:~$ <span class="terminal-line">ls ~/.nvm/v0.11.13/lib/node_modules</span><br><span class="terminal-output-line">npm  underscore</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Ahora vamos a chequear <code>node_modules</code> de la otra versión:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">ls ~/.nvm/v0.10.26/lib/node_modules</span><br><span class="terminal-output-line">npm</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>¿Qué hacemos si instalamos 50 paquetes en una versión y luego nos cambiamos a otra? ¿Tenemos que volver a instalar a mano todo? ¿Copiamos el directorio? <strong>Nada de eso.</strong> Sigamos y les muestro el último comando en este tutorial.<br><br></p>
+<h3 id="Migrando_módulos_de_una_versión_a_otra">Migrando módulos de una versión a otra</h3>
+<p>Por suerte, previendo un escenario como el que planteé recién, los desarrolladores de <code>NVM</code> nos proveen un comando para hacer estas migraciones: <code>nvm copy-packages</code>.<br>Su uso es muy sencillo, sólo basta con pasarle como parámetro la versión desde la cual se quieren copiar los módulos <strong>HACIA</strong> la versión en uso. Veamos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">nvm ls</span><br><span class="terminal-output-line">   v0.10.26</span><br><span class="terminal-output-line">-&#x3E; v0.11.13</span><br>you@yourcomputer:~$ <span class="terminal-line">nvm use v0.10.26</span><br><span class="terminal-output-line">Now using node v0.10.26</span><br>you@yourcomputer:~$ <span class="terminal-line">nvm copy-packages v0.11.13</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><br></p>
+<h2 id="NVM_en_grandes_proyectos,_o_por_qué_puedes_confiar_en_él">NVM en grandes proyectos, o por qué puedes confiar en él</h2>
+<p>A estas alturas, seguro que ya te he vendido <code>NVM</code> y lo tienes instalado hasta en tu <em>Raspberry Pi</em>, ¿no? ¿Pero qué hay de la madurez de esta utilidad? ¿Se puede confiar de la misma en un ambiente delicado como Producción? La respuesta es: <strong>sí</strong>.<br>Actualmente, uno de los lugares más interesantes donde está implementado es en <a href="http://travis-ci.org/" target="_blank" rel="external">Travis-CI</a>, una plataforma de <em>Continuous Integration</em> muy reconocida. En Travis-CI, NVM es utilizado para preparar un ambiente de Node exclusivo para tests. Si vemos, por ejemplo, <a href="https://travis-ci.org/visionmedia/express/jobs/28592542" target="_blank" rel="external">esta ejecución</a> de un test de <em>Express.js</em>, nos encontramos con la agradable sorpresa de que NVM se ejecuta en la línea #20 para establecer la versión de Node.js en 0.10.26.<br><br></p>
+<img src="/images/programming/nodejs/nvm-travis-ci.png">
+
+<p>Si Travis-CI confía en NVM para semejante cantidad de tareas, <strong>¿confiarías tu?</strong></p>
+<hr>
+
+<p>Bueno amigos, eso fue el final de este enorme tutorial introductorio a NVM. Espero les haya sido útil <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile">.<br>¡Hasta la próxima!</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>¡Hola! He vuelto desde un tiempo de inactividad considerable (Diciembre de 2012 fue mi último post) y, desde ese tiempo, el blog ha sufrido muchos cambios. Lo que comenzó siendo un blog con <code>Wordpress</code> y un template gratuito, hoy es un blog <em>powered by <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a></em> y un template hecho completamente por mi. El tiempo nos cambia… En fin, <code>Hexo</code> será tema para otro artículo.</p>
+<p>Lo que hoy vengo a enseñarles es una de las mejores formas de gestionar un ambiente de <code>Node.js</code>, con todas sus dependencias y paquetes de <code>npm</code>. Hoy vengo a hablarles de <strong>NVM</strong>.<br><br></p>
+<h2 id="¡Atención!">¡Atención!</h2>
+<p>Este artículo viene acompañado de un tutorial en <em>YouTube</em>. Puedes seguir todo el tutorial en vídeo o simplemente leer este artículo. En ambos lugares encontrarás exactamente lo mismo.<br><br></p>
+<h1 id="Guía_en_YouTube">Guía en YouTube</h1>
+<div class="video-container"><iframe src="//www.youtube-nocookie.com/embed/SU8K8jj-fQs" frameborder="0" allowfullscreen></iframe></div><a class="fa  fa-youtube-play youtube-link" href="https://www.youtube.com/watch?v=SU8K8jj-fQs" title="YouTube Video" target="_blank" rel="external">Enlace a YouTube</a>
+
+<p>]]></summary>
+    
+      <category term="Tutoriales" scheme="http://www.sergiolepore.net/tags/tutoriales/"/>
+    
+      <category term="Desarrollo" scheme="http://www.sergiolepore.net/tags/desarrollo/"/>
+    
+      <category term="Node.js" scheme="http://www.sergiolepore.net/tags/nodejs/"/>
+    
+      <category term="npmjs" scheme="http://www.sergiolepore.net/tags/npmjs/"/>
+    
+      <category term="NVM" scheme="http://www.sergiolepore.net/tags/nvm/"/>
+    
+      <category term="Linux" scheme="http://www.sergiolepore.net/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[]]></title>
+    <link href="http://www.sergiolepore.net/2012/12/04/doctrine2-comportamiento-softdelete-en-symfony2/"/>
+    <id>http://www.sergiolepore.net/2012/12/04/doctrine2-comportamiento-softdelete-en-symfony2/</id>
+    <published>2012-12-04T03:00:00.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<hr>
+<p>layout: post<br>title: Doctrine2: Comportamiento softdelete en Symfony2<br>description: Habilitando Doctrine2 Softdelete<br>date: 2012-12-04 10:03<br>comments: true<br>categories: </p>
+<h2 id="tags:_[Desarrollo,_PHP,_Symfony,_Tutoriales]">tags: [Desarrollo, PHP, Symfony, Tutoriales]</h2>
+<img src="/images/programming/symfony/symfony2-books.jpg" class="left">
+
+<p>¡Buenos días! ¡Mucho tiempo que no compartía un artículo con ustedes! Hoy les traigo un pequeño <em>how-to</em> sobre cómo <strong>habilitar la funcionalidad SoftDeleteable de Doctrine2 usando Symfony2.</strong></p>
+<p>Para los que alguna vez usamos la primera versión de <strong>Doctrine</strong>, bien recordamos que el comportamiento de <em>SoftDelete</em> era nativo en el ORM. Con la versión 2 las cosas han cambiado. Este tipo de funciones ya no son nativas pero se pueden habilitar a través de extensiones.<br><br><a id="more"></a></p>
+<h1 id="Requisitos">Requisitos</h1>
+<ul>
+<li>Symfony 2.1 con composer</li>
+<li>Doctrine 2.x</li>
+<li>Annotation Mapping para Entidades</li>
+<li>YML para la configuración de servicios</li>
+</ul>
+<p><br></p>
+<h1 id="1_-_Instalando_DoctrineExtensions">1 - Instalando DoctrineExtensions</h1>
+<p>Usando <code>composer.phar</code>, la instalación de módulos, bundles, extensiones o plugins es muy sencilla. Lo primero que tenemos que hacer es abrir nuestro <code>composer.json</code> y agregar la siguiente línea al array de requires:</p>
+<p><code data-gist-id="ba97c7a381af1ac1d59f" data-gist-file="composer.json"><a href="https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-composer-json" target="_blank" title="Ir a Gist ba97c7a381af1ac1d59f">> Enlace al código <</a></code></p>
+
+<p>Guardamos el archivo y procedemos a actualizar las dependencias de nuestro proyecto:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/SymfonyProject</span>      </div>      <div class="term">        you@yourcomputer:~/SymfonyProject$ <span class="terminal-line">php composer.phar update</span><br>        you@yourcomputer:~/SymfonyProject$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><br></p>
+<h1 id="2_-_Configurando_las_extensiones_como_Servicios">2 - Configurando las extensiones como Servicios</h1>
+<p>Ahora que ya tenemos las extensiones instaladas, debemos de configurar Doctrine para utilizarlas. Voy a ser breve en este tutorial ya que <strong>sólo explicaré como habilitar SoftDelete</strong>, pero <code>Gedmo/DoctrineExtensions</code> nos permite utilizar los siguientes comportamientos: <em>Translatable, Sluggable, Loggable, Timestampable, Tree y Sortable</em>. Si te interesa alguno de ellos, <a href="https://github.com/l3pp4rd/DoctrineExtensions/blob/master/doc/symfony2.md" target="_blank" rel="external">pásate por aquí</a> para aprender a usarlos.</p>
+<p><strong>Symfony2</strong> tiene una arquitectura muy bella que permite configurar casi todas las dependencias y clases a modo de servicios y completamente <em>desacoplados</em> (gracias al <a href="http://symfony.com/doc/current/book/service_container.html" target="_blank" rel="external"><em>patrón de inyección de dependencias y el DIC</em></a>). Para las extensiones de Doctrine vamos a crear un nuevo archivo en <code>app/config</code> con el nombre de <code>doctrine_extensions.yml</code> y luego lo importaremos en el archivo <code>app/config/config.yml</code>:</p>
+<p><code data-gist-id="ba97c7a381af1ac1d59f" data-gist-file="config.yml"><a href="https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-config-yml" target="_blank" title="Ir a Gist ba97c7a381af1ac1d59f">> Enlace al código <</a></code></p>
+
+<p>Dentro del archivo <code>doctrine_extensions.yml</code>, copiaremos lo siguiente:</p>
+<p><code data-gist-id="ba97c7a381af1ac1d59f" data-gist-file="doctrine_extensions.yml"><a href="https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-doctrine_extensions-yml" target="_blank" title="Ir a Gist ba97c7a381af1ac1d59f">> Enlace al código <</a></code></p>
+
+<p>Con esto ya hemos configurado las extensiones como un servicio que será ejecutado cada vez que el <em>Kernel</em> reaccione (para configurar Doctrine) y cada vez que Doctrine dispare un evento (como la eliminación de una entidad, que es lo que nos interesa).</p>
+<p>Ahora necesitamos el <em>Listener</em> que hará que Doctrine incorpore las extensiones configuradas. Para ello debemos crear la clase <code>Acme/DemoBundle/Listener/DoctrineExtensionListener.php</code> con el siguiente contenido:</p>
+<p><code data-gist-id="ba97c7a381af1ac1d59f" data-gist-file="DoctrineExtensionListener.php"><a href="https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-doctrineextensionlistener-php" target="_blank" title="Ir a Gist ba97c7a381af1ac1d59f">> Enlace al código <</a></code></p>
+
+<p>Vale aclarar que <code>Acme\DemoBundle</code> <strong>debe ser reemplazado por el Bundle que ustedes utilicen</strong>, y recuerden de actualizar el <code>doctrine_extensions.yml</code> con el nombre de su clase!!! <br><br></p>
+<h1 id="3_-_Configurar_las_entidades">3 - Configurar las entidades</h1>
+<p>Habilitar la extensión <strong>no</strong> hará que todas las entidades que eliminemos hereden el comportamiento <em>automágicamente</em>.</p>
+<p>Para que un objeto sea <em>SoftDeleteable</em> debemos configurarlo. A continuación voy a mostrar cómo se hace con <em>Annotations</em> de PHP, pero es igual para YML o XML:</p>
+<p><code data-gist-id="ba97c7a381af1ac1d59f" data-gist-file="Entity.php"><a href="https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-entity-php" target="_blank" title="Ir a Gist ba97c7a381af1ac1d59f">> Enlace al código <</a></code></p>
+
+<p><br></p>
+<h1 id="3_-_Probar_el_comportamiento">3 - Probar el comportamiento</h1>
+<p>Este es el último paso de nuestra travesía. Si eliminamos un objeto usando Doctrine y luego revisamos la base de datos, veremos que el campo <em>deletedAt</em> tiene el <em>timestamp</em> de eliminación <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"> <strong>¡Esto es SoftDeleteable Behavior!</strong></p>
+<p><code data-gist-id="ba97c7a381af1ac1d59f" data-gist-file="Controller.php"><a href="https://gist.github.com/sergiolepore/ba97c7a381af1ac1d59f#file-controller-php" target="_blank" title="Ir a Gist ba97c7a381af1ac1d59f">> Enlace al código <</a></code></p>
+
+<p><br><br></p>
+<p>Bien, eso fue todo. ¡Espero les haya sido de utilidad!</p>
+<p>¡Hasta la próxima!</p>
+]]></content>
+    <summary type="html"><![CDATA[<hr>
+<p>layout: post<br>title: Doctrine2: Comportamiento softdelete en Symfony2<br>description: Habilitando Doctrine2 Softdelete<br>date: 2012-12-04 10:03<br>comments: true<br>categories: </p>
+<h2 id="tags:_[Desarrollo,_PHP,_Symfony,_Tutoriales]">tags: [Desarrollo, PHP, Symfony, Tutoriales]</h2>
+<img src="/images/programming/symfony/symfony2-books.jpg" class="left">
+
+<p>¡Buenos días! ¡Mucho tiempo que no compartía un artículo con ustedes! Hoy les traigo un pequeño <em>how-to</em> sobre cómo <strong>habilitar la funcionalidad SoftDeleteable de Doctrine2 usando Symfony2.</strong></p>
+<p>Para los que alguna vez usamos la primera versión de <strong>Doctrine</strong>, bien recordamos que el comportamiento de <em>SoftDelete</em> era nativo en el ORM. Con la versión 2 las cosas han cambiado. Este tipo de funciones ya no son nativas pero se pueden habilitar a través de extensiones.<br><br>]]></summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[#Symfony2 - Optimizando el Enrutador]]></title>
+    <link href="http://www.sergiolepore.net/2012/10/30/symfony2-optimizando-el-enrutador/"/>
+    <id>http://www.sergiolepore.net/2012/10/30/symfony2-optimizando-el-enrutador/</id>
+    <published>2012-10-30T15:47:00.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<img src="/images/programming/symfony/symfony2-books.jpg" class="left">
+
+<p>¡Buenos días! Hoy les traigo un pequeño <em>“truquito”</em> para <strong>mejorar el rendimiento del enrutador de Symfony2</strong> <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"></p>
+<p>Si han trabajado con este <em>pequeño</em> framework, bien sabrán que la definición de rutas es muy maleable y abstracta, tanto así que permite que nos preocupemos solamente por el patrón y configuraciones que la conformarán, pero no por la lógica de ruteo en sí misma. Esta lógica está implementada por las clases de <strong>Routing de Sf2</strong>, que se encargan de leer los archivos de configuración, hacen matches contra las peticiones y luego despachan el <code>request</code> a donde corresponda. Fácil, ¿no?</p>
+<p>Es muy obvio, pero vale aclararlo, que <strong>todo este comportamiento tiene un efecto negativo en el rendimiento</strong>, tanto así que es necesario <strong>optimizarlo lo más que se pueda.</strong> Symfony2 optimiza el proceso de match de rutas mediante la compilación de los archivos de routing en un archivo ubicado en la cache (ver <code>app/cache/prod/appprodUrlMatcher.php</code>), pero aún así el proceso sigue siendo perjudicial para nuestro proyecto. ¿Por qué? Porque seguimos dependiendo de PHP para manejar las reglas de matching de URL. <strong>¿Y que tal si las expresiones regulares las maneja nuestro servidor web?</strong> Eso es lo que quiero compartirles hoy.</p>
+<a id="more"></a>
+
+<p>El componente de enrutador de Symfony2 viene con una herramienta muy útil que permite generar las todas las expresiones regulares necesarias para que Apache (con <code>mod_rewrite</code>) se haga cargo de esta tarea. La utilidad se accede a través del siguiente comando:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/SymfonyProject</span>      </div>      <div class="term">        you@yourcomputer:~/SymfonyProject$ <span class="terminal-line">php app/console router:dump-apache</span><br>        you@yourcomputer:~/SymfonyProject$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><strong>Esto hará que se compilen todas las rutas en diversos RewriteRules que podremos añadir a nuestro .htaccess o directo sobre el VirtualHost.</strong></p>
+<p>El resultado del comando se mostrará en consola, lo cual es cómodo si tienes pocas rutas. En cambio si tu proyecto tiene más de 10 definiciones, te recomiendo redirigir toda la salida del comando a un archivo:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/SymfonyProject</span>      </div>      <div class="term">        you@yourcomputer:~/SymfonyProject$ <span class="terminal-line">php app/console router:dump-apache &#x3E; archivo_destino</span><br>        you@yourcomputer:~/SymfonyProject$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Lindo, ¿verdad? <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"></p>
+<p>Una cosita más, en la <a href="http://symfony.com/doc/current/book/routing.html" target="_blank" rel="external">documentación oficial</a> pueden aprender más acerca de cómo funciona el enrutador de Sf2.</p>
+<p>¡Saludos!</p>
+]]></content>
+    <summary type="html"><![CDATA[<img src="/images/programming/symfony/symfony2-books.jpg" class="left">
+
+<p>¡Buenos días! Hoy les traigo un pequeño <em>“truquito”</em> para <strong>mejorar el rendimiento del enrutador de Symfony2</strong> <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"></p>
+<p>Si han trabajado con este <em>pequeño</em> framework, bien sabrán que la definición de rutas es muy maleable y abstracta, tanto así que permite que nos preocupemos solamente por el patrón y configuraciones que la conformarán, pero no por la lógica de ruteo en sí misma. Esta lógica está implementada por las clases de <strong>Routing de Sf2</strong>, que se encargan de leer los archivos de configuración, hacen matches contra las peticiones y luego despachan el <code>request</code> a donde corresponda. Fácil, ¿no?</p>
+<p>Es muy obvio, pero vale aclararlo, que <strong>todo este comportamiento tiene un efecto negativo en el rendimiento</strong>, tanto así que es necesario <strong>optimizarlo lo más que se pueda.</strong> Symfony2 optimiza el proceso de match de rutas mediante la compilación de los archivos de routing en un archivo ubicado en la cache (ver <code>app/cache/prod/appprodUrlMatcher.php</code>), pero aún así el proceso sigue siendo perjudicial para nuestro proyecto. ¿Por qué? Porque seguimos dependiendo de PHP para manejar las reglas de matching de URL. <strong>¿Y que tal si las expresiones regulares las maneja nuestro servidor web?</strong> Eso es lo que quiero compartirles hoy.</p>
+]]></summary>
+    
+      <category term="Desarrollo" scheme="http://www.sergiolepore.net/tags/desarrollo/"/>
+    
+      <category term="PHP" scheme="http://www.sergiolepore.net/tags/php/"/>
+    
+      <category term="Symfony" scheme="http://www.sergiolepore.net/tags/symfony/"/>
+    
+      <category term="Tutoriales" scheme="http://www.sergiolepore.net/tags/tutoriales/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[MEGA: El nuevo nombre de #Megaupload]]></title>
+    <link href="http://www.sergiolepore.net/2012/10/18/mega-el-nuevo-nombre-de-megaupload/"/>
+    <id>http://www.sergiolepore.net/2012/10/18/mega-el-nuevo-nombre-de-megaupload/</id>
+    <published>2012-10-18T22:55:00.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<img src="/images/misc/new_mega_megaupload_kimdotcom_twitter.png" class="center">
+
+<p>Soy seguidor de KimDotCom en <a href="http://twitter.com/KimDotCom" target="_blank" rel="external">Twitter</a>. Casi siempre está hablando acerca de la situación de <strong>Megaupload</strong> y demás proyectos, pero aquí algo curioso: hace tiempo que se refiere a su nuevo producto simplemente como <em>Mega</em>. Echémosle un vistazo. <br></p>
+<a id="more"></a>
+
+<blockquote class="twitter-tweet" lang="en"><p>Must read: WIRED about the NEW Mega. <a href="http://t.co/1JkJRaga" target="_blank" rel="external">http://t.co/1JkJRaga</a></p>&mdash; Kim Dotcom (@KimDotcom) <a href="https://twitter.com/KimDotcom/statuses/258911298862080001" target="_blank" rel="external">October 18, 2012</a></blockquote>
+
+<blockquote class="twitter-tweet" lang="en"><p>Meeeeeeegaaaaaaaa!!!</p>&mdash; Kim Dotcom (@KimDotcom) <a href="https://twitter.com/KimDotcom/statuses/258766086529507328" target="_blank" rel="external">October 18, 2012</a></blockquote>
+
+<blockquote class="twitter-tweet" lang="en"><p>Picture time: MEGAAAA ;-) <a href="http://t.co/5inM3qSd" target="_blank" rel="external">pic.twitter.com/5inM3qSd</a></p>&mdash; Kim Dotcom (@KimDotcom) <a href="https://twitter.com/KimDotcom/statuses/257788224628457472" target="_blank" rel="external">October 15, 2012</a></blockquote>
+
+<blockquote class="twitter-tweet" lang="en"><p>Quick update on the new Mega: Code 90% done. Servers on the way. Lawyers, Partners &amp; Investors ready. Be patient. It&#39;s coming.</p>&mdash; Kim Dotcom (@KimDotcom) <a href="https://twitter.com/KimDotcom/statuses/249301311647014912" target="_blank" rel="external">September 22, 2012</a></blockquote>
+
+<p>Todo esto simplemente podría haber ser una abreviación cariñosa a la marca <strong>Megaupload</strong>, pero no.</p>
+<p>En una <a href="http://www.wired.com/threatlevel/2012/10/megaupload-mega/" target="_blank" rel="external">reciente entrevista que ofreció a Wired</a>, <em>KimDotCom</em> reveló que el nuevo producto es “una herramienta única que va a resolver los problemas de tienen los servicios de almacenamiento en la nube, además de mejorar los derechos de privacidad de los usuarios de internet (…)”. Y como lo anticipaba, el producto se lo denomina solamente como <strong>Mega</strong>.</p>
+<p>Tal como lo era Megaupload en sus tiempos, Mega es otro servicio de storage en la nube pero con un par de cambios radicales a este paradigma: <strong>encriptación de datos y distribución de cómputo.</strong></p>
+<p>Quizás el cambio que más notarán los usuarios será el hecho de que <strong>los archivos se encriptarán en una capa intermedia entre el Mega y el usuario, para luego ser almacenados en los servidores.</strong> Esto implica que los archivos alojados <strong>no pueden ser descifrados por nadie.</strong> El usuario luego obtiene una llave pública para el desencriptado de cada cosa que sube y su posterior descarga. Gracias a esto, <strong>todo el control de los archivos pasa a través del usuario</strong> que los haya subido, quedando entera responsabilidad en éste el compartir o no las llaves de acceso.</p>
+<p>Otro punto a destacar del servicio es que no se usará el patrón de detección de duplicados, donde se analiza lo que se sube y si dos usuarios suben el mismo archivo, solo se almacena uno solo y ambos comparten la referencia (para ahorrar espacio en servidor). La apuesta de Mega es que <strong>cada subida crea un nuevo archivo aislado de los demás, con una llave de desencriptación única.</strong></p>
+<p>Según asegura KimDotCom, <strong>la empresa no puede tener acceso a ninguno de los archivos originales</strong>, lo cual los exime de toda responsabilidad acerca de lo que los usuarios suban (películas, música o documentos), pero actuarán de acuerdo a la ley en caso de que un archivo con copyright sea denunciado y se compruebe fehacientemente que debe darse de baja del servicio.</p>
+<p>Además de todo esto, <strong>Mega tiene la posibilidad de extender su nube a cualquier servidor que desee formar parte de la misma.</strong> Como dice el alemán: “Estamos creando un sistema en el que cualquier equipo en el mundo, desde un emprendimiento de garage de USD 2.000 hasta los hosts más grandes, puedan conectarse a esta red (…)”.</p>
+<p>Todos estos cambios ponen muy optimista a DotCom, que asegura que es virtualmente imposible que logren terminar por segunda vez su servicio de almacenamiento. <br><br></p>
+<p><strong>Visto en: <a href="http://www.wired.com/threatlevel/2012/10/megaupload-mega/" target="_blank" rel="external">Megaupload Is Dead. Long Live Mega! - Wired</a></strong></p>
+]]></content>
+    <summary type="html"><![CDATA[<img src="/images/misc/new_mega_megaupload_kimdotcom_twitter.png" class="center">
+
+<p>Soy seguidor de KimDotCom en <a href="http://twitter.com/KimDotCom" target="_blank" rel="external">Twitter</a>. Casi siempre está hablando acerca de la situación de <strong>Megaupload</strong> y demás proyectos, pero aquí algo curioso: hace tiempo que se refiere a su nuevo producto simplemente como <em>Mega</em>. Echémosle un vistazo. <br></p>
+]]></summary>
+    
+      <category term="Noticias" scheme="http://www.sergiolepore.net/tags/noticias/"/>
+    
+      <category term="Empresas" scheme="http://www.sergiolepore.net/tags/empresas/"/>
+    
+      <category term="Internet" scheme="http://www.sergiolepore.net/tags/internet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Node.js: Cómo construir un paquete para npm]]></title>
+    <link href="http://www.sergiolepore.net/2012/10/18/como-construir-un-modulo-de-nodejs-e-integrarlo-con-npm/"/>
+    <id>http://www.sergiolepore.net/2012/10/18/como-construir-un-modulo-de-nodejs-e-integrarlo-con-npm/</id>
+    <published>2012-10-18T19:13:00.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<img src="/images/misc/npm.png" class="left" width="240">
+
+<p>¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de <em>Node.js</em> acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/blush.png" width="20" height="20" class=" emoji nofancybox" title="blush"></p>
+<p>El tutorial de hoy girará en torno a cómo se crean módulos para <strong>Node</strong> y cómo se publican en <strong>npmjs.org</strong> para que estén al alcance de toda la comunidad. Si por esas casualidades llegaste al blog y no sabes de qué estoy hablando, a continuación te presento a las estrellas.</p>
+<a id="more"></a>
+
+<p><br></p>
+<h1 id="Node-js">Node.js</h1>
+<p>Tal cual lo dice su <a href="http://nodejs.org/" target="_blank" rel="external">sitio oficial</a>, Node.js es una plataforma construida sobre el <a href="https://developers.google.com/v8/" target="_blank" rel="external">motor JavaScript V8</a> y orientada al desarrollo de todo tipo de aplicaciones de red de forma rápida, fácil y escalable. Node.js es, básicamente, Javascript implementado en el servidor.</p>
+<p><br></p>
+<h1 id="npm">npm</h1>
+<p><em>npm</em> es el gestor de paquetes de Node.js por excelencia. Esta una herramienta de línea de comandos que <strong>permite gestionar todas las dependencias de una aplicación hecha en Node.js.</strong> Si, por ejemplo, queremos usar el módulo de <a href="https://github.com/jashkenas/underscore" target="_blank" rel="external">underscore</a> en nuestro proyecto, solo tenemos que ejecutar el siguiente comando:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">npm install underscore</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Puedes encontrar más info de <em>npm</em> en su <a href="http://npmjs.org/" target="_blank" rel="external">sitio oficial</a>.</p>
+<p>Bien, aclarados estos dos puntos, vamos a construir nuestro primer módulo.</p>
+<p><br></p>
+<h1 id="Requisitos">Requisitos</h1>
+<ul>
+<li>Node.js y npm (muy obvio, pero vale aclararlo).</li>
+<li>Café, mucho café <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/grin.png" width="20" height="20" class=" emoji nofancybox" title="grin"></li>
+</ul>
+<p><br></p>
+<h1 id="Objetivo">Objetivo</h1>
+<p>Vamos a crear una aplicación que reemplace parámetros del tipo <strong>%clave%</strong> con una cadena que nosotros le vamos a proveer. Por ejemplo:</p>
+<pre>
+-> Cadena de entrada: %home_dir%/Proyectos
+-> Operación: %home_dir% => /home/sergio
+-> Cadena de salida: /home/sergio/Proyectos
+</pre>
+
+<p>¡Manos a la obra! <br><br></p>
+<h1 id="Node-js:_Estructura_de_directorios">Node.js: Estructura de directorios</h1>
+<p>Esto no es precisamente un estándar sino más bien una convención entre desarrolladores acerca de cómo ordenar nuestro código fuente escrito para NodeJS. Para este proyecto vamos a ordenarlo de la siguiente manera:</p>
+<pre>param_replacer/
+ ├── bin/
+ |   └─ param_replacer
+ ├── lib/
+ |   └─ param_replacer.js
+ ├── index.js
+ ├── README.md
+ └── package.json
+</pre>
+
+<p><br></p>
+<p><strong>¿Qué hay en bin/ ?</strong></p>
+<p>Puedes colocar un script que permita la ejecución de tu aplicación desde la línea de comandos sin llamar a node. No es mágico, obviamente, pero sirve de mucho para cuando instalemos el paquete. Para nuestra aplicación de ejemplo no lo vamos a utilizar, así que será tema de otro artículo.</p>
+<p><strong>¿Qué hay en lib/ ?</strong></p>
+<p>Dentro de lib “aislaremos” todo el código de la aplicación. Es una manera de tener ordenado el directorio principal del paquete.</p>
+<p><strong>¿Qué hay en el directorio principal?</strong></p>
+<p>En el mismo creamos un index.js que sirve de atajo al script principal de nuestra aplicación, un <em>README.md</em> (o <em>README.markdown</em>) que será mostrado como readme por defecto en la página de nuestro paquete, en el sitio de <em>npm</em>, y por último tenemos nuestro apreciado package.json. Este último archivo es indispensable a la hora de publicar nuestros módulos en <em>npm</em>, ya que el mismo contiene toda la info relevante como nombre del paquete, versión, colaboradores, keywords, dependencias, etc.</p>
+<p>En breve veremos más acerca de <em>package.json</em> y cómo configurar cada detalle del mismo. <br><br></p>
+<h1 id="Node-js:_La_función_de_reemplazo">Node.js: La función de reemplazo</h1>
+<p>Comenzaremos a programar <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"> Como les comenté, toda la lógica de la aplicación fue a parar a <em>lib/param_replacer.js</em>. Editemos ese archivo y juguemos.</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="param_replacer(1).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-1-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Como vemos en la salida, nuestro script está reemplazando cualquier cosa encerrada entre % por un valor único. Podríamos mejorar un poco su comportamiento haciendo lo siguiente:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="param_replacer(2).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-2-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Mucho mejor. Con esta forma de aislar parámetros con sus reemplazos podemos jugar de muchas maneras, como por ejemplo, hacer un “hello world” multi idiomas:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="param_replacer(3).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-3-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Y ejecutamos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">node lib/param_replacer.js</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Bien, con esto ya tenemos la funcionalidad principal cubierta. Pero no es más que simple Javascript. ¿Dónde está la magia de <em>Node.js</em> y <em>npm</em>? Sigamos debajo… <br><br></p>
+<h1 id="Node-js:_Código_modular">Node.js: Código modular</h1>
+<p>Una de las cosas que hacen a <em>Node.js</em> una plataforma sólida es la manera en la que soluciona el aislar y exponer el código, <em>similar</em> al <code>require</code> de PHP, pero robusto como el <code>import</code> de Python.</p>
+<p>Los módulos en <em>Node.js</em> se definen en un archivo <code>.js</code>, <code>.json</code> o <code>.node</code> y luego pueden ser importados en otros lugares de nuestra aplicación mediante el método <code>require</code>. Por ejemplo, si tenemos un módulo definido dentro de <code>lib/param_replacer.js</code>  y queremos usarlo dentro de un archivo <code>lib/otro_archivo.js</code>, solo basta con escribir:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="otro_archivo.js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-otro_archivo-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Dentro de la variable <code>replacer</code> tendremos a nuestro querido reemplazador de parámetros. Pero, ¿cómo se define un módulo? <br><br></p>
+<h2 id="Creando_un_módulo">Creando un módulo</h2>
+<p>Cuando invocamos al <code>require</code>, <em>Node.js</em> lee el archivo que solicitamos y asigna el contenido del módulo a nuestra variable. Nuestro archivo no expone absolutamente todo el código, sino aquel que sea “exportado”. Para ello se utiliza el método <code>exports</code>.</p>
+<p>Modifiquemos nuestro <code>param_replacer.js</code> para que pueda exponer su funcionalidad:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="param_replacer(4).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-4-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Con esta modificación, nuestro código quedó completamente aislado en un archivo separado del resto, y expone un único método llamado <code>replace</code> que no es ni más ni menos que una función anónima.</p>
+<p>Para ver a nuestro renovado replacer en acción, copiar el siguiente código en <code>index.js</code>:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="index.js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Y ejecutamos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">node index.js</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Genial, nuestra aplicación se comporta de la misma manera, pero ahora es modular <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"> ¿Qué mas hay que hacer? <br><br></p>
+<h1 id="Node-js:_Carga_de_módulos">Node.js: Carga de módulos</h1>
+<p>Ya vimos que desde el <code>index.js</code> de nuestro módulo se pueden hacer algunas pruebas rápidas, pero en estos casos el index cumple una función muy importante. Según la documentación de <em>Node.js</em>, cuando hacemos un <code>require</code> el compilador comienza a buscar por el archivo que estemos solicitando (algo obvio). Puede buscar un archivo específico (si defines su extensión) o bien por un archivo con extensiones <code>.js</code>, <code>.json</code> o <code>.node</code>, en ese orden de <em>fallbacks</em>. Veamos un ejemplo de todo esto.</p>
+<p>Imaginemos que tenemos un módulo llamado <code>mi_libreria.js</code> y queremos usarlo en otro archivo:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="index(2).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-2-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>En este caso, <em>Node.js</em> buscará sólamente el archivo especificado. Pero también podemos usar el <code>require</code> de esta otra forma:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="index(3).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-3-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Al no especificar una extensión, <em>Node.js</em> buscará primero un archivo llamado <code>mi_libreria.js</code>. En caso de no encontrarlo, intentará con <code>mi_libreria.json</code> y si así mismo falla, tratará con <code>mi_libreria.node</code>.</p>
+<p>¿Y dónde intervienen los <code>index.js</code>?</p>
+<p>En caso de tener problemas con la carga especificada anteriormente, el cargador de archivos intentará una última cosa… Buscar un archivo <code>index</code> dentro del directorio <code>mi_libreria</code>. Con los index sucede lo mismo que con otros archivos, buscará: <br><br></p>
+<pre>
+- ./mi_libreria/index.js
+- ./mi_libreria/index.json
+- ./mi_libreria/index.node
+</pre>
+
+<p>Si todo falla, el compilador explota de manera horrenda. <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/grin.png" width="20" height="20" class=" emoji nofancybox" title="grin"></p>
+<p>Entonces, ¿qué hacemos con el <code>index.js</code> actual? Apenas comencé el artículo, les comenté que se iba a usar de atajo para incluir nuestra librería principal. Así que reemplacemos todo el contenido por esto:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="index(4).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-4-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Con esta modificación podemos utilizar la librería como un paquete completo, sólo copiando el directorio donde estamos trabajando (param_replacer/) y haciendo <code>require(&#39;param_replacer&#39;);</code> cuando lo necesitemos…</p>
+<pre>mi_app/
+ ├── liberias/
+ |   └─ libs.js
+ ├── node_modules/
+ |   └─ param_replacer/
+ ├── app.js ← este archivo puede hacer require('param_replacer') y todo funciona de maravillas
+ └── otro.js
+</pre>
+
+<p>Y esto no es todo, como les mostré arriba, existe un directorio mágico llamado node<em>modules que es el que contiene módulos de nuestras aplicaciones. El cargador de _Node.js</em> también buscará por módulos dentro de ese directorio, siguiendo los criterios de carga que ya vimos. Genial, ¿no? Si quieren aprender más sobre esto, consulten la <a href="http://nodejs.org/docs/latest/api/modules.html" target="_blank" rel="external">documentación oficial</a>.</p>
+<p>Y este es el momento justo de presentar a nuestro héroe, <strong>npm</strong>. <br><br></p>
+<h1 id="npm:_Configurando_el_paquete">npm: Configurando el paquete</h1>
+<p>Al momento en que publiquemos en <em>npm</em>, todo el contenido que tenemos dentro del directorio <em>param_replacer</em> será el contenido del paquete que estará en los <a href="https://npmjs.org/" target="_blank" rel="external">repositorios de <em>npm</em></a>. Además, un archivo <code>package.json</code> sirve para configurar este paquete. Veamos un ejemplo:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="package.json"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-package-json" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>En <a href="https://www.npmjs.org/doc/files/package.json.html" target="_blank" rel="external">este</a> o <a href="http://package.json.nodejitsu.com/" target="_blank" rel="external">este otro</a> enlace encontrarán una descripción completa sobre todas las configuraciones que podemos cubrir con <code>package.json</code>. <br><br></p>
+<h1 id="npm:_Publicando_nuestro_primer_paquete">npm: Publicando nuestro primer paquete</h1>
+<p>En este punto voy a considerar que nunca has creado una cuenta en NPM, así que voy a arrancar desde cero. Antes que nada necesitamos registrar un usuario para poder publicar. Se puede hacer de dos maneras, la <em>trivial</em> y la <em>geek</em> <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/grin.png" width="20" height="20" class=" emoji nofancybox" title="grin"> <br><br></p>
+<h2 id="Forma_trivial">Forma trivial</h2>
+<p>Simplemente ingresando en la <a href="https://npmjs.org/signup" target="_blank" rel="external">página de registro</a>, podemos completar nuestros datos y darnos de alta. ¡Recuerden su nombre de usuario y contraseña!.</p>
+<p>A continuación, vas a la consola y ejecutas:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">npm adduser</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Provees tus credenciales y listo. <br><br></p>
+<h2 id="Forma_geek">Forma geek</h2>
+<p>Decidí llamarlo así ya que no se usan los métodos web, sino que se usa la aplicación de consola. Ejecutar lo siguiente:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">npm adduser</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Es el mismo comando que usamos en la forma trivial. El mismo registra un nuevo usuario y configura, o configura solamente tu cuenta, dependiendo de si tenias un usuario registrado previamente (caso de que hayas registrado en web, o cambies de PC).</p>
+<p>Para finalizar, sigues los pasos y ¡voila! Ya podemos publicar nuestro trabajo. <br><br></p>
+<h2 id="Publicando_el_paquete">Publicando el paquete</h2>
+<p>Asegúrate de estar en el directorio principal (donde está el <code>package.json</code>). Una vez ahí, ejecuta:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">npm publish</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Ahora intenta instalarlo en alguno de tus proyectos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/OtroProyecto</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/OtroProyecto$ <span class="terminal-line">npm install param_replacer</span><br>        you@yourcomputer:~/Proyecto/OtroProyecto$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>O instálalo para que esté disponible de modo global (en todos tus proyectos):</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">npm install -g param_replacer</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><br><br></p>
+<h1 id="npm:_Administrando_nuestros_paquetes">npm: Administrando nuestros paquetes</h1>
+<p>Como es obvio, en todo proyecto siempre hay corrección de errores o se añaden funcionalidades nuevas. Para actualizar el paquete publicado, solo tienes que cambiar el valor de version y ejecutar nuevamente <code>npm publish</code>.</p>
+<p>Si cometiste un error, ¡no importa! <code>npm uninstall</code> y <code>npm unpublish</code> lo solucionarán.</p>
+<p><br><br></p>
+<p>Bueno gente, eso fue todo por el momento. Si lo desean, pueden echarle un ojo a este proyecto en <a href="https://github.com/sergiolepore/param_replacer" target="_blank" rel="external">Github</a> y si tienen alguna duda, ¡no duden en hacérmela saber!</p>
+<p>¡Hasta la próxima!</p>
+]]></content>
+    <summary type="html"><![CDATA[<img src="/images/misc/npm.png" class="left" width="240">
+
+<p>¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de <em>Node.js</em> acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/blush.png" width="20" height="20" class=" emoji nofancybox" title="blush"></p>
+<p>El tutorial de hoy girará en torno a cómo se crean módulos para <strong>Node</strong> y cómo se publican en <strong>npmjs.org</strong> para que estén al alcance de toda la comunidad. Si por esas casualidades llegaste al blog y no sabes de qué estoy hablando, a continuación te presento a las estrellas.</p>
+]]></summary>
+    
+      <category term="Desarrollo" scheme="http://www.sergiolepore.net/tags/desarrollo/"/>
+    
+      <category term="Node.js" scheme="http://www.sergiolepore.net/tags/nodejs/"/>
+    
+      <category term="Tutoriales" scheme="http://www.sergiolepore.net/tags/tutoriales/"/>
+    
+      <category term="npmjs" scheme="http://www.sergiolepore.net/tags/npmjs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Programación de juegos en #Python - Cursos #Coursera]]></title>
+    <link href="http://www.sergiolepore.net/2012/10/16/programacion-de-juegos-en-python-cursos-coursera/"/>
+    <id>http://www.sergiolepore.net/2012/10/16/programacion-de-juegos-en-python-cursos-coursera/</id>
+    <published>2012-10-16T14:44:00.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<img src="/images/courses/python-coursera.png" class="left">
+
+<p>¡Buenos días! Hoy les traigo un curso muy interesante para todos aquellos que quieran probar nuevos lenguajes de programación o, por qué no, probar nuevas cosas con uno de los lenguajes más fantásticos del mundo, <strong>Python</strong>.</p>
+<p><em>“An Introduction to Interactive Programming in Python”</em> es un curso online de <a href="https://www.coursera.org/" target="_blank" rel="external">Coursera</a> y enfocado en la construcción de juegos simples como Pong, Blackjack y Asteroids.</p>
+<a id="more"></a>
+
+<h3 id="¿Coursera?">¿Coursera?</h3>
+<p>Es una plataforma online que provee <strong>cursos gratuitos para cualquier persona del mundo</strong> y dictados por catedráticos de grandes universidades. Para acceder a las clases solo tienes que crear una cuenta e inscribirte al cursado que más te agrade.</p>
+<p>Actualmente cuenta con 198 cursos en total, distribuidos en 18 categorías.</p>
+<h3 id="Sobre_este_curso">Sobre este curso</h3>
+<p>Según se lee en la introducción, <strong>las clases están diseñadas para que personas con pocos o escasos conocimientos en programación puedan aprender a desarrollar aplicaciones interactivas.</strong></p>
+<p>Los prácticos se podrán realizar a través de una herramienta que funciona directamente sobre el navegador (usuarios de Internet Explorer, <a href="http://help.coursera.org/customer/portal/articles/502540-what-kind-of-computer-and-web-browser-do-i-need-" target="_blank" rel="external">leer esto</a>), similar a las que provee CodeSchool -<a href="http://tryruby.org/" target="_blank" rel="external">ver</a>-</p>
+<p>El curso se dictará durante <strong>8 semanas a partir de YA</strong>. Si, el curso comenzó ayer, pero el contenido y las herramientas pueden ser utilizadas cuando más le quede cómodo al estudiante :)</p>
+<p>¿Qué cosas se pueden hacer una vez finalizado el curso? Aparte de aprender lo básico de <strong>Python</strong>, los estudiantes podrán hacer sus propios juegos con este lenguaje, o al menos así lo prometen los profesores a cargo</p>
+<div class="video-container"><iframe src="//www.youtube-nocookie.com/embed/LjCzaz1aEBo" frameborder="0" allowfullscreen></iframe></div><a class="fa  fa-youtube-play youtube-link" href="https://www.youtube.com/watch?v=LjCzaz1aEBo" title="YouTube Video" target="_blank" rel="external">Enlace a YouTube</a>
+
+
+<p>Bueno gente, ¡espero verlos preguntando por los foros del curso! ¡Saludos!</p>
+<p><strong>LINK:</strong> <a href="https://www.coursera.org/course/interactivepython" target="_blank" rel="external">An Introduction to Interactive Programming in Python | Coursera</a></p>
+]]></content>
+    <summary type="html"><![CDATA[<img src="/images/courses/python-coursera.png" class="left">
+
+<p>¡Buenos días! Hoy les traigo un curso muy interesante para todos aquellos que quieran probar nuevos lenguajes de programación o, por qué no, probar nuevas cosas con uno de los lenguajes más fantásticos del mundo, <strong>Python</strong>.</p>
+<p><em>“An Introduction to Interactive Programming in Python”</em> es un curso online de <a href="https://www.coursera.org/" target="_blank" rel="external">Coursera</a> y enfocado en la construcción de juegos simples como Pong, Blackjack y Asteroids.</p>
+]]></summary>
+    
+      <category term="Cursos" scheme="http://www.sergiolepore.net/tags/cursos/"/>
+    
+      <category term="Desarrollo" scheme="http://www.sergiolepore.net/tags/desarrollo/"/>
+    
+      <category term="Python" scheme="http://www.sergiolepore.net/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Frase motivadora del día - #1]]></title>
+    <link href="http://www.sergiolepore.net/2012/09/12/frase-motivadora-del-dia-1/"/>
+    <id>http://www.sergiolepore.net/2012/09/12/frase-motivadora-del-dia-1/</id>
+    <published>2012-09-12T20:38:00.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+
+<p>Donde haya un árbol que plantar, plántalo tú;<br>donde haya un error que enmendar, enmiéndalo tú;<br>donde haya un esfuerzo que todos esquiven, acéptalo tú;<br>sé el que apartó la piedra del camino,<br>el odio de los corazones<br>y las dificultades del problema.</p>
+<footer><strong>Gabriela Mistral</strong></footer></blockquote>
+]]></content>
+    
+    
+      <category term="Frases" scheme="http://www.sergiolepore.net/tags/frases/"/>
+    
+      <category term="Varios" scheme="http://www.sergiolepore.net/tags/varios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[HTML5 - Infografía sobre su historia]]></title>
+    <link href="http://www.sergiolepore.net/2012/07/28/html5-infografia-sobre-su-historia/"/>
+    <id>http://www.sergiolepore.net/2012/07/28/html5-infografia-sobre-su-historia/</id>
+    <published>2012-07-28T13:30:00.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<p>¿Cómo nació HTML5? ¿Realmente es tan joven? ¿Por qué creció rápidamente? Respuestas a estas preguntas nos llegan a través de una sencilla infografía realizada por <a href="http://wix.com/" target="_blank" rel="external">Wix</a>, un sitio web que permite construir otros sitios web a través de herramientas sencillas para cualquier persona que no posea conocimientos técnicos.</p>
+<p>A continuación la imagen. <a href="http://thumbnails.visually.netdna-cdn.com/the-history-of-html5_50291a1c54528.jpg" target="_blank" rel="external">Clic aquí</a> para verla en un tamaño mayor.</p>
+<a id="more"></a>
+
+<img src="http://thumbnails.visually.netdna-cdn.com/the-history-of-html5_50291a1c54528.jpg" class="center" width="470" height="3746">]]></content>
+    <summary type="html"><![CDATA[<p>¿Cómo nació HTML5? ¿Realmente es tan joven? ¿Por qué creció rápidamente? Respuestas a estas preguntas nos llegan a través de una sencilla infografía realizada por <a href="http://wix.com/" target="_blank" rel="external">Wix</a>, un sitio web que permite construir otros sitios web a través de herramientas sencillas para cualquier persona que no posea conocimientos técnicos.</p>
+<p>A continuación la imagen. <a href="http://thumbnails.visually.netdna-cdn.com/the-history-of-html5_50291a1c54528.jpg" target="_blank" rel="external">Clic aquí</a> para verla en un tamaño mayor.</p>
+]]></summary>
+    
+      <category term="Desarrollo" scheme="http://www.sergiolepore.net/tags/desarrollo/"/>
+    
+      <category term="HTML5" scheme="http://www.sergiolepore.net/tags/html5/"/>
+    
+      <category term="Infografias" scheme="http://www.sergiolepore.net/tags/infografias/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Barcamp Córdoba V3.0 - Impresiones]]></title>
+    <link href="http://www.sergiolepore.net/2012/06/17/barcamp-cordoba-v3-0-impresiones/"/>
+    <id>http://www.sergiolepore.net/2012/06/17/barcamp-cordoba-v3-0-impresiones/</id>
+    <published>2012-06-17T21:27:00.000Z</published>
+    <updated>2014-07-20T20:36:46.818Z</updated>
+    <content type="html"><![CDATA[<img src="/images/misc/barcamp-cordoba.jpg" class="left" width="450" height="450">
+
+<p><strong>¡BARCAMP CORDOBA 2012!</strong> Ayer, Sábado 16 de Junio, se realizó la tercera edición cordobesa de este evento que reúne a ñoños y geeks de todo el país. El formato del evento es sencillo, cualquiera de estas personas puede preparar una charla de la temática que más le agrade y exponerla para el resto en no más de 30 minutos.</p>
+<p>Como no pude resistir la tentación, tuve que anotar mi charla “El futuro de la Web” para evangelizar a todos los que pueda sobre esta etapa tan cambiante que vive nuestro mundillo virtual (obsolescencia de tecnologías y posicionamiento de otras, básicamente).<br><a id="more"></a></p>
+<p>¿Qué me llevo de este evento? Excelentes charlas, tanto formales como informales, gente copada, varios nuevos contactos y las ganas de otro Barcamp!</p>
+<p>Para ver las fotos del evento, <a href="http://fotos.barcampcordoba.org/" target="_blank" rel="external">clic aquí</a>.</p>
+<p>Para ver la nota en el sitio de La Voz, <a href="http://vos.lavoz.com.ar/tecnologia/barcamp-cba-2012-inteligencia-compartida" target="_blank" rel="external">clic aquí</a>.</p>
+<p>Y estén atentos porque, según me dijo uno de los muchachos de <a href="http://www.netnica.com/" target="_blank" rel="external">Netnica</a>, el vídeo del Streaming será subido al <a href="http://barcampcordoba.org/" target="_blank" rel="external">sitio web de Barcamp Córdoba.</a><br><br><br></p>
+<img src="/images/misc/barcamp-cordoba-pizarra.jpg" class="center">
+
+<p>Y como para ir cerrando, quiero darles las gracias por llegar a mi renovado blog (y nuevo, otra vez). Después de muchos años de bloggear y cambiar de sitios y temáticas, he decidido establecerme en este lugar y dejarlo vivir eternamente… O hasta que no pague más el dominio jeje. ¿Contenidos que van a encontrar de aquí en más? Cualquier cosa que deleite a un geek. Si me gusta a mi, ¡seguro te va a gustar a vos!</p>
+<p>¡Saludos y buen domingo!</p>
+]]></content>
+    <summary type="html"><![CDATA[<img src="/images/misc/barcamp-cordoba.jpg" class="left" width="450" height="450">
+
+<p><strong>¡BARCAMP CORDOBA 2012!</strong> Ayer, Sábado 16 de Junio, se realizó la tercera edición cordobesa de este evento que reúne a ñoños y geeks de todo el país. El formato del evento es sencillo, cualquiera de estas personas puede preparar una charla de la temática que más le agrade y exponerla para el resto en no más de 30 minutos.</p>
+<p>Como no pude resistir la tentación, tuve que anotar mi charla “El futuro de la Web” para evangelizar a todos los que pueda sobre esta etapa tan cambiante que vive nuestro mundillo virtual (obsolescencia de tecnologías y posicionamiento de otras, básicamente).<br>]]></summary>
+    
+      <category term="Eventos" scheme="http://www.sergiolepore.net/tags/eventos/"/>
+    
+      <category term="Barcamp" scheme="http://www.sergiolepore.net/tags/barcamp/"/>
+    
+  </entry>
+  
+</feed>

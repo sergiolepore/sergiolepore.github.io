@@ -1,0 +1,382 @@
+
+<!DOCTYPE HTML>
+<html class="page-with-contents" lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Node.js: Cómo construir un paquete para npm | Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan</title>
+
+  <meta name="author" content="Sergio Lepore">
+
+  <meta name="description" content="¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de Node.js acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma 
+El tutorial de hoy girará en torno a cómo se crean módulos para Node y cómo se publican en npmjs.org para que estén al alcance de toda la comunidad. Si por esas casualidades llegaste al blog y no sabes de qué estoy hablando, a continuación te presento a las estrellas.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@sergiolepore" />
+  <meta name="twitter:title" content="Node.js: Cómo construir un paquete para npm" />
+  <meta name="twitter:description" content="¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de Node.js acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma 
+El tutorial de hoy girará en torno a cómo se crean módulos para Node y cómo se publican en npmjs.org para que estén al alcance de toda la comunidad. Si por esas casualidades llegaste al blog y no sabes de qué estoy hablando, a continuación te presento a las estrellas." />
+  <meta name="twitter:creator" content="@sergiolepore">
+
+  <meta property="og:title" content="Node.js: Cómo construir un paquete para npm" /> 
+  <meta property="og:type" content="article" /> 
+  <meta property="og:url" content="http://www.sergiolepore.net/2012/10/18/como-construir-un-modulo-de-nodejs-e-integrarlo-con-npm/" />
+
+  <meta property="og:description" content="¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de Node.js acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma 
+El tutorial de hoy girará en torno a cómo se crean módulos para Node y cómo se publican en npmjs.org para que estén al alcance de toda la comunidad. Si por esas casualidades llegaste al blog y no sabes de qué estoy hablando, a continuación te presento a las estrellas." /> 
+  <meta property="og:site_name" content="Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan" /> 
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="http://feeds.feedburner.com/SergioLepore" title="Sergio Lepore - Coder, Blogger, Speaker, Open Source Fan" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/vendor/powertip/jquery.powertip.min.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.powertip.min.js"></script>
+  <script type="text/javascript" src="/js/terminal.selecttext.js"></script>
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39209084-1', 'sergiolepore.net');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.7/gist-embed.min.js"></script>
+
+
+</head>
+  <body>
+    <div class="container">
+      <div class="left-col">
+        <div class="intrude-less">
+          <header id="header" class="inner">
+            <div class="profilepic">
+  <a href="/">
+    <img src="/images/misc/sergio-lepore.png" alt='Profile Picture' style='width: 160px;' />
+  </a>
+</div><!-- profilepic -->
+<h1><a href="/">Sergio Lepore</a></h1>
+<nav id="main-nav">
+
+  <section class="aboutme">
+    <p>Básicamente, escribo código del mismo modo que un escritor escribe una novela.<br> <em>Open Source evangelist</em>.<br> Usuario orgulloso de <em class="ubuntu-hi">Ubuntu</em>.<br> Tratando de hacer una mella en el Universo.</p>
+  </section>
+
+  <ul class="main">
+  
+    <li>
+      <a href="/">Blog</a>
+    </li>
+  
+    <li>
+      <a href="/archivos">Archivos</a>
+    </li>
+  
+    <li>
+      <a href="/proyectos">Proyectos</a>
+    </li>
+  
+    <li>
+      <a href="/conferencias">Speaking</a>
+    </li>
+  
+    <li>
+      <a href="/acerca-de-sergio">Acerca</a>
+    </li>
+  
+  </ul>
+</nav><!-- main-nav -->
+<nav id="sub-nav">
+  <div class="social">
+  
+    <a class="google" href="https://plus.google.com/+SergioDanielLepore?rel=author" rel="author" title="Google+">Google+</a>
+  
+  
+    <a class="twitter" href="http://twitter.com/sergiolepore" title="Twitter">Twitter</a>
+  
+  
+    <a class="github" href="http://github.com/sergiolepore" title="Github">Github</a>
+  
+  
+    <a class="youtube" href="http://www.youtube.com/user/SergeLepore" title="YouTube">YouTube</a>
+  
+  
+    <a class="slides" href="http://slid.es/sergiolepore" title="Slides">Slides</a>
+  
+  
+    <a class="feedly" href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ffeeds.feedburner.com%2FSergioLepore" title="Feedly">Feedly</a>
+  
+  
+    <a class="rss" href="http://feeds.feedburner.com/SergioLepore" title="RSS">RSS</a>
+  
+  </div>
+</nav><!-- sub-nav -->
+          </header>
+        </div><!-- intrude-less -->
+      </div><!-- left-col -->
+      <div class="mid-col">
+        <div class="mid-col-container">
+          <div id="content" class="inner">
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <a name="top"></a>
+  
+  <div class="meta">
+    
+<div>
+  <em class="fa fa-calendar"></em>
+
+  <time datetime="2012-10-18T19:13:00.000Z" data-updated="true" itemprop="datePublished">
+      jueves, oct. 18, 2012
+  </time>
+
+
+
+</div>
+  </div>
+  <h1 class="title" itemprop="name">Node.js: Cómo construir un paquete para npm</h1>
+  <div class="entry-content" itemprop="articleBody"><img src="/images/misc/npm.png" class="left" width="240">
+
+<p>¡Buen día gente! Hoy decido comenzar una serie de tutoriales para orientar a los nuevos usuarios de <em>Node.js</em> acerca de qué cosas hacer y cómo hacerlas con esta maravillosa plataforma <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/blush.png" width="20" height="20" class=" emoji nofancybox" title="blush"></p>
+<p>El tutorial de hoy girará en torno a cómo se crean módulos para <strong>Node</strong> y cómo se publican en <strong>npmjs.org</strong> para que estén al alcance de toda la comunidad. Si por esas casualidades llegaste al blog y no sabes de qué estoy hablando, a continuación te presento a las estrellas.</p>
+<a id="more"></a>
+
+<p><br></p>
+<h1 id="Node-js">Node.js</h1>
+<p>Tal cual lo dice su <a href="http://nodejs.org/" target="_blank" rel="external">sitio oficial</a>, Node.js es una plataforma construida sobre el <a href="https://developers.google.com/v8/" target="_blank" rel="external">motor JavaScript V8</a> y orientada al desarrollo de todo tipo de aplicaciones de red de forma rápida, fácil y escalable. Node.js es, básicamente, Javascript implementado en el servidor.</p>
+<p><br></p>
+<h1 id="npm">npm</h1>
+<p><em>npm</em> es el gestor de paquetes de Node.js por excelencia. Esta una herramienta de línea de comandos que <strong>permite gestionar todas las dependencias de una aplicación hecha en Node.js.</strong> Si, por ejemplo, queremos usar el módulo de <a href="https://github.com/jashkenas/underscore" target="_blank" rel="external">underscore</a> en nuestro proyecto, solo tenemos que ejecutar el siguiente comando:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">npm install underscore</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Puedes encontrar más info de <em>npm</em> en su <a href="http://npmjs.org/" target="_blank" rel="external">sitio oficial</a>.</p>
+<p>Bien, aclarados estos dos puntos, vamos a construir nuestro primer módulo.</p>
+<p><br></p>
+<h1 id="Requisitos">Requisitos</h1>
+<ul>
+<li>Node.js y npm (muy obvio, pero vale aclararlo).</li>
+<li>Café, mucho café <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/grin.png" width="20" height="20" class=" emoji nofancybox" title="grin"></li>
+</ul>
+<p><br></p>
+<h1 id="Objetivo">Objetivo</h1>
+<p>Vamos a crear una aplicación que reemplace parámetros del tipo <strong>%clave%</strong> con una cadena que nosotros le vamos a proveer. Por ejemplo:</p>
+<pre>
+-> Cadena de entrada: %home_dir%/Proyectos
+-> Operación: %home_dir% => /home/sergio
+-> Cadena de salida: /home/sergio/Proyectos
+</pre>
+
+<p>¡Manos a la obra! <br><br></p>
+<h1 id="Node-js:_Estructura_de_directorios">Node.js: Estructura de directorios</h1>
+<p>Esto no es precisamente un estándar sino más bien una convención entre desarrolladores acerca de cómo ordenar nuestro código fuente escrito para NodeJS. Para este proyecto vamos a ordenarlo de la siguiente manera:</p>
+<pre>param_replacer/
+ ├── bin/
+ |   └─ param_replacer
+ ├── lib/
+ |   └─ param_replacer.js
+ ├── index.js
+ ├── README.md
+ └── package.json
+</pre>
+
+<p><br></p>
+<p><strong>¿Qué hay en bin/ ?</strong></p>
+<p>Puedes colocar un script que permita la ejecución de tu aplicación desde la línea de comandos sin llamar a node. No es mágico, obviamente, pero sirve de mucho para cuando instalemos el paquete. Para nuestra aplicación de ejemplo no lo vamos a utilizar, así que será tema de otro artículo.</p>
+<p><strong>¿Qué hay en lib/ ?</strong></p>
+<p>Dentro de lib “aislaremos” todo el código de la aplicación. Es una manera de tener ordenado el directorio principal del paquete.</p>
+<p><strong>¿Qué hay en el directorio principal?</strong></p>
+<p>En el mismo creamos un index.js que sirve de atajo al script principal de nuestra aplicación, un <em>README.md</em> (o <em>README.markdown</em>) que será mostrado como readme por defecto en la página de nuestro paquete, en el sitio de <em>npm</em>, y por último tenemos nuestro apreciado package.json. Este último archivo es indispensable a la hora de publicar nuestros módulos en <em>npm</em>, ya que el mismo contiene toda la info relevante como nombre del paquete, versión, colaboradores, keywords, dependencias, etc.</p>
+<p>En breve veremos más acerca de <em>package.json</em> y cómo configurar cada detalle del mismo. <br><br></p>
+<h1 id="Node-js:_La_función_de_reemplazo">Node.js: La función de reemplazo</h1>
+<p>Comenzaremos a programar <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"> Como les comenté, toda la lógica de la aplicación fue a parar a <em>lib/param_replacer.js</em>. Editemos ese archivo y juguemos.</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="param_replacer(1).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-1-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Como vemos en la salida, nuestro script está reemplazando cualquier cosa encerrada entre % por un valor único. Podríamos mejorar un poco su comportamiento haciendo lo siguiente:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="param_replacer(2).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-2-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Mucho mejor. Con esta forma de aislar parámetros con sus reemplazos podemos jugar de muchas maneras, como por ejemplo, hacer un “hello world” multi idiomas:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="param_replacer(3).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-3-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Y ejecutamos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">node lib/param_replacer.js</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Bien, con esto ya tenemos la funcionalidad principal cubierta. Pero no es más que simple Javascript. ¿Dónde está la magia de <em>Node.js</em> y <em>npm</em>? Sigamos debajo… <br><br></p>
+<h1 id="Node-js:_Código_modular">Node.js: Código modular</h1>
+<p>Una de las cosas que hacen a <em>Node.js</em> una plataforma sólida es la manera en la que soluciona el aislar y exponer el código, <em>similar</em> al <code>require</code> de PHP, pero robusto como el <code>import</code> de Python.</p>
+<p>Los módulos en <em>Node.js</em> se definen en un archivo <code>.js</code>, <code>.json</code> o <code>.node</code> y luego pueden ser importados en otros lugares de nuestra aplicación mediante el método <code>require</code>. Por ejemplo, si tenemos un módulo definido dentro de <code>lib/param_replacer.js</code>  y queremos usarlo dentro de un archivo <code>lib/otro_archivo.js</code>, solo basta con escribir:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="otro_archivo.js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-otro_archivo-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Dentro de la variable <code>replacer</code> tendremos a nuestro querido reemplazador de parámetros. Pero, ¿cómo se define un módulo? <br><br></p>
+<h2 id="Creando_un_módulo">Creando un módulo</h2>
+<p>Cuando invocamos al <code>require</code>, <em>Node.js</em> lee el archivo que solicitamos y asigna el contenido del módulo a nuestra variable. Nuestro archivo no expone absolutamente todo el código, sino aquel que sea “exportado”. Para ello se utiliza el método <code>exports</code>.</p>
+<p>Modifiquemos nuestro <code>param_replacer.js</code> para que pueda exponer su funcionalidad:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="param_replacer(4).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-param_replacer-4-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Con esta modificación, nuestro código quedó completamente aislado en un archivo separado del resto, y expone un único método llamado <code>replace</code> que no es ni más ni menos que una función anónima.</p>
+<p>Para ver a nuestro renovado replacer en acción, copiar el siguiente código en <code>index.js</code>:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="index.js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Y ejecutamos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">node index.js</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Genial, nuestra aplicación se comporta de la misma manera, pero ahora es modular <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile"> ¿Qué mas hay que hacer? <br><br></p>
+<h1 id="Node-js:_Carga_de_módulos">Node.js: Carga de módulos</h1>
+<p>Ya vimos que desde el <code>index.js</code> de nuestro módulo se pueden hacer algunas pruebas rápidas, pero en estos casos el index cumple una función muy importante. Según la documentación de <em>Node.js</em>, cuando hacemos un <code>require</code> el compilador comienza a buscar por el archivo que estemos solicitando (algo obvio). Puede buscar un archivo específico (si defines su extensión) o bien por un archivo con extensiones <code>.js</code>, <code>.json</code> o <code>.node</code>, en ese orden de <em>fallbacks</em>. Veamos un ejemplo de todo esto.</p>
+<p>Imaginemos que tenemos un módulo llamado <code>mi_libreria.js</code> y queremos usarlo en otro archivo:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="index(2).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-2-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>En este caso, <em>Node.js</em> buscará sólamente el archivo especificado. Pero también podemos usar el <code>require</code> de esta otra forma:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="index(3).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-3-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Al no especificar una extensión, <em>Node.js</em> buscará primero un archivo llamado <code>mi_libreria.js</code>. En caso de no encontrarlo, intentará con <code>mi_libreria.json</code> y si así mismo falla, tratará con <code>mi_libreria.node</code>.</p>
+<p>¿Y dónde intervienen los <code>index.js</code>?</p>
+<p>En caso de tener problemas con la carga especificada anteriormente, el cargador de archivos intentará una última cosa… Buscar un archivo <code>index</code> dentro del directorio <code>mi_libreria</code>. Con los index sucede lo mismo que con otros archivos, buscará: <br><br></p>
+<pre>
+- ./mi_libreria/index.js
+- ./mi_libreria/index.json
+- ./mi_libreria/index.node
+</pre>
+
+<p>Si todo falla, el compilador explota de manera horrenda. <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/grin.png" width="20" height="20" class=" emoji nofancybox" title="grin"></p>
+<p>Entonces, ¿qué hacemos con el <code>index.js</code> actual? Apenas comencé el artículo, les comenté que se iba a usar de atajo para incluir nuestra librería principal. Así que reemplacemos todo el contenido por esto:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="index(4).js"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-index-4-js" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>Con esta modificación podemos utilizar la librería como un paquete completo, sólo copiando el directorio donde estamos trabajando (param_replacer/) y haciendo <code>require(&#39;param_replacer&#39;);</code> cuando lo necesitemos…</p>
+<pre>mi_app/
+ ├── liberias/
+ |   └─ libs.js
+ ├── node_modules/
+ |   └─ param_replacer/
+ ├── app.js ← este archivo puede hacer require('param_replacer') y todo funciona de maravillas
+ └── otro.js
+</pre>
+
+<p>Y esto no es todo, como les mostré arriba, existe un directorio mágico llamado node<em>modules que es el que contiene módulos de nuestras aplicaciones. El cargador de _Node.js</em> también buscará por módulos dentro de ese directorio, siguiendo los criterios de carga que ya vimos. Genial, ¿no? Si quieren aprender más sobre esto, consulten la <a href="http://nodejs.org/docs/latest/api/modules.html" target="_blank" rel="external">documentación oficial</a>.</p>
+<p>Y este es el momento justo de presentar a nuestro héroe, <strong>npm</strong>. <br><br></p>
+<h1 id="npm:_Configurando_el_paquete">npm: Configurando el paquete</h1>
+<p>Al momento en que publiquemos en <em>npm</em>, todo el contenido que tenemos dentro del directorio <em>param_replacer</em> será el contenido del paquete que estará en los <a href="https://npmjs.org/" target="_blank" rel="external">repositorios de <em>npm</em></a>. Además, un archivo <code>package.json</code> sirve para configurar este paquete. Veamos un ejemplo:</p>
+<p><code data-gist-id="f623e4627f78d1a4693b" data-gist-file="package.json"><a href="https://gist.github.com/sergiolepore/f623e4627f78d1a4693b#file-package-json" target="_blank" title="Ir a Gist f623e4627f78d1a4693b">> Enlace al código <</a></code></p>
+
+<p>En <a href="https://www.npmjs.org/doc/files/package.json.html" target="_blank" rel="external">este</a> o <a href="http://package.json.nodejitsu.com/" target="_blank" rel="external">este otro</a> enlace encontrarán una descripción completa sobre todas las configuraciones que podemos cubrir con <code>package.json</code>. <br><br></p>
+<h1 id="npm:_Publicando_nuestro_primer_paquete">npm: Publicando nuestro primer paquete</h1>
+<p>En este punto voy a considerar que nunca has creado una cuenta en NPM, así que voy a arrancar desde cero. Antes que nada necesitamos registrar un usuario para poder publicar. Se puede hacer de dos maneras, la <em>trivial</em> y la <em>geek</em> <img src="http://cdn.staticfile.org/emojify.js/0.9.0/emojis/grin.png" width="20" height="20" class=" emoji nofancybox" title="grin"> <br><br></p>
+<h2 id="Forma_trivial">Forma trivial</h2>
+<p>Simplemente ingresando en la <a href="https://npmjs.org/signup" target="_blank" rel="external">página de registro</a>, podemos completar nuestros datos y darnos de alta. ¡Recuerden su nombre de usuario y contraseña!.</p>
+<p>A continuación, vas a la consola y ejecutas:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">npm adduser</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Provees tus credenciales y listo. <br><br></p>
+<h2 id="Forma_geek">Forma geek</h2>
+<p>Decidí llamarlo así ya que no se usan los métodos web, sino que se usa la aplicación de consola. Ejecutar lo siguiente:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">npm adduser</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Es el mismo comando que usamos en la forma trivial. El mismo registra un nuevo usuario y configura, o configura solamente tu cuenta, dependiendo de si tenias un usuario registrado previamente (caso de que hayas registrado en web, o cambies de PC).</p>
+<p>Para finalizar, sigues los pasos y ¡voila! Ya podemos publicar nuestro trabajo. <br><br></p>
+<h2 id="Publicando_el_paquete">Publicando el paquete</h2>
+<p>Asegúrate de estar en el directorio principal (donde está el <code>package.json</code>). Una vez ahí, ejecuta:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/PaqueteNodejs</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="terminal-line">npm publish</span><br>        you@yourcomputer:~/Proyecto/PaqueteNodejs$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>Ahora intenta instalarlo en alguno de tus proyectos:</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~/Proyecto/OtroProyecto</span>      </div>      <div class="term">        you@yourcomputer:~/Proyecto/OtroProyecto$ <span class="terminal-line">npm install param_replacer</span><br>        you@yourcomputer:~/Proyecto/OtroProyecto$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p>O instálalo para que esté disponible de modo global (en todos tus proyectos):</p>
+    <div class="ubuntu-terminal">      <div class="head">        <span class="btn">&#10005;</span>        <span class="btn stnd">&#9472;</span>        <span class="btn stnd max">&#9723;</span>        <span>you@yourcomputer:~</span>      </div>      <div class="term">        you@yourcomputer:~$ <span class="terminal-line">npm install -g param_replacer</span><br>        you@yourcomputer:~$ <span class="cursor">&#9610;</span>        <br>      </div>    </div>  
+
+<p><br><br></p>
+<h1 id="npm:_Administrando_nuestros_paquetes">npm: Administrando nuestros paquetes</h1>
+<p>Como es obvio, en todo proyecto siempre hay corrección de errores o se añaden funcionalidades nuevas. Para actualizar el paquete publicado, solo tienes que cambiar el valor de version y ejecutar nuevamente <code>npm publish</code>.</p>
+<p>Si cometiste un error, ¡no importa! <code>npm uninstall</code> y <code>npm unpublish</code> lo solucionarán.</p>
+<p><br><br></p>
+<p>Bueno gente, eso fue todo por el momento. Si lo desean, pueden echarle un ojo a este proyecto en <a href="https://github.com/sergiolepore/param_replacer" target="_blank" rel="external">Github</a> y si tienen alguna duda, ¡no duden en hacérmela saber!</p>
+<p>¡Hasta la próxima!</p>
+</div>
+
+  <div class="post-tags">
+    
+
+  
+  <div>
+    <em class="fa fa-tags"></em>
+    <a href="/tags/desarrollo/">Desarrollo</a>, <a href="/tags/nodejs/">Node.js</a>, <a href="/tags/tutoriales/">Tutoriales</a>, <a href="/tags/npmjs/">npmjs</a>
+  </div>
+
+  </div>
+</article>
+
+  
+
+<script type="text/javascript">
+  var addthis_config = addthis_config||{};
+  addthis_config.data_track_addressbar = false;
+  addthis_config.data_track_clickback = false;
+</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-539e45f314b39d3f"></script>
+
+<div class="share">
+  <div class="addthis_native_toolbox" ></div>
+</div>
+  <div class="floating-buttons">
+  <a href="/" class="fa fa-arrow-circle-left"></a>
+  <a href="#top" class="fa fa-arrow-circle-up"></a>
+</div>
+
+
+<section id="comment">
+  <h1 class="title">Comentarios</h1>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the
+  <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="no-cookies-disqus">
+    <p>Los comentarios están deshabilitados debido a que has rechazado las cookies en este sitio.</p>
+    <a href="#" class="cc-cookie-reset">Restablecer Cookies</a>
+</div></div>
+</section>
+</div>
+        </div>
+        <footer id="footer" class="inner">
+          Copyright © 2014 - Sergio Lepore<br>
+Desarrollado con <a href="https://github.com/tommy351/hexo">Hexo</a> y alojado en <a href="http://github.com/">Github</a><br>❤<br>
+Nota legal: Las opiniones expresadas en el presente blog son mis opiniones personales y bajo ningún modo representan la opinión de mi empleador<br>
+<a href="/politica-de-cookies/">Política de Cookies</a>
+        </footer>
+        <script src="/js/device.min.js"></script>
+<script src="/js/slash.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        
+<script>
+
+  var disqus_shortname = 'sergiolepore';
+  
+    var disqus_url = 'http://www.sergiolepore.net/2012/10/18/como-construir-un-modulo-de-nodejs-e-integrarlo-con-npm/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+
+</script>
+
+      </div><!-- mid-col -->
+    </div><!-- container -->
+  </body>
+</html>
