@@ -23,7 +23,7 @@ Uno no intenta construir una pared. Uno no se dispone a construir una pared. Uno
 (✓) No darme por vencido y encarar un 5to Startup. <br>
 (✓) Publicar software Open Source. <br>
 (✓) Colaborar en proyectos Open Source reconocidos. <br>
-(✓) Organizar un Meetup de desarrolladores (ver <a href="http://www.meetup.com/CordobaJS/" target="_blank" title="CordobaJS Meetup">CórdobaJS</a>). <br>
+(✓) Organizar un Meetup de desarrolladores (ver <a href="https://twitter.com/Cordoba_JS" target="_blank" title="CordobaJS Meetup">CórdobaJS</a>). <br>
 (✓) Enseñar desarrollo de software y/o bases de ingeniería de software. <br>
 (✓) Dar una conferencia a más de 10 personas (desconocidas). <br>
 (&nbsp;&nbsp;&nbsp;) Dar una conferencia a más de 100 personas. <br>
